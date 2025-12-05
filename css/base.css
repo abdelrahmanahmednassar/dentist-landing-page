@@ -1,0 +1,50 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Colors from Figma - Exact Values */
+    --white: #FFFFFF;
+    --black: #000000;
+    --mine-shaft: #333333;
+    --boulder: #777777;
+    --tundora: #444444;
+    --dusty-gray: #999999;
+    --mercury: #E7E7E7;
+    --gray: #898989;
+    --alto: #D6D6D6;
+    --haiti: #0E152F;
+    --tussock: #BE9249;
+    --shark: #212529;
+    --cod-gray: #111111;
+
+    /* Font */
+    --font-family: 'Tajawal', sans-serif;
+
+    /* Spacing - Exact from Figma */
+    --container-width: 1236px;
+    --container-padding: 15px;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--mine-shaft);
+    line-height: 1.6;
+    direction: ltr;
+    text-align: right;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+

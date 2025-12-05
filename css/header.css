@@ -1,0 +1,145 @@
+/* Top Header - Pixel Perfect from Figma */
+.top-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--mercury);
+  /* padding: 12px 0; */
+}
+
+.top-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 0 15px;
+}
+
+.top-header .appointment-btn {
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 12px 24px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.4283332824707031em;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.top-header .appointment-btn:hover {
+  background: #333333;
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.social-icon:hover {
+  color: var(--tussock);
+}
+
+.top-header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.contact-info-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  order: 2;
+}
+
+.contact-item-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dusty-gray);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.contact-item-top i {
+  color: var(--dusty-gray);
+  font-size: 14px;
+}
+
+.language-selector {
+  position: relative;
+  flex-shrink: 0;
+  order: 1;
+}
+
+.lang-link {
+  color: var(--boulder);
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.lang-link i {
+  font-size: 10px;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--white);
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 8px 0;
+  min-width: 120px;
+  display: none;
+  z-index: 1000;
+}
+
+.language-selector:hover .lang-dropdown {
+  display: block;
+}
+
+.lang-option {
+  display: block;
+  padding: 8px 16px;
+  color: var(--boulder);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.lang-option:hover {
+  background: var(--mercury);
+}

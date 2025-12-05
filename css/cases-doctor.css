@@ -1,0 +1,259 @@
+/* Cases & Doctor Section */
+.cases-doctor-section {
+  padding: 40px 30px 0 0;
+  background: var(--white);
+}
+
+.cases-doctor-content {
+  max-width: 1236px;
+  margin: 0 auto;
+}
+
+/* Left: Cases Column */
+.cases-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.cases-wrapper {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cases-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 1em;
+  color: var(--haiti);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.case-slider-heading {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+  color: var(--haiti);
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+.before-after-slider {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.before-image,
+.after-image {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.before-image {
+  left: 0;
+  z-index: 1;
+}
+
+.after-image {
+  right: 0;
+  z-index: 2;
+  clip-path: inset(0 50% 0 0);
+}
+
+.before-image img,
+.after-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--black);
+  display: block;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 100%;
+  z-index: 10;
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-handle:active {
+  cursor: grabbing;
+}
+
+.handle-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: var(--white);
+  box-shadow: 0px 0px 12px 0px rgba(51, 51, 51, 0.5),
+    0px -3px 0px 0px rgba(255, 255, 255, 1);
+}
+
+.handle-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 12px 0px rgba(51, 51, 51, 0.5);
+}
+
+.handle-circle i {
+  color: var(--white);
+  font-size: 12px;
+  margin: 0 2px;
+}
+
+.slider-labels {
+  position: absolute;
+  bottom: 105.26px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.label-before,
+.label-after {
+  background: rgba(17, 17, 17, 0.96);
+  color: var(--white);
+  padding: 8px 20px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.8571428571428572em;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.slider-container:hover .slider-labels .label-before,
+.slider-container:hover .slider-labels .label-after {
+  opacity: 1;
+}
+
+.label-before {
+  margin-right: 10px;
+}
+
+.label-after {
+  margin-left: auto;
+}
+
+.cases-cta {
+  padding: 20px 0 0;
+  text-align: center;
+}
+
+.cases-btn {
+  background: var(--white);
+  color: var(--haiti);
+  border: 2px solid var(--haiti);
+  padding: 17.25px 50px 18.02px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12.8px;
+  line-height: 1.4289063002332105em;
+  text-transform: uppercase;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.cases-btn:hover {
+  background: var(--haiti);
+  color: var(--white);
+}
+
+.cases-gallery {
+  margin-top: 30px;
+  display: none;
+}
+
+.cases-gallery-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--haiti);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.case-item {
+  background: var(--white);
+  border: 1px solid var(--mercury);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.case-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.case-item video {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  background: #000;
+}
+
+.case-label {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--haiti);
+  text-align: center;
+}
+
+.cases-gallery.is-visible {
+  display: block;
+}
