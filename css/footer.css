@@ -142,61 +142,62 @@
     font-size: 12px;
     margin: 0;
   }
+}
 
-  /* Floating WhatsApp Button */
-  .whatsapp-float {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 60px;
-    height: 60px;
-    background: #25d366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-size: 28px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
+/* Floating WhatsApp Button - Global styles outside footer */
+.whatsapp-float {
+  position: fixed !important;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 28px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999 !important;
+  transition: transform 0.3s, box-shadow 0.3s;
+  pointer-events: auto;
+}
 
-  .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-  }
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
 
-  /* Scroll to Top Button */
-  .scroll-to-top {
-    position: fixed;
-    bottom: 30px;
-    left: 30px;
-    width: 40px;
-    height: 40px;
-    background: #212121;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    color: var(--white);
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    transition: all 0.3s;
-    opacity: 0;
-    visibility: hidden;
-  }
+/* Scroll to Top Button - Global styles outside footer */
+.scroll-to-top {
+  position: fixed !important;
+  bottom: 30px;
+  left: 30px;
+  width: 40px;
+  height: 40px;
+  background: #212121;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: var(--white);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998 !important;
+  transition: all 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
 
-  .scroll-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-  }
+.scroll-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
 
-  .scroll-to-top:hover {
-    background: var(--tussock);
-    border-color: var(--tussock);
-  }
+.scroll-to-top:hover {
+  background: var(--tussock);
+  border-color: var(--tussock);
 }
