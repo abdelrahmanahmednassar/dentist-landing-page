@@ -58,6 +58,7 @@ function initializePageFunctionality() {
   initializeMobileMenu();
   initializeScrollToTop();
   initializeCasesGalleryToggle();
+  initializeSliderAutoAnimation();
 }
 
 // Hero Slider Functionality
@@ -134,6 +135,7 @@ function initializeBeforeAfterSlider() {
 
     sliderHandle.addEventListener("mousedown", (e) => {
       isDragging = true;
+      sliderContainer.classList.add("is-dragging");
       e.preventDefault();
     });
 
@@ -145,11 +147,13 @@ function initializeBeforeAfterSlider() {
 
     document.addEventListener("mouseup", () => {
       isDragging = false;
+      sliderContainer.classList.remove("is-dragging");
     });
 
     // Touch support for mobile
     sliderHandle.addEventListener("touchstart", (e) => {
       isDragging = true;
+      sliderContainer.classList.add("is-dragging");
       e.preventDefault();
     });
 
@@ -161,6 +165,7 @@ function initializeBeforeAfterSlider() {
 
     document.addEventListener("touchend", () => {
       isDragging = false;
+      sliderContainer.classList.remove("is-dragging");
     });
   });
 }
@@ -327,5 +332,58 @@ function initializeCasesGalleryToggle() {
   toggleBtn.addEventListener("click", () => {
     expanded = !expanded;
     updateState();
+  });
+}
+
+// Auto-animate sliders on scroll
+function initializeSliderAutoAnimation() {
+  const sliderContainers = document.querySelectorAll(".slider-container");
+  if (!sliderContainers.length) return;
+
+  // Initialize all sliders to show "after" state (100% - after image fully visible)
+  sliderContainers.forEach((container) => {
+    const sliderHandle = container.querySelector(".slider-handle");
+    const afterImage = container.querySelector(".after-image");
+    
+    if (sliderHandle && afterImage) {
+      // Set initial state to show "after" (after image fully visible, showing before photo)
+      sliderHandle.style.left = "100%";
+      afterImage.style.clipPath = "inset(0 0% 0 0)";
+    }
+  });
+
+  // Create Intersection Observer to detect when sliders come into view
+  const observerOptions = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.3, // Trigger when 30% of the slider is visible
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !entry.target.classList.contains("auto-animate")) {
+        // Mark as animated to prevent re-animation
+        entry.target.classList.add("auto-animate");
+        
+        const sliderHandle = entry.target.querySelector(".slider-handle");
+        const afterImage = entry.target.querySelector(".after-image");
+        
+        if (sliderHandle && afterImage) {
+          // Animate from "after" (100%) to "before" (0%) - sliding from right to left
+          // Use requestAnimationFrame to ensure smooth transition
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              sliderHandle.style.left = "0%";
+              afterImage.style.clipPath = "inset(0 100% 0 0)";
+            }, 100);
+          });
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observe all slider containers
+  sliderContainers.forEach((container) => {
+    observer.observe(container);
   });
 }

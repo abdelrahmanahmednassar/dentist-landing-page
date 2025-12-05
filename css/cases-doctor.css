@@ -75,7 +75,7 @@
 .after-image {
   right: 0;
   z-index: 2;
-  clip-path: inset(0 50% 0 0);
+  clip-path: inset(0 0% 0 0);
 }
 
 .before-image img,
@@ -83,14 +83,13 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background: var(--black);
   display: block;
 }
 
 .slider-handle {
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 100%;
   transform: translateX(-50%);
   width: 44px;
   height: 100%;
@@ -256,4 +255,19 @@
 
 .cases-gallery.is-visible {
   display: block;
+}
+
+/* Auto-animate slider on scroll */
+.slider-container.auto-animate .slider-handle {
+  transition: left 2s ease-in-out;
+}
+
+.slider-container.auto-animate .after-image {
+  transition: clip-path 2s ease-in-out;
+}
+
+/* Disable transitions during manual dragging */
+.slider-container.is-dragging .slider-handle,
+.slider-container.is-dragging .after-image {
+  transition: none !important;
 }

@@ -2,8 +2,12 @@
 .services-section {
   position: relative;
   padding: 80px 0;
-  background: url("../images/clinic-interior.png") center/cover no-repeat;
+  background: url("../images/clinic-interior.jpg") center/cover no-repeat;
   background-attachment: fixed;
+
+  a {
+    color: inherit !important;
+  }
 }
 
 .services-background-overlay {
