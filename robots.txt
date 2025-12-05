@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap location (update with your actual domain)
+Sitemap: https://fayed-clinic.netlify.app/sitemap.xml
+
+# Disallow admin or private directories if any
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all images
+Allow: /images/
+
+# Allow all CSS and JS files
+Allow: /css/
+Allow: /js/
+
