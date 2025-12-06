@@ -176,6 +176,127 @@
   margin-left: auto;
 }
 
+/* Veneer Image Slider */
+.veneer-image-slider {
+  position: relative;
+  margin-bottom: 20px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.veneer-image-slider input[type="radio"] {
+  display: none;
+}
+
+.veneer-slider-track {
+  display: flex;
+  width: 300%;
+  transition: transform 0.5s ease;
+}
+
+.veneer-slide-item {
+  flex: 0 0 33.3333%;
+  width: 33.3333%;
+  box-sizing: border-box;
+}
+
+.veneer-slide-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  aspect-ratio: 16 / 9;
+}
+
+#veneer-slide-1:checked ~ .veneer-slider-track {
+  transform: translateX(0);
+}
+
+#veneer-slide-2:checked ~ .veneer-slider-track {
+  transform: translateX(-33.3333%);
+}
+
+#veneer-slide-3:checked ~ .veneer-slider-track {
+  transform: translateX(-66.6667%);
+}
+
+.veneer-slider-arrows {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+  padding: 0 6px;
+}
+
+.veneer-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--haiti);
+  color: var(--white);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  cursor: pointer;
+  pointer-events: auto;
+  border: none;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.veneer-arrow:hover {
+  background: rgba(17, 17, 17, 0.9);
+  transform: scale(1.1);
+}
+
+#veneer-slide-1:checked ~ .veneer-slider-arrows .prev-1,
+#veneer-slide-1:checked ~ .veneer-slider-arrows .next-1,
+#veneer-slide-2:checked ~ .veneer-slider-arrows .prev-2,
+#veneer-slide-2:checked ~ .veneer-slider-arrows .next-2,
+#veneer-slide-3:checked ~ .veneer-slider-arrows .prev-3,
+#veneer-slide-3:checked ~ .veneer-slider-arrows .next-3 {
+  display: flex;
+}
+
+.veneer-slider-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.veneer-slider-dots label {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--mercury);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#veneer-slide-1:checked ~ .veneer-slider-dots label[for="veneer-slide-1"],
+#veneer-slide-2:checked ~ .veneer-slider-dots label[for="veneer-slide-2"],
+#veneer-slide-3:checked ~ .veneer-slider-dots label[for="veneer-slide-3"] {
+  background: var(--haiti);
+  transform: scale(1.1);
+}
+
+.main-case-card {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.main-case-card .case-item {
+  max-width: 900px;
+  width: 100%;
+}
+
 .cases-cta {
   padding: 20px 0 0;
   text-align: center;

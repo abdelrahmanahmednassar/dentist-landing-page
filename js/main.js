@@ -59,6 +59,7 @@ function initializePageFunctionality() {
   initializeScrollToTop();
   initializeCasesGalleryToggle();
   initializeSliderAutoAnimation();
+  initializeVeneerAutoSlider();
 }
 
 // Hero Slider Functionality
@@ -67,6 +68,8 @@ function initializeHeroSlider() {
   const slides = document.querySelectorAll(".hero-slide");
   const bullets = document.querySelectorAll(".hero-bullet");
   const totalSlides = slides.length;
+  let autoSlideInterval = null;
+  const autoSlideDelay = 5000; // 5 seconds between slides
 
   if (totalSlides === 0) return;
 
@@ -83,28 +86,56 @@ function initializeHeroSlider() {
   function nextSlide() {
     currentSlide = (currentSlide + 1) % totalSlides;
     showSlide(currentSlide);
+    resetAutoSlide(); // Reset timer when manually navigating
   }
 
   function prevSlide() {
     currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     showSlide(currentSlide);
+    resetAutoSlide(); // Reset timer when manually navigating
+  }
+
+  function startAutoSlide() {
+    // Clear any existing interval
+    if (autoSlideInterval) {
+      clearInterval(autoSlideInterval);
+    }
+    // Start auto-sliding
+    autoSlideInterval = setInterval(() => {
+      nextSlide();
+    }, autoSlideDelay);
+  }
+
+  function stopAutoSlide() {
+    if (autoSlideInterval) {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = null;
+    }
+  }
+
+  function resetAutoSlide() {
+    stopAutoSlide();
+    startAutoSlide();
   }
 
   // Arrow navigation
-  document
-    .querySelector(".hero-arrow-left")
-    ?.addEventListener("click", nextSlide);
-  document
-    .querySelector(".hero-arrow-right")
-    ?.addEventListener("click", prevSlide);
+  const arrowLeft = document.querySelector(".hero-arrow-left");
+  const arrowRight = document.querySelector(".hero-arrow-right");
+
+  arrowLeft?.addEventListener("click", nextSlide);
+  arrowRight?.addEventListener("click", prevSlide);
 
   // Bullet navigation
   bullets.forEach((bullet, index) => {
     bullet.addEventListener("click", () => {
       currentSlide = index;
       showSlide(currentSlide);
+      resetAutoSlide(); // Reset timer when manually navigating
     });
   });
+
+  // Start auto-sliding when page loads
+  startAutoSlide();
 }
 
 // Before/After Slider Functionality
@@ -184,10 +215,14 @@ function initializeMobileMenu() {
       icon.classList.remove("bx-menu");
       icon.classList.add("bx-x");
       document.body.style.overflow = "hidden"; // Prevent body scroll when menu is open
+      document.body.style.overflowX = "hidden"; // Prevent horizontal scroll
+      document.documentElement.style.overflowX = "hidden"; // Prevent horizontal scroll on html
     } else {
       icon.classList.remove("bx-x");
       icon.classList.add("bx-menu");
       document.body.style.overflow = ""; // Restore body scroll
+      document.body.style.overflowX = ""; // Restore horizontal scroll
+      document.documentElement.style.overflowX = ""; // Restore horizontal scroll on html
       // Close all dropdowns when closing menu
       const dropdowns = navMenu.querySelectorAll(".has-dropdown.active");
       dropdowns.forEach((dropdown) => dropdown.classList.remove("active"));
@@ -344,7 +379,7 @@ function initializeSliderAutoAnimation() {
   sliderContainers.forEach((container) => {
     const sliderHandle = container.querySelector(".slider-handle");
     const afterImage = container.querySelector(".after-image");
-    
+
     if (sliderHandle && afterImage) {
       // Set initial state to show "after" (after image fully visible, showing before photo)
       sliderHandle.style.left = "100%";
@@ -361,13 +396,16 @@ function initializeSliderAutoAnimation() {
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting && !entry.target.classList.contains("auto-animate")) {
+      if (
+        entry.isIntersecting &&
+        !entry.target.classList.contains("auto-animate")
+      ) {
         // Mark as animated to prevent re-animation
         entry.target.classList.add("auto-animate");
-        
+
         const sliderHandle = entry.target.querySelector(".slider-handle");
         const afterImage = entry.target.querySelector(".after-image");
-        
+
         if (sliderHandle && afterImage) {
           // Animate from "after" (100%) to "before" (0%) - sliding from right to left
           // Use requestAnimationFrame to ensure smooth transition
@@ -386,4 +424,53 @@ function initializeSliderAutoAnimation() {
   sliderContainers.forEach((container) => {
     observer.observe(container);
   });
+}
+
+// Veneer Image Slider Auto-Slide Functionality
+function initializeVeneerAutoSlider() {
+  const slide1 = document.getElementById("veneer-slide-1");
+  const slide2 = document.getElementById("veneer-slide-2");
+  const slide3 = document.getElementById("veneer-slide-3");
+
+  if (!slide1 || !slide2 || !slide3) return;
+
+  let currentSlide = 1;
+  const totalSlides = 3;
+  const autoSlideDelay = 5000; // 5 seconds between slides
+  let autoSlideInterval = null;
+
+  function showSlide(slideNumber) {
+    // Uncheck all slides
+    slide1.checked = false;
+    slide2.checked = false;
+    slide3.checked = false;
+
+    // Check the current slide
+    if (slideNumber === 1) {
+      slide1.checked = true;
+    } else if (slideNumber === 2) {
+      slide2.checked = true;
+    } else if (slideNumber === 3) {
+      slide3.checked = true;
+    }
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide % totalSlides) + 1;
+    showSlide(currentSlide);
+  }
+
+  function startAutoSlide() {
+    // Clear any existing interval
+    if (autoSlideInterval) {
+      clearInterval(autoSlideInterval);
+    }
+    // Start auto-sliding
+    autoSlideInterval = setInterval(() => {
+      nextSlide();
+    }, autoSlideDelay);
+  }
+
+  // Start auto-sliding when page loads
+  startAutoSlide();
 }

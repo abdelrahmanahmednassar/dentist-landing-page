@@ -34,7 +34,16 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
+}
+
+.hero-slide.slide-2 img {
+  object-position: 30% center;
+}
+
+.hero-slide.slide-3 img {
+  object-position: 65% center;
 }
 
 .hero-overlay {
@@ -46,7 +55,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .hero-content {
@@ -119,6 +128,14 @@
     margin-left: 0;
     margin-right: auto;
   }
+
+  /* Larger arrows on desktop */
+  .hero-arrow {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    font-size: 28px;
+  }
 }
 
 .hero-title {
@@ -168,7 +185,7 @@
   text-transform: uppercase;
   cursor: pointer;
   transition: background 0.3s, opacity 0.6s ease-in-out 0.5s,
-    transform 0.6s ease-in-out 0.5s;
+    transform 0.3s ease-in-out 0s;
   opacity: 0;
   transform: translateY(20px);
   display: inline-block;
@@ -187,6 +204,7 @@ a.hero-cta-btn:hover {
   background: #a67a3a;
   color: var(--white);
   text-decoration: none;
+  transform: scale(1.05);
 }
 
 .hero-slide.active .hero-cta-btn {
@@ -194,12 +212,16 @@ a.hero-cta-btn:hover {
   transform: translateY(0);
 }
 
+.hero-slide.active .hero-cta-btn:hover {
+  transform: translateY(0) scale(1.05);
+}
+
 /* Hero Navigation Arrows */
 .hero-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--tussock);
   color: var(--white);
   border: none;
   width: 40px;
@@ -210,12 +232,13 @@ a.hero-cta-btn:hover {
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.3s;
   font-size: 16px;
 }
 
 .hero-arrow:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: #a67a3a;
+  transform: translateY(-50%) scale(1.1);
 }
 
 .hero-arrow-left {
@@ -323,6 +346,7 @@ a.hero-cta-btn:hover {
   border-radius: 20px;
   overflow: hidden;
   margin-bottom: 20px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -361,25 +385,154 @@ a.hero-cta-btn:hover {
   max-width: 100%;
 }
 
+/* Logo Card - Doctor Name Styling */
+.service-card:has(.service-image) p {
+  font-weight: 600;
+  color: #4a4a4a;
+  font-size: 15px;
+}
+
 .service-btn {
-  background: transparent;
-  color: var(--tussock);
+  background: var(--tussock);
+  color: var(--white);
   border: none;
-  padding: 5px 0;
+  padding: 18px 40px;
   font-family: var(--font-family);
   font-weight: 700;
-  font-size: 14px;
-  line-height: 1.8571428571428572em;
+  font-size: 17px;
+  line-height: 1.5em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
   margin-top: auto;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(166, 122, 58, 0.3);
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 a.service-btn {
   text-decoration: none !important;
+  color: var(--white);
 }
 
 .service-btn:hover {
-  color: #a67a3a;
+  background: #a67a3a;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(166, 122, 58, 0.4);
+  color: var(--white);
+}
+
+/* WhatsApp Button in Contact Card */
+.whatsapp-btn {
+  background: var(--tussock);
+  color: var(--white);
+  border: none;
+  padding: 18px 40px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(190, 146, 73, 0.3);
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.whatsapp-btn i {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.whatsapp-btn:hover {
+  background: #a67a3a;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(190, 146, 73, 0.4);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.whatsapp-btn:active {
+  transform: translateY(0);
+}
+
+/* Contact Branches Styling */
+.contact-branches {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.branch-box {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(190, 146, 73, 0.15);
+  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.branch-box:hover {
+  box-shadow: 0px 8px 24px rgba(190, 146, 73, 0.2);
+  transform: translateY(-3px);
+  border-color: rgba(190, 146, 73, 0.3);
+}
+
+.branch-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+
+.branch-content {
+  flex: 1;
+  text-align: center;
+  width: 100%;
+}
+
+.branch-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.5em;
+  color: var(--haiti);
+  margin-bottom: 10px;
+}
+
+.branch-phone {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.6em;
+  color: var(--tussock);
+  margin-bottom: 10px;
+}
+
+.branch-address {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.7em;
+  color: var(--boulder);
+  margin-bottom: 0;
 }
