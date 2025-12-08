@@ -54,12 +54,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 // Initialize all page functionality
 function initializePageFunctionality() {
   initializeHeroSlider();
-  initializeBeforeAfterSlider();
+  initializeCasesSlider();
   initializeMobileMenu();
   initializeScrollToTop();
-  initializeCasesGalleryToggle();
-  initializeSliderAutoAnimation();
-  initializeVeneerAutoSlider();
 }
 
 // Hero Slider Functionality
@@ -138,67 +135,108 @@ function initializeHeroSlider() {
   startAutoSlide();
 }
 
-// Before/After Slider Functionality
-function initializeBeforeAfterSlider() {
-  const sliders = document.querySelectorAll(".before-after-slider");
-  if (!sliders.length) return;
+// Premium Cases Slider (images + videos)
+function initializeCasesSlider() {
+  const slider = document.querySelector(".premium-cases-slider");
+  if (!slider) return;
 
-  sliders.forEach((slider) => {
-    const sliderHandle = slider.querySelector(".slider-handle");
-    const sliderContainer = slider.querySelector(".slider-container");
-    const afterImage = slider.querySelector(".after-image");
-    if (!sliderHandle || !sliderContainer || !afterImage) return;
+  const track = slider.querySelector(".cases-track");
+  const slides = Array.from(slider.querySelectorAll(".case-slide"));
+  const prevBtn = slider.querySelector(".slider-btn.prev");
+  const nextBtn = slider.querySelector(".slider-btn.next");
+  const dotsContainer = slider.querySelector(".slider-dots");
+  const autoDelay = Number(slider.dataset.autoplayDelay || 6000);
 
-    let isDragging = false;
+  if (!track || !slides.length) return;
 
-    const updateSlider = (x) => {
-      const rect = sliderContainer.getBoundingClientRect();
-      const containerWidth = rect.width;
-      let position = x - rect.left;
+  let currentIndex = 0;
+  let autoTimer = null;
 
-      position = Math.max(0, Math.min(position, containerWidth));
-      const percentage = (position / containerWidth) * 100;
-
-      sliderHandle.style.left = percentage + "%";
-      sliderHandle.style.transform = "translateX(-50%)";
-      afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-    };
-
-    sliderHandle.addEventListener("mousedown", (e) => {
-      isDragging = true;
-      sliderContainer.classList.add("is-dragging");
-      e.preventDefault();
-    });
-
-    document.addEventListener("mousemove", (e) => {
-      if (isDragging) {
-        updateSlider(e.clientX);
+  const pauseVideos = () => {
+    slides.forEach((slide) => {
+      const video = slide.querySelector("video");
+      if (video) {
+        video.pause();
+        video.currentTime = 0;
       }
     });
+  };
 
-    document.addEventListener("mouseup", () => {
-      isDragging = false;
-      sliderContainer.classList.remove("is-dragging");
+  const renderDots = () => {
+    if (!dotsContainer) return;
+    dotsContainer.innerHTML = "";
+    slides.forEach((_, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.setAttribute("aria-label", `الانتقال إلى الحالة ${index + 1}`);
+      dot.addEventListener("click", () => {
+        goToSlide(index);
+        startAuto();
+      });
+      dotsContainer.appendChild(dot);
     });
+  };
 
-    // Touch support for mobile
-    sliderHandle.addEventListener("touchstart", (e) => {
-      isDragging = true;
-      sliderContainer.classList.add("is-dragging");
-      e.preventDefault();
+  const updateDots = () => {
+    if (!dotsContainer) return;
+    const dots = dotsContainer.querySelectorAll("button");
+    dots.forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentIndex);
     });
+  };
 
-    document.addEventListener("touchmove", (e) => {
-      if (isDragging && e.touches.length > 0) {
-        updateSlider(e.touches[0].clientX);
-      }
-    });
+  const goToSlide = (index) => {
+    const total = slides.length;
+    currentIndex = (index + total) % total;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updateDots();
+    pauseVideos();
+  };
 
-    document.addEventListener("touchend", () => {
-      isDragging = false;
-      sliderContainer.classList.remove("is-dragging");
-    });
+  const nextSlide = () => {
+    goToSlide(currentIndex + 1);
+  };
+
+  const prevSlide = () => {
+    goToSlide(currentIndex - 1);
+  };
+
+  const stopAuto = () => {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  };
+
+  const startAuto = () => {
+    stopAuto();
+    autoTimer = setInterval(() => {
+      nextSlide();
+    }, autoDelay);
+  };
+
+  prevBtn?.addEventListener("click", () => {
+    prevSlide();
+    startAuto();
   });
+
+  nextBtn?.addEventListener("click", () => {
+    nextSlide();
+    startAuto();
+  });
+
+  slider.addEventListener("mouseenter", stopAuto);
+  slider.addEventListener("mouseleave", startAuto);
+
+  slider.querySelectorAll("video").forEach((video) => {
+    video.addEventListener("play", stopAuto);
+    video.addEventListener("pause", startAuto);
+    video.addEventListener("ended", startAuto);
+  });
+
+  renderDots();
+  goToSlide(0);
+  startAuto();
 }
 
 // Mobile Menu Toggle
@@ -341,136 +379,4 @@ function initializeScrollToTop() {
       behavior: "smooth",
     });
   });
-}
-
-// Cases Gallery Toggle
-function initializeCasesGalleryToggle() {
-  const toggleBtn = document.getElementById("cases-toggle-btn");
-  const gallery = document.getElementById("cases-gallery");
-
-  if (!toggleBtn || !gallery) return;
-
-  let expanded = false;
-
-  const updateState = () => {
-    if (expanded) {
-      gallery.classList.add("is-visible");
-      toggleBtn.textContent = "إخفاء الحالات";
-    } else {
-      gallery.classList.remove("is-visible");
-      toggleBtn.textContent = "المزيد من الحالات";
-    }
-  };
-
-  updateState();
-
-  toggleBtn.addEventListener("click", () => {
-    expanded = !expanded;
-    updateState();
-  });
-}
-
-// Auto-animate sliders on scroll
-function initializeSliderAutoAnimation() {
-  const sliderContainers = document.querySelectorAll(".slider-container");
-  if (!sliderContainers.length) return;
-
-  // Initialize all sliders to show "after" state (100% - after image fully visible)
-  sliderContainers.forEach((container) => {
-    const sliderHandle = container.querySelector(".slider-handle");
-    const afterImage = container.querySelector(".after-image");
-
-    if (sliderHandle && afterImage) {
-      // Set initial state to show "after" (after image fully visible, showing before photo)
-      sliderHandle.style.left = "100%";
-      afterImage.style.clipPath = "inset(0 0% 0 0)";
-    }
-  });
-
-  // Create Intersection Observer to detect when sliders come into view
-  const observerOptions = {
-    root: null,
-    rootMargin: "0px",
-    threshold: 0.3, // Trigger when 30% of the slider is visible
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (
-        entry.isIntersecting &&
-        !entry.target.classList.contains("auto-animate")
-      ) {
-        // Mark as animated to prevent re-animation
-        entry.target.classList.add("auto-animate");
-
-        const sliderHandle = entry.target.querySelector(".slider-handle");
-        const afterImage = entry.target.querySelector(".after-image");
-
-        if (sliderHandle && afterImage) {
-          // Animate from "after" (100%) to "before" (0%) - sliding from right to left
-          // Use requestAnimationFrame to ensure smooth transition
-          requestAnimationFrame(() => {
-            setTimeout(() => {
-              sliderHandle.style.left = "0%";
-              afterImage.style.clipPath = "inset(0 100% 0 0)";
-            }, 100);
-          });
-        }
-      }
-    });
-  }, observerOptions);
-
-  // Observe all slider containers
-  sliderContainers.forEach((container) => {
-    observer.observe(container);
-  });
-}
-
-// Veneer Image Slider Auto-Slide Functionality
-function initializeVeneerAutoSlider() {
-  const slide1 = document.getElementById("veneer-slide-1");
-  const slide2 = document.getElementById("veneer-slide-2");
-  const slide3 = document.getElementById("veneer-slide-3");
-
-  if (!slide1 || !slide2 || !slide3) return;
-
-  let currentSlide = 1;
-  const totalSlides = 3;
-  const autoSlideDelay = 5000; // 5 seconds between slides
-  let autoSlideInterval = null;
-
-  function showSlide(slideNumber) {
-    // Uncheck all slides
-    slide1.checked = false;
-    slide2.checked = false;
-    slide3.checked = false;
-
-    // Check the current slide
-    if (slideNumber === 1) {
-      slide1.checked = true;
-    } else if (slideNumber === 2) {
-      slide2.checked = true;
-    } else if (slideNumber === 3) {
-      slide3.checked = true;
-    }
-  }
-
-  function nextSlide() {
-    currentSlide = (currentSlide % totalSlides) + 1;
-    showSlide(currentSlide);
-  }
-
-  function startAutoSlide() {
-    // Clear any existing interval
-    if (autoSlideInterval) {
-      clearInterval(autoSlideInterval);
-    }
-    // Start auto-sliding
-    autoSlideInterval = setInterval(() => {
-      nextSlide();
-    }, autoSlideDelay);
-  }
-
-  // Start auto-sliding when page loads
-  startAutoSlide();
 }

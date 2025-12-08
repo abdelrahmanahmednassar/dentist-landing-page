@@ -3,6 +3,14 @@
   background: var(--white);
   border-bottom: 1px solid var(--mercury);
   /* padding: 12px 0; */
+  .phone-link {
+    color: var(--black);
+    text-decoration: none;
+    transition: all 0.3s;
+    &:hover {
+      color: var(--tussock);
+    }
+  }
 }
 
 .top-header-content {
