@@ -360,6 +360,7 @@ a.hero-cta-btn:hover {
 
 .service-image {
   width: 286px;
+  max-width: 100%;
   height: 105px;
   border-radius: 20px;
   overflow: hidden;
@@ -369,6 +370,7 @@ a.hero-cta-btn:hover {
   align-items: center;
   justify-content: center;
   position: relative;
+  box-sizing: border-box;
 }
 
 .service-image img {

@@ -29,6 +29,12 @@
   --container-padding: 15px;
 }
 
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-family);
   color: var(--mine-shaft);
@@ -37,12 +43,7 @@ body {
   text-align: right;
   max-width: 100%;
   width: 100%;
-}
-
-html {
-  scroll-behavior: smooth;
-  max-width: 100%;
-  overflow-x: hidden;
+  position: relative;
 }
 
 .container {

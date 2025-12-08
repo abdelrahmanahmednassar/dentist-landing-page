@@ -160,6 +160,11 @@
     position: relative;
   }
 
+  .logo {
+    min-width: auto;
+    max-width: 150px;
+  }
+
   .logo img {
     max-height: 45px;
   }
@@ -418,20 +423,25 @@
   .about-clinic-wrapper {
     flex-direction: column;
     padding: 0 20px;
+    padding-left: 0;
     box-sizing: border-box;
     width: 100%;
   }
 
   .about-clinic-content {
     width: 100%;
+    max-width: 100%;
     padding: 30px 0;
+    box-sizing: border-box;
   }
 
   .clinic-image-wrapper {
     width: 100%;
+    max-width: 100%;
     height: 350px;
     order: -1;
     margin-bottom: 20px;
+    box-sizing: border-box;
   }
 
   .stats-row {
@@ -451,6 +461,7 @@
   .testimonials-wrapper {
     flex-direction: column;
     padding: 0 20px;
+    padding-right: 0;
     box-sizing: border-box;
     width: 100%;
   }
@@ -462,8 +473,11 @@
 
   .testimonials-content {
     width: 100%;
+    max-width: 100%;
     padding: 30px 0;
+    padding-right: 0;
     height: auto;
+    box-sizing: border-box;
   }
 
   /* Services Section */
@@ -675,6 +689,11 @@
 
   .stat-item {
     min-width: calc(50% - 7.5px);
+  }
+
+  .logo {
+    min-width: auto;
+    max-width: 120px;
   }
 
   .logo img {
