@@ -332,6 +332,8 @@ function initializeMobileMenu() {
       icon.classList.remove("bx-x");
       icon.classList.add("bx-menu");
       document.body.style.overflow = ""; // Restore body scroll
+      document.body.style.overflowX = ""; // Restore horizontal scroll
+      document.documentElement.style.overflowX = ""; // Restore horizontal scroll on html
       // Close all dropdowns
       navMenu.querySelectorAll(".has-dropdown.active").forEach((dropdown) => {
         dropdown.classList.remove("active");
@@ -348,6 +350,8 @@ function initializeMobileMenu() {
       icon.classList.remove("bx-x");
       icon.classList.add("bx-menu");
       document.body.style.overflow = ""; // Restore body scroll
+      document.body.style.overflowX = ""; // Restore horizontal scroll
+      document.documentElement.style.overflowX = ""; // Restore horizontal scroll on html
       // Close all dropdowns
       navMenu.querySelectorAll(".has-dropdown.active").forEach((dropdown) => {
         dropdown.classList.remove("active");
@@ -367,6 +371,8 @@ function initializeMobileMenu() {
       icon.classList.remove("bx-x");
       icon.classList.add("bx-menu");
       document.body.style.overflow = ""; // Restore body scroll
+      document.body.style.overflowX = ""; // Restore horizontal scroll
+      document.documentElement.style.overflowX = ""; // Restore horizontal scroll on html
       // Close all dropdowns
       navMenu.querySelectorAll(".has-dropdown.active").forEach((dropdown) => {
         dropdown.classList.remove("active");
@@ -386,6 +392,8 @@ function initializeMobileMenu() {
         icon.classList.remove("bx-x");
         icon.classList.add("bx-menu");
         document.body.style.overflow = "";
+        document.body.style.overflowX = ""; // Restore horizontal scroll
+        document.documentElement.style.overflowX = ""; // Restore horizontal scroll on html
       }
     }
   });

@@ -35,19 +35,41 @@ body {
   line-height: 1.6;
   direction: ltr;
   text-align: right;
-  overflow-x: hidden;
+  max-width: 100%;
+  width: 100%;
 }
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--container-padding);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 a {
   text-decoration: none !important;
+}
+
+/* Prevent horizontal scroll - constrain media elements */
+img,
+video,
+iframe,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ensure tables don't cause overflow */
+table {
+  width: 100%;
+  max-width: 100%;
+  table-layout: auto;
 }
