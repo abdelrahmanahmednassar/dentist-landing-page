@@ -11,6 +11,16 @@
       color: var(--tussock);
     }
   }
+  .cta-btn.service-btn {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: var(--tussock);
+    padding: 18px 40px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 17px;
+  }
 }
 
 /* Hero Slider */
