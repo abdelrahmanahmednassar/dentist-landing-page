@@ -4,6 +4,9 @@
   background: var(--white);
 }
 
+.case-title {
+  font-size: 50px;
+}
 .cases-doctor-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -45,6 +48,28 @@
   line-height: 1.6;
   color: rgba(21, 20, 57, 0.7);
   margin: 0;
+}
+
+.cases-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.case-section-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.case-section-title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.3;
+  color: var(--haiti);
+  margin: 0;
+  text-align: center;
 }
 
 .premium-cases-slider {
@@ -95,17 +120,6 @@
 
 .case-slide video {
   border: none;
-}
-
-.case-caption {
-  margin: 0;
-  font-family: var(--font-family);
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #c9a13d;
-  text-align: center;
-  letter-spacing: 0.01em;
 }
 
 .slider-controls {
@@ -176,6 +190,18 @@
 
   .cases-title {
     font-size: 24px;
+  }
+
+  .cases-groups {
+    gap: 32px;
+  }
+
+  .case-section-group {
+    gap: 16px;
+  }
+
+  .case-section-title {
+    font-size: 20px;
   }
 
   .premium-cases-slider {
