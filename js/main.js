@@ -145,7 +145,7 @@ function initializeCasesSlider() {
   const prevBtn = slider.querySelector(".slider-btn.prev");
   const nextBtn = slider.querySelector(".slider-btn.next");
   const dotsContainer = slider.querySelector(".slider-dots");
-  const autoDelay = Number(slider.dataset.autoplayDelay || 6000);
+  const autoDelay = Number(slider.dataset.autoplayDelay || 3000);
 
   if (!track || !slides.length) return;
 
