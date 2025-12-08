@@ -215,6 +215,34 @@ function initializeCasesSlider() {
     }, autoDelay);
   };
 
+  // Basic touch swipe support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const handleTouchStart = (event) => {
+    touchStartX = event.touches[0].clientX;
+  };
+
+  const handleTouchMove = (event) => {
+    touchEndX = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const deltaX = touchEndX - touchStartX;
+    const threshold = 50; // minimum swipe distance
+    if (Math.abs(deltaX) < threshold) return;
+    if (deltaX < 0) {
+      nextSlide();
+    } else {
+      prevSlide();
+    }
+    startAuto();
+  };
+
+  slider.addEventListener("touchstart", handleTouchStart, { passive: true });
+  slider.addEventListener("touchmove", handleTouchMove, { passive: true });
+  slider.addEventListener("touchend", handleTouchEnd);
+
   prevBtn?.addEventListener("click", () => {
     prevSlide();
     startAuto();
