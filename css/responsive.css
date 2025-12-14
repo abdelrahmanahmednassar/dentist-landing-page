@@ -230,8 +230,7 @@
     width: 100%;
   }
 
-  .has-dropdown .nav-link {
-    width: 100%;
+  .services-link {
     text-align: center;
     justify-content: center;
   }
