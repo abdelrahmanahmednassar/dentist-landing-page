@@ -232,6 +232,8 @@
 
   .has-dropdown .nav-link {
     width: 100%;
+    text-align: center;
+    justify-content: center;
   }
 
   .dropdown-menu {
