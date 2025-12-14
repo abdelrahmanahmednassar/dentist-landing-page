@@ -35,20 +35,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Initialize functionality after sections are loaded
   initializePageFunctionality();
-
-  // Initialize AOS after sections are loaded
-  if (typeof AOS !== "undefined") {
-    AOS.init({
-      duration: 800,
-      easing: "ease-in-out",
-      once: true,
-      offset: 100,
-    });
-    // Ensure newly injected sections are registered
-    AOS.refreshHard();
-  } else {
-    console.warn("AOS failed to load; check CDN/network connectivity.");
-  }
 });
 
 // Initialize all page functionality
@@ -190,6 +176,8 @@ function initializeCasesSlider() {
     const goToSlide = (index) => {
       const total = slides.length;
       currentIndex = (index + total) % total;
+      // Use translateX with percentage to move slides horizontally
+      // The viewport container has overflow: hidden to prevent horizontal scroll
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
       updateDots();
       pauseVideos();
@@ -283,15 +271,13 @@ function initializeMobileMenu() {
     if (navMenu.classList.contains("active")) {
       icon.classList.remove("bx-menu");
       icon.classList.add("bx-x");
+      document.documentElement.style.overflow = "hidden"; // Prevent html scroll when menu is open
       document.body.style.overflow = "hidden"; // Prevent body scroll when menu is open
-      document.body.style.overflowX = "hidden"; // Prevent horizontal scroll
-      document.documentElement.style.overflowX = "hidden"; // Prevent horizontal scroll on html
     } else {
       icon.classList.remove("bx-x");
       icon.classList.add("bx-menu");
+      document.documentElement.style.overflow = ""; // Restore html scroll
       document.body.style.overflow = ""; // Restore body scroll
-      document.body.style.overflowX = ""; // Restore horizontal scroll
-      document.documentElement.style.overflowX = ""; // Restore horizontal scroll on html
       // Close all dropdowns when closing menu
       const dropdowns = navMenu.querySelectorAll(".has-dropdown.active");
       dropdowns.forEach((dropdown) => dropdown.classList.remove("active"));
@@ -331,9 +317,8 @@ function initializeMobileMenu() {
       const icon = mobileMenuToggle.querySelector("i");
       icon.classList.remove("bx-x");
       icon.classList.add("bx-menu");
+      document.documentElement.style.overflow = ""; // Restore html scroll
       document.body.style.overflow = ""; // Restore body scroll
-      document.body.style.overflowX = ""; // Restore horizontal scroll
-      document.documentElement.style.overflowX = ""; // Restore horizontal scroll on html
       // Close all dropdowns
       navMenu.querySelectorAll(".has-dropdown.active").forEach((dropdown) => {
         dropdown.classList.remove("active");
@@ -349,9 +334,8 @@ function initializeMobileMenu() {
       const icon = mobileMenuToggle.querySelector("i");
       icon.classList.remove("bx-x");
       icon.classList.add("bx-menu");
+      document.documentElement.style.overflow = ""; // Restore html scroll
       document.body.style.overflow = ""; // Restore body scroll
-      document.body.style.overflowX = ""; // Restore horizontal scroll
-      document.documentElement.style.overflowX = ""; // Restore horizontal scroll on html
       // Close all dropdowns
       navMenu.querySelectorAll(".has-dropdown.active").forEach((dropdown) => {
         dropdown.classList.remove("active");
@@ -370,9 +354,8 @@ function initializeMobileMenu() {
       const icon = mobileMenuToggle.querySelector("i");
       icon.classList.remove("bx-x");
       icon.classList.add("bx-menu");
+      document.documentElement.style.overflow = ""; // Restore html scroll
       document.body.style.overflow = ""; // Restore body scroll
-      document.body.style.overflowX = ""; // Restore horizontal scroll
-      document.documentElement.style.overflowX = ""; // Restore horizontal scroll on html
       // Close all dropdowns
       navMenu.querySelectorAll(".has-dropdown.active").forEach((dropdown) => {
         dropdown.classList.remove("active");
@@ -391,9 +374,8 @@ function initializeMobileMenu() {
         const icon = mobileMenuToggle.querySelector("i");
         icon.classList.remove("bx-x");
         icon.classList.add("bx-menu");
-        document.body.style.overflow = "";
-        document.body.style.overflowX = ""; // Restore horizontal scroll
-        document.documentElement.style.overflowX = ""; // Restore horizontal scroll on html
+        document.documentElement.style.overflow = ""; // Restore html scroll
+        document.body.style.overflow = ""; // Restore body scroll
       }
     }
   });

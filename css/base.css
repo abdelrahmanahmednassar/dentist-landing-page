@@ -33,6 +33,7 @@ html {
   scroll-behavior: smooth;
   max-width: 100%;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 body {
@@ -44,6 +45,10 @@ body {
   max-width: 100%;
   width: 100%;
   position: relative;
+  overflow-x: hidden;
+  overflow-y: visible;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
