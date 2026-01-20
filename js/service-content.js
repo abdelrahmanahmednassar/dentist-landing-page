@@ -1695,7 +1695,7 @@ function renderServiceContent(serviceId, lang) {
   }
 
   let html = `
-    <a href="../index.html#services" class="back-button">
+    <a href="../services.html" class="back-button">
       ${content.backButton}
     </a>
     
