@@ -113,6 +113,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       { id: "nav-container", file: "sections/nav.html" },
       { id: "footer-container", file: "sections/footer.html" },
     ],
+    team: [
+      { id: "header-container", file: "sections/header.html" },
+      { id: "nav-container", file: "sections/nav.html" },
+      { id: "footer-container", file: "sections/footer.html" },
+    ],
   };
 
   // Get sections for current page
@@ -182,6 +187,7 @@ function highlightActiveNavLink() {
     "about-us": "about-us.html",
     services: "services.html",
     cases: "cases.html",
+    team: "team.html",
     blogs: "blogs.html",
     "contact-us": "contact-us.html",
   };

@@ -10,6 +10,7 @@ const translations = {
     "nav.about": "من نحن",
     "nav.services": "خدماتنا",
     "nav.cases": "حالات",
+    "nav.team": "فريق العمل",
     "nav.blogs": "المدونة",
     "nav.contact": "اتصل بنا",
 
@@ -202,6 +203,59 @@ const translations = {
     "blog.post6.readTime": "٥ دقائق",
     "blog.post6.tag1": "أطفال",
     "blog.post6.tag2": "وقاية",
+
+    // Team Page
+    "team.label": "فريق العمل",
+    "team.title": "تعرف على فريقنا المتميز",
+    "team.subtitle":
+      "فريق من المتخصصين والخبراء في مجال طب وتجميل الأسنان، مكرسون لتقديم أفضل رعاية صحية لمرضانا",
+    "team.certificates": "الشهادات والمؤهلات",
+
+    // Team Member 1
+    "team.member1.name": "د. محمد فايد",
+    "team.member1.position": "مؤسس العيادة - أخصائي زراعة وتجميل الأسنان",
+    "team.member1.bio":
+      "خبرة تزيد عن 7 سنوات في مجال طب وتجميل الأسنان. متخصص في زراعة الأسنان وتصميم الابتسامة الرقمية.",
+    "team.member1.cert1": "بكالوريوس طب وجراحة الفم والأسنان",
+    "team.member1.cert2": "دبلومة زراعة الأسنان المتقدمة",
+    "team.member1.cert3": "شهادة تصميم الابتسامة الرقمية (DSD)",
+    "team.member1.cert4": "عضو الجمعية الأمريكية لزراعة الأسنان",
+
+    // Team Member 2
+    "team.member2.name": "د. سارة أحمد",
+    "team.member2.position": "أخصائي تجميل الأسنان والفينير",
+    "team.member2.bio":
+      "متخصصة في تجميل الأسنان والقشور الخزفية بخبرة 5 سنوات. خبيرة في تقنيات الفينير والتبييض المتقدمة.",
+    "team.member2.cert1": "بكالوريوس طب وجراحة الفم والأسنان",
+    "team.member2.cert2": "ماجستير تجميل الأسنان",
+    "team.member2.cert3": "شهادة Hybrid Veneers المتقدمة",
+    "team.member2.cert4": "دبلومة تبييض الأسنان بالليزر",
+
+    // Team Member 3
+    "team.member3.name": "د. أحمد حسن",
+    "team.member3.position": "أخصائي علاج الجذور والحشو التجميلي",
+    "team.member3.bio":
+      "خبير في علاج الجذور والحشو التجميلي بخبرة 6 سنوات. متخصص في العلاجات الدقيقة باستخدام المجهر الطبي.",
+    "team.member3.cert1": "بكالوريوس طب وجراحة الفم والأسنان",
+    "team.member3.cert2": "دبلومة علاج الجذور المتقدمة",
+    "team.member3.cert3": "شهادة الحشو التجميلي بالليزر",
+    "team.member3.cert4": "دورة علاج الجذور بالمجهر الطبي",
+
+    // Team Member 4
+    "team.member4.name": "د. منى إبراهيم",
+    "team.member4.position": "أخصائي طب أسنان الأطفال",
+    "team.member4.bio":
+      "متخصصة في طب أسنان الأطفال بخبرة 4 سنوات. تتميز بأسلوبها اللطيف في التعامل مع الأطفال وتخفيف قلقهم.",
+    "team.member4.cert1": "بكالوريوس طب وجراحة الفم والأسنان",
+    "team.member4.cert2": "ماجستير طب أسنان الأطفال",
+    "team.member4.cert3": "دبلومة التعامل النفسي مع الأطفال",
+    "team.member4.cert4": "شهادة الوقاية من تسوس الأسنان لدى الأطفال",
+
+    // Team CTA
+    "team.cta.title": "احجز موعدك مع فريقنا المتميز",
+    "team.cta.text":
+      "فريقنا جاهز لتقديم أفضل رعاية صحية لأسنانك. احجز استشارتك المجانية الآن!",
+    "team.cta.button": "احجز موعدك الآن",
   },
   en: {
     // Header
@@ -213,6 +267,7 @@ const translations = {
     "nav.about": "About Us",
     "nav.services": "Our Services",
     "nav.cases": "Cases",
+    "nav.team": "Our Team",
     "nav.blogs": "Blog",
     "nav.contact": "Contact Us",
 
@@ -409,5 +464,59 @@ const translations = {
     "blog.post6.readTime": "5 min",
     "blog.post6.tag1": "Children",
     "blog.post6.tag2": "Prevention",
+
+    // Team Page
+    "team.label": "Our Team",
+    "team.title": "Meet Our Distinguished Team",
+    "team.subtitle":
+      "A team of specialists and experts in dentistry and cosmetic dentistry, dedicated to providing the best healthcare for our patients",
+    "team.certificates": "Certificates and Qualifications",
+
+    // Team Member 1
+    "team.member1.name": "Dr. Mohamed Fayed",
+    "team.member1.position":
+      "Clinic Founder - Dental Implants & Cosmetic Dentistry Specialist",
+    "team.member1.bio":
+      "Over 7 years of experience in dentistry and cosmetic dentistry. Specialist in dental implants and digital smile design.",
+    "team.member1.cert1": "Bachelor of Dental Surgery (BDS)",
+    "team.member1.cert2": "Advanced Dental Implantology Diploma",
+    "team.member1.cert3": "Digital Smile Design (DSD) Certificate",
+    "team.member1.cert4": "Member of American Academy of Implant Dentistry",
+
+    // Team Member 2
+    "team.member2.name": "Dr. Sarah Ahmed",
+    "team.member2.position": "Cosmetic Dentistry & Veneers Specialist",
+    "team.member2.bio":
+      "Specialist in cosmetic dentistry and porcelain veneers with 5 years of experience. Expert in veneers and advanced whitening techniques.",
+    "team.member2.cert1": "Bachelor of Dental Surgery (BDS)",
+    "team.member2.cert2": "Master's in Cosmetic Dentistry",
+    "team.member2.cert3": "Advanced Hybrid Veneers Certificate",
+    "team.member2.cert4": "Laser Teeth Whitening Diploma",
+
+    // Team Member 3
+    "team.member3.name": "Dr. Ahmed Hassan",
+    "team.member3.position": "Root Canal & Cosmetic Filling Specialist",
+    "team.member3.bio":
+      "Expert in root canal treatment and cosmetic fillings with 6 years of experience. Specialist in precise treatments using microscope.",
+    "team.member3.cert1": "Bachelor of Dental Surgery (BDS)",
+    "team.member3.cert2": "Advanced Endodontics Diploma",
+    "team.member3.cert3": "Laser Cosmetic Filling Certificate",
+    "team.member3.cert4": "Microscopic Root Canal Treatment Course",
+
+    // Team Member 4
+    "team.member4.name": "Dr. Mona Ibrahim",
+    "team.member4.position": "Pediatric Dentistry Specialist",
+    "team.member4.bio":
+      "Specialist in pediatric dentistry with 4 years of experience. Distinguished by her gentle approach to children and anxiety relief.",
+    "team.member4.cert1": "Bachelor of Dental Surgery (BDS)",
+    "team.member4.cert2": "Master's in Pediatric Dentistry",
+    "team.member4.cert3": "Child Psychology Diploma",
+    "team.member4.cert4": "Dental Caries Prevention Certificate",
+
+    // Team CTA
+    "team.cta.title": "Book Your Appointment with Our Distinguished Team",
+    "team.cta.text":
+      "Our team is ready to provide the best dental care for you. Book your free consultation now!",
+    "team.cta.button": "Book Your Appointment Now",
   },
 };
