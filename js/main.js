@@ -181,24 +181,24 @@ function highlightActiveNavLink() {
     targetPage = "services";
   }
 
-  // Map page names to nav link hrefs
+  // Map page names to nav link hrefs (support both relative and absolute paths)
   const pageToNav = {
-    index: "index.html",
-    "about-us": "about-us.html",
-    services: "services.html",
-    cases: "cases.html",
-    team: "team.html",
-    blogs: "blogs.html",
-    "contact-us": "contact-us.html",
+    index: ["index.html", "/index.html"],
+    "about-us": ["about-us.html", "/about-us.html"],
+    services: ["services.html", "/services.html"],
+    cases: ["cases.html", "/cases.html"],
+    team: ["team.html", "/team.html"],
+    blogs: ["blogs.html", "/blogs.html"],
+    "contact-us": ["contact-us.html", "/contact-us.html"],
   };
 
-  const targetHref = pageToNav[targetPage];
+  const targetHrefs = pageToNav[targetPage] || [];
 
   // Find and highlight the active link
   const navLinks = document.querySelectorAll(".nav-menu .nav-link");
   navLinks.forEach((link) => {
     const href = link.getAttribute("href");
-    if (href === targetHref) {
+    if (targetHrefs.includes(href)) {
       link.classList.add("active");
     } else {
       link.classList.remove("active");
