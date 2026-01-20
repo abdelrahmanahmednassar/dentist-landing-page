@@ -123,6 +123,23 @@ export default async function RootLayout({
     >
       <head>
         <meta name="theme-color" content="#BE9249" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+        {/* hreflang tags for language alternatives */}
+        <link rel="alternate" hrefLang="ar" href="https://fayed.clinic" />
+        <link rel="alternate" hrefLang="en" href="https://fayed.clinic" />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://fayed.clinic"
+        />
 
         {/* Structured Data - Dentist */}
         <script
@@ -246,6 +263,74 @@ export default async function RootLayout({
                 "https://www.instagram.com/dr_mohamedfayed_clinic?igsh=MTZ4MzBkbnY3dXBtMg%3D%3D&utm_source=qr",
                 "https://www.tiktok.com/@mohamedfayed33?_r=1&_t=ZS-921cT0C6hAj",
               ],
+            }),
+          }}
+        />
+
+        {/* Structured Data - Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "فايد دينتال كلينك - Fayed Dental Clinic",
+              alternateName: "Dr. Mohamed Fayed Dental Clinic",
+              url: "https://fayed.clinic",
+              logo: "https://fayed.clinic/images/logo.png",
+              contactPoint: {
+                "@type": "ContactPoint",
+                telephone: "+201034317813",
+                contactType: "Customer Service",
+                areaServed: "EG",
+                availableLanguage: ["Arabic", "English"],
+              },
+              sameAs: [
+                "https://www.facebook.com/share/1Bvk7SVjLS/?mibextid=wwXIfr",
+                "https://www.instagram.com/dr_mohamedfayed_clinic?igsh=MTZ4MzBkbnY3dXBtMg%3D%3D&utm_source=qr",
+                "https://www.tiktok.com/@mohamedfayed33?_r=1&_t=ZS-921cT0C6hAj",
+              ],
+            }),
+          }}
+        />
+
+        {/* Structured Data - BreadcrumbList */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                {
+                  "@type": "ListItem",
+                  position: 1,
+                  name: "الرئيسية",
+                  item: "https://fayed.clinic",
+                },
+              ],
+            }),
+          }}
+        />
+
+        {/* Structured Data - WebSite */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "فايد دينتال كلينك",
+              url: "https://fayed.clinic",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: {
+                  "@type": "EntryPoint",
+                  urlTemplate:
+                    "https://fayed.clinic/search?q={search_term_string}",
+                },
+                "query-input": "required name=search_term_string",
+              },
             }),
           }}
         />

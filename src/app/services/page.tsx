@@ -12,7 +12,41 @@ export const metadata: Metadata = {
     "فينير",
     "هايبرد فينير",
     "3N Veneers",
+    "dental services Cairo",
+    "cosmetic dentistry",
+    "تبييض الأسنان",
   ],
+  alternates: {
+    canonical: "https://fayed.clinic/services",
+  },
+  openGraph: {
+    title: "خدماتنا - فايد دينتال كلينك",
+    description:
+      "تعرف على خدماتنا المتخصصة: زراعة وتجميل الأسنان، Hybrid Veneers، 3N Veneers.",
+    url: "https://fayed.clinic/services",
+    type: "website",
+    locale: "ar_EG",
+    siteName: "فايد دينتال كلينك",
+    images: [
+      {
+        url: "/images/services-preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "خدمات فايد دينتال كلينك",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "خدماتنا - فايد دينتال كلينك",
+    description:
+      "تعرف على خدماتنا المتخصصة: زراعة وتجميل الأسنان، Hybrid Veneers، 3N Veneers.",
+    images: ["/images/services-preview.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function ServicesPage() {

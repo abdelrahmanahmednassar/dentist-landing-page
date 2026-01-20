@@ -5,10 +5,52 @@ import ServiceDetail from "@/components/ServiceDetail";
 export async function generateMetadata(): Promise<Metadata> {
   const t = (await getMessages()) as any;
   const service = t.servicePages.teethBeautification;
+  const pageUrl = "https://fayed.clinic/services/teeth-beautification";
 
   return {
-    title: `${service.title} | Dr. Fayed Dental Clinic`,
+    title: `${service.title} | فايد دينتال كلينك - Dr. Fayed Dental Clinic`,
     description: service.lead,
+    keywords: [
+      "تجميل الأسنان",
+      "ابتسامة هوليود",
+      "تصميم الابتسامة",
+      "فينير الأسنان",
+      "تبييض الأسنان",
+      "cosmetic dentistry",
+      "teeth beautification Cairo",
+      "Hollywood smile",
+      "smile design",
+      "dental aesthetics",
+    ],
+    alternates: {
+      canonical: pageUrl,
+    },
+    openGraph: {
+      title: `${service.title} | فايد دينتال كلينك`,
+      description: service.lead,
+      url: pageUrl,
+      type: "website",
+      locale: "ar_EG",
+      siteName: "فايد دينتال كلينك",
+      images: [
+        {
+          url: "/images/services/teeth-beautification.jpg",
+          width: 1200,
+          height: 630,
+          alt: service.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${service.title} | فايد دينتال كلينك`,
+      description: service.lead,
+      images: ["/images/services/teeth-beautification.jpg"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
   };
 }
 

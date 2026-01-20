@@ -1,54 +1,57 @@
-"use client";
-
-import { useMessages, useLocale } from "next-intl";
+import type { Metadata } from "next";
+import { getLocale } from "next-intl/server";
 import styles from "@/styles/blogs-page.module.css";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+import BlogFilter from "@/components/BlogFilter";
 
-const blogRoutes = {
-  laserTeethWhitening: "/blog/laser-teeth-whitening",
-  dailyDentalCare: "/blog/daily-dental-care",
-  dentalImplantsGuide: "/blog/dental-implants-guide",
-  veneersVsLumineers: "/blog/veneers-vs-lumineers",
-  healthyFoodsForTeeth: "/blog/healthy-foods-for-teeth",
-  childrenDentalCare: "/blog/children-dental-care",
+export const metadata: Metadata = {
+  title: "المدونة - فايد دينتال كلينك | مقالات ونصائح العناية بالأسنان",
+  description:
+    "اقرأ أحدث المقالات والنصائح حول صحة وتجميل الأسنان. مقالات متخصصة في زراعة الأسنان، الفينير، تبييض الأسنان، والعناية اليومية بالأسنان.",
+  keywords: [
+    "مدونة أسنان",
+    "نصائح أسنان",
+    "مقالات طب الأسنان",
+    "العناية بالأسنان",
+    "تجميل الأسنان",
+    "dental blog",
+    "dental tips",
+    "oral health articles",
+  ],
+  alternates: {
+    canonical: "https://fayed.clinic/blogs",
+  },
+  openGraph: {
+    title: "المدونة - فايد دينتال كلينك",
+    description:
+      "اقرأ أحدث المقالات والنصائح حول صحة وتجميل الأسنان من خبراء فايد دينتال كلينك.",
+    url: "https://fayed.clinic/blogs",
+    type: "website",
+    locale: "ar_EG",
+    siteName: "فايد دينتال كلينك",
+    images: [
+      {
+        url: "/images/blogs-preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "مدونة فايد دينتال كلينك",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "المدونة - فايد دينتال كلينك",
+    description:
+      "اقرأ أحدث المقالات والنصائح حول صحة وتجميل الأسنان من خبراء فايد دينتال كلينك.",
+    images: ["/images/blogs-preview.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
-// Map blog keys to their categories
-const blogCategories = {
-  laserTeethWhitening: "cosmetic",
-  dailyDentalCare: "care",
-  dentalImplantsGuide: "implants",
-  veneersVsLumineers: "cosmetic",
-  healthyFoodsForTeeth: "tips",
-  childrenDentalCare: "care",
-};
-
-export default function BlogsPage() {
-  const language = useLocale();
-  const messages = useMessages() as any;
-  const blogs = messages.blogPages;
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const categories = [
-    { id: "all", label: language === "ar" ? "الكل" : "All" },
-    {
-      id: "care",
-      label: language === "ar" ? "العناية بالأسنان" : "Dental Care",
-    },
-    { id: "cosmetic", label: language === "ar" ? "تجميل الأسنان" : "Cosmetic" },
-    { id: "implants", label: language === "ar" ? "زراعة الأسنان" : "Implants" },
-    { id: "tips", label: language === "ar" ? "نصائح عامة" : "Tips" },
-  ];
-
-  // Filter blogs by category
-  const filteredBlogs = Object.entries(blogs).filter(([key]) => {
-    if (activeCategory === "all") return true;
-    return (
-      blogCategories[key as keyof typeof blogCategories] === activeCategory
-    );
-  });
+export default async function BlogsPage() {
+  const locale = await getLocale();
 
   return (
     <section className={styles.blogPageSection}>
@@ -56,79 +59,16 @@ export default function BlogsPage() {
         {/* Page Header */}
         <div className={styles.blogPageHeader}>
           <h1 className={styles.blogPageTitle}>
-            {language === "ar" ? "المدونة" : "Blog"}
+            {locale === "ar" ? "المدونة" : "Blog"}
           </h1>
           <p className={styles.blogPageSubtitle}>
-            {language === "ar"
+            {locale === "ar"
               ? "أحدث المقالات والنصائح حول صحة وجمال الأسنان"
               : "Latest articles and tips on dental health and beauty"}
           </p>
         </div>
 
-        {/* Category Filter */}
-        <div className={styles.blogCategories}>
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              className={`${styles.categoryBtn} ${activeCategory === category.id ? styles.active : ""}`}
-              onClick={() => setActiveCategory(category.id)}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Blog Grid */}
-        <div className={styles.blogGrid}>
-          {filteredBlogs.map(([key, blog]) => {
-            const blogData = blog as any;
-            return (
-              <Link
-                key={key}
-                href={blogRoutes[key as keyof typeof blogRoutes]}
-                className={styles.blogCardLink}
-              >
-                <article className={styles.blogCard}>
-                  <div className={styles.blogCardImage}>
-                    <Image
-                      src={blogData.image}
-                      alt={blogData.imageAlt}
-                      loading="lazy"
-                      width={1200}
-                      height={600}
-                    />
-                    <span className={styles.blogCategory}>
-                      {blogData.category}
-                    </span>
-                  </div>
-                  <div className={styles.blogCardContent}>
-                    <div className={styles.blogMeta}>
-                      <span className={styles.blogDate}>
-                        <i className="bx bx-calendar"></i>
-                        <span>{blogData.date}</span>
-                      </span>
-                      <span className={styles.blogReadTime}>
-                        <i className="bx bx-time"></i>
-                        <span>{blogData.readTime}</span>
-                      </span>
-                    </div>
-                    <h3 className={styles.blogCardTitle}>{blogData.title}</h3>
-                    <p className={styles.blogCardExcerpt}>
-                      {blogData.lead.substring(0, 150)}...
-                    </p>
-                    <div className={styles.blogTags}>
-                      {blogData.tags.map((tag: string, index: number) => (
-                        <span key={index} className={styles.blogTag}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              </Link>
-            );
-          })}
-        </div>
+        <BlogFilter />
       </div>
     </section>
   );

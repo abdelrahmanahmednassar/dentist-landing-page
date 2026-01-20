@@ -13,7 +13,41 @@ export const metadata: Metadata = {
     "عنوان العيادة",
     "رقم الهاتف",
     "فايد دينتال كلينك",
+    "contact Fayed Dental",
+    "book appointment",
+    "عيادة أسنان المهندسين",
   ],
+  alternates: {
+    canonical: "https://fayed.clinic/contact-us",
+  },
+  openGraph: {
+    title: "اتصل بنا - فايد دينتال كلينك",
+    description:
+      "تواصل معنا في فايد دينتال كلينك. فرع المهندسين وفرع مصر الجديدة. احجز موعدك الآن.",
+    url: "https://fayed.clinic/contact-us",
+    type: "website",
+    locale: "ar_EG",
+    siteName: "فايد دينتال كلينك",
+    images: [
+      {
+        url: "/images/contact-us-preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "اتصل بنا - فايد دينتال كلينك",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "اتصل بنا - فايد دينتال كلينك",
+    description:
+      "تواصل معنا في فايد دينتال كلينك. احجز موعدك الآن عبر الهاتف أو واتساب.",
+    images: ["/images/contact-us-preview.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default async function ContactUsPage() {

@@ -1,8 +1,52 @@
-"use client";
-
-import { useMessages, useLocale } from "next-intl";
+import { Metadata } from "next";
+import { getMessages } from "next-intl/server";
 import styles from "@/styles/team.module.css";
 import Link from "next/link";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "فريقنا الطبي - فايد دينتال كلينك | أطباء أسنان متخصصون",
+  description:
+    "تعرف على فريقنا الطبي المتخصص في فايد دينتال كلينك. أطباء ذوو خبرة عالية في زراعة وتجميل الأسنان بأحدث التقنيات.",
+  keywords: [
+    "فريق طبي",
+    "أطباء أسنان",
+    "متخصصون أسنان",
+    "دكاترة أسنان القاهرة",
+    "فريق فايد دينتال",
+  ],
+  alternates: {
+    canonical: "https://fayed.clinic/team",
+  },
+  openGraph: {
+    title: "فريقنا الطبي - فايد دينتال كلينك",
+    description:
+      "تعرف على فريقنا الطبي المتخصص في فايد دينتال كلينك. أطباء ذوو خبرة عالية في زراعة وتجميل الأسنان.",
+    url: "https://fayed.clinic/team",
+    type: "website",
+    locale: "ar_EG",
+    siteName: "فايد دينتال كلينك",
+    images: [
+      {
+        url: "/images/team-preview.jpg",
+        width: 1200,
+        height: 630,
+        alt: "فريقنا الطبي - فايد دينتال كلينك",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "فريقنا الطبي - فايد دينتال كلينك",
+    description:
+      "تعرف على فريقنا الطبي المتخصص في فايد دينتال كلينك. أطباء ذوو خبرة عالية في زراعة وتجميل الأسنان.",
+    images: ["/images/team-preview.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const teamMembers = [
   {
@@ -27,9 +71,8 @@ const teamMembers = [
   },
 ];
 
-export default function TeamPage() {
-  const language = useLocale();
-  const messages = useMessages() as any;
+export default async function TeamPage() {
+  const messages = (await getMessages()) as any;
   const team = messages.team;
 
   return (
@@ -56,10 +99,12 @@ export default function TeamPage() {
             return (
               <div key={index} className={styles.teamCard}>
                 <div className={styles.teamImage}>
-                  <img
+                  <Image
                     src={member.image}
                     alt={memberData.name}
                     loading="lazy"
+                    width={600}
+                    height={1200}
                   />
                   <div className={styles.teamOverlay}>
                     <div className={styles.teamSocial}>
