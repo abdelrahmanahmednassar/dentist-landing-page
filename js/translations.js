@@ -130,6 +130,22 @@ const translations = {
     // Common
     "common.whatsapp": "واتساب",
     "common.scrollTop": "العودة للأعلى",
+
+    // Contact Page
+    "contact.title": "اتصل بنا",
+    "contact.subtitle":
+      "نحن هنا دائماً للإجابة على أسئلتك ومساعدتك في الحصول على ابتسامة أحلامك",
+    "contact.branch1.title": "فرع المهندسين",
+    "contact.branch1.address":
+      "٤٧ شارع جامعة الدول العربية<br>متفرع من شارع شهاب",
+    "contact.branch2.title": "فرع مصر الجديدة",
+    "contact.branch2.address": "١٦٥ برج عُدي<br>ميدان الألف مسكن - شارع السويس",
+    "contact.phone.title": "رقم الهاتف",
+    "contact.hours.title": "مواعيد العمل",
+    "contact.hours.text": "السبت - الخميس: 2 م حتى 10 م<br>الجمعة: مغلق",
+    "contact.whatsapp.title": "واتساب",
+    "contact.email.title": "البريد الإلكتروني",
+    "contact.cta": "احجز موعدك الآن عبر واتساب",
   },
   en: {
     // Header
@@ -262,5 +278,22 @@ const translations = {
     // Common
     "common.whatsapp": "WhatsApp",
     "common.scrollTop": "Back to Top",
+
+    // Contact Page
+    "contact.title": "Contact Us",
+    "contact.subtitle":
+      "We are always here to answer your questions and help you get your dream smile",
+    "contact.branch1.title": "Mohandessin Branch",
+    "contact.branch1.address": "47 Arab League Street<br>Off Shehab Street",
+    "contact.branch2.title": "Heliopolis Branch",
+    "contact.branch2.address":
+      "165 Oudi Tower<br>Alf Maskan Square - Suez Street",
+    "contact.phone.title": "Phone Number",
+    "contact.hours.title": "Working Hours",
+    "contact.hours.text":
+      "Saturday - Thursday: 2 PM to 10 PM<br>Friday: Closed",
+    "contact.whatsapp.title": "WhatsApp",
+    "contact.email.title": "Email",
+    "contact.cta": "Book Your Appointment Now via WhatsApp",
   },
 };

@@ -63,8 +63,17 @@ class I18n {
       if (attrToUpdate) {
         element.setAttribute(attrToUpdate, translation);
       } else {
-        // Update text content
-        element.textContent = translation;
+        // Check if translation contains HTML tags
+        if (
+          translation.includes("<br>") ||
+          translation.includes("<br/>") ||
+          translation.includes("<br />")
+        ) {
+          element.innerHTML = translation;
+        } else {
+          // Update text content for plain text
+          element.textContent = translation;
+        }
       }
     });
 

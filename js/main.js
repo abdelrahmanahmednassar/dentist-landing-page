@@ -17,16 +17,49 @@ async function loadSection(sectionId, filePath) {
 
 // Load all sections when DOM is ready
 document.addEventListener("DOMContentLoaded", async () => {
-  const sections = [
-    { id: "section-header", file: "sections/header.html" },
-    { id: "section-nav", file: "sections/nav.html" },
-    { id: "section-hero", file: "sections/hero.html" },
-    { id: "section-cases-doctor", file: "sections/cases-doctor.html" },
-    { id: "section-about-clinic", file: "sections/about-clinic.html" },
-    { id: "section-testimonials", file: "sections/testimonials.html" },
-    { id: "section-services", file: "sections/services.html" },
-    { id: "section-footer", file: "sections/footer.html" },
-  ];
+  // Detect current page
+  const currentPage = getCurrentPage();
+
+  // Define sections to load based on page
+  const pageSections = {
+    index: [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-hero", file: "sections/hero.html" },
+      { id: "section-cases-doctor", file: "sections/cases-doctor.html" },
+      { id: "section-about-clinic", file: "sections/about-clinic.html" },
+      { id: "section-testimonials", file: "sections/testimonials.html" },
+      { id: "section-services", file: "sections/services.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+    "about-us": [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-about-clinic", file: "sections/about-clinic.html" },
+      { id: "section-testimonials", file: "sections/testimonials.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+    services: [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-services", file: "sections/services.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+    cases: [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-cases-doctor", file: "sections/cases-doctor.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+    "contact-us": [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+  };
+
+  // Get sections for current page
+  const sections = pageSections[currentPage] || pageSections["index"];
 
   // Load all sections in parallel
   await Promise.all(
@@ -39,6 +72,19 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Initialize translations after sections are loaded
   initializeTranslations();
 });
+
+// Get current page name from URL
+function getCurrentPage() {
+  const path = window.location.pathname;
+  const page = path.split("/").pop().replace(".html", "");
+
+  // If no page or root, return 'index'
+  if (!page || page === "" || page === "/") {
+    return "index";
+  }
+
+  return page;
+}
 
 // Initialize translations
 function initializeTranslations() {
