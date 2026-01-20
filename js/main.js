@@ -71,6 +71,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Initialize translations after sections are loaded
   initializeTranslations();
+
+  // Highlight active navigation link
+  highlightActiveNavLink();
 });
 
 // Get current page name from URL
@@ -84,6 +87,33 @@ function getCurrentPage() {
   }
 
   return page;
+}
+
+// Highlight active navigation link based on current page
+function highlightActiveNavLink() {
+  const currentPage = getCurrentPage();
+
+  // Map page names to nav link hrefs
+  const pageToNav = {
+    index: "index.html",
+    "about-us": "about-us.html",
+    services: "services.html",
+    cases: "cases.html",
+    "contact-us": "contact-us.html",
+  };
+
+  const targetHref = pageToNav[currentPage];
+
+  // Find and highlight the active link
+  const navLinks = document.querySelectorAll(".nav-menu .nav-link");
+  navLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (href === targetHref) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
 }
 
 // Initialize translations

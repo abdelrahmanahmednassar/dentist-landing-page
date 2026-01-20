@@ -1,0 +1,35 @@
+/* About Us page specific styles */
+
+/* Add spacing at the top of the page content */
+#section-about-clinic {
+  margin-top: 0;
+}
+
+/* Page header styling if needed */
+.about-page-header {
+  background: linear-gradient(135deg, var(--haiti) 0%, var(--tussock) 100%);
+  padding: 60px 0 40px;
+  text-align: center;
+  color: white;
+}
+
+.about-page-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.about-page-header p {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .about-page-header h1 {
+    font-size: 36px;
+  }
+
+  .about-page-header p {
+    font-size: 18px;
+  }
+}
