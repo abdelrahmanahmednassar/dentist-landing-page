@@ -13,7 +13,6 @@
     }
   }
 
-
   .footer-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -40,10 +39,6 @@
     margin: 0 0 24px 0;
   }
 
-  .footer-services {
-    text-align: right;
-  }
-
   .footer-intro {
     font-family: var(--font-family);
     font-weight: 400;
@@ -51,8 +46,8 @@
     line-height: 1.8;
     color: var(--white);
     margin: 0 0 24px 0;
-    text-align: right;
   }
+
 
   .footer-services-list {
     list-style: none;
@@ -70,9 +65,15 @@
     color: var(--white);
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     gap: 8px;
-    text-align: right;
+  }
+
+  [dir="ltr"] .footer-services-list li {
+    justify-content: flex-start;
+  }
+
+  [dir="rtl"] .footer-services-list li {
+    justify-content: flex-end;
   }
 
   .footer-services-list li i {
@@ -80,9 +81,8 @@
     font-size: 12px;
   }
 
-  .footer-contact {
-    text-align: right;
-  }
+
+
 
   .contact-info {
     display: flex;
@@ -96,8 +96,9 @@
     font-weight: 400;
     font-size: 14px;
     color: var(--white);
-    text-align: right;
   }
+
+
 
   .contact-item strong {
     display: block;
@@ -110,10 +111,26 @@
     line-height: 1.6;
   }
 
+
+  .contact-item div {
+    margin: 12px 0;
+  }
+
+
+
+
   .social-media {
     display: flex;
     flex-direction: row;
     gap: 12px;
+    justify-content: flex-end;
+  }
+
+  [dir="ltr"] .social-media {
+    justify-content: flex-start;
+  }
+
+  [dir="rtl"] .social-media {
     justify-content: flex-end;
   }
 
@@ -170,8 +187,20 @@
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 9999 !important;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
   pointer-events: auto;
+}
+
+[dir="ltr"] .whatsapp-float {
+  right: 30px;
+  left: auto;
+}
+
+[dir="rtl"] .whatsapp-float {
+  left: 30px;
+  right: auto;
 }
 
 .whatsapp-float:hover {
@@ -199,6 +228,16 @@
   transition: all 0.3s;
   opacity: 0;
   visibility: hidden;
+}
+
+[dir="ltr"] .scroll-to-top {
+  left: 30px;
+  right: auto;
+}
+
+[dir="rtl"] .scroll-to-top {
+  right: 30px;
+  left: auto;
 }
 
 .scroll-to-top.visible {

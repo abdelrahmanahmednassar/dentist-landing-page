@@ -30,12 +30,48 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // Load all sections in parallel
   await Promise.all(
-    sections.map((section) => loadSection(section.id, section.file))
+    sections.map((section) => loadSection(section.id, section.file)),
   );
 
   // Initialize functionality after sections are loaded
   initializePageFunctionality();
+
+  // Initialize translations after sections are loaded
+  initializeTranslations();
 });
+
+// Initialize translations
+function initializeTranslations() {
+  // Initialize i18n
+  i18n.init();
+
+  // Update language toggle button text
+  updateLanguageToggleButton();
+
+  // Add event listener to language toggle button
+  const languageToggle = document.getElementById("language-toggle");
+  if (languageToggle) {
+    languageToggle.addEventListener("click", () => {
+      i18n.toggleLanguage();
+      updateLanguageToggleButton();
+    });
+  }
+
+  // Listen for language change events to update button text
+  window.addEventListener("languageChanged", () => {
+    updateLanguageToggleButton();
+    // Re-initialize sliders when language changes to handle RTL/LTR switch
+    initializeCasesSlider();
+  });
+}
+
+// Update language toggle button text
+function updateLanguageToggleButton() {
+  const languageToggleText = document.getElementById("language-toggle-text");
+  if (languageToggleText) {
+    languageToggleText.textContent = i18n.getLanguageButtonText();
+  }
+}
 
 // Initialize all page functionality
 function initializePageFunctionality() {
@@ -178,7 +214,11 @@ function initializeCasesSlider() {
       currentIndex = (index + total) % total;
       // Use translateX with percentage to move slides horizontally
       // The viewport container has overflow: hidden to prevent horizontal scroll
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      // Check if the page is in RTL mode (Arabic)
+      const isRTL = document.documentElement.getAttribute("dir") === "rtl";
+      // In RTL, we need to use positive translateX values instead of negative
+      const translateValue = isRTL ? currentIndex * 100 : -(currentIndex * 100);
+      track.style.transform = `translateX(${translateValue}%)`;
       updateDots();
       pauseVideos();
     };
@@ -309,7 +349,7 @@ function initializeMobileMenu() {
 
   // Close menu when clicking on a non-dropdown link
   const navLinks = navMenu.querySelectorAll(
-    ".nav-link:not(.has-dropdown > .nav-link)"
+    ".nav-link:not(.has-dropdown > .nav-link)",
   );
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {

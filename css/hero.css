@@ -87,62 +87,125 @@
 
 /* Desktop-only: Alternate text alignment for slides */
 @media (min-width: 769px) {
-  /* Slide 1: Left aligned - shifted towards center */
-  .hero-slide.slide-1 .hero-overlay {
+  /* Slide 1: Start aligned - shifted towards center */
+  [dir="rtl"] .hero-slide.slide-1 .hero-overlay {
+    justify-content: flex-start;
+    padding-right: 100px;
+    padding-left: 0;
+  }
+
+  [dir="ltr"] .hero-slide.slide-1 .hero-overlay {
     justify-content: flex-start;
     padding-left: 100px;
+    padding-right: 0;
   }
 
-  .hero-slide.slide-1 .hero-content {
-    text-align: left;
-    transform: translateX(12%);
-  }
-
-  .hero-slide.slide-1.active .hero-content {
-    transform: translateX(12%);
-  }
-
-  .hero-slide.slide-1 .hero-cta-btn {
-    margin-left: 0;
-    margin-right: auto;
-  }
-
-  /* Slide 2: Right aligned - shifted towards center */
-  .hero-slide.slide-2 .hero-overlay {
-    justify-content: flex-end;
-    padding-right: 100px;
-  }
-
-  .hero-slide.slide-2 .hero-content {
+  [dir="rtl"] .hero-slide.slide-1 .hero-content {
     text-align: right;
     transform: translateX(-12%);
   }
 
-  .hero-slide.slide-2.active .hero-content {
-    transform: translateX(-12%);
-  }
-
-  .hero-slide.slide-2 .hero-cta-btn {
-    margin-left: auto;
-    margin-right: 0;
-  }
-
-  /* Slide 3: Left aligned - shifted towards center */
-  .hero-slide.slide-3 .hero-overlay {
-    justify-content: flex-start;
-    padding-left: 100px;
-  }
-
-  .hero-slide.slide-3 .hero-content {
+  [dir="ltr"] .hero-slide.slide-1 .hero-content {
     text-align: left;
     transform: translateX(12%);
   }
 
-  .hero-slide.slide-3.active .hero-content {
+  [dir="rtl"] .hero-slide.slide-1.active .hero-content {
+    transform: translateX(-12%);
+  }
+
+  [dir="ltr"] .hero-slide.slide-1.active .hero-content {
     transform: translateX(12%);
   }
 
-  .hero-slide.slide-3 .hero-cta-btn {
+  [dir="rtl"] .hero-slide.slide-1 .hero-cta-btn {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  [dir="ltr"] .hero-slide.slide-1 .hero-cta-btn {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  /* Slide 2: End aligned - shifted towards center */
+  [dir="rtl"] .hero-slide.slide-2 .hero-overlay {
+    justify-content: flex-end;
+    padding-left: 100px;
+    padding-right: 0;
+  }
+
+  [dir="ltr"] .hero-slide.slide-2 .hero-overlay {
+    justify-content: flex-end;
+    padding-right: 100px;
+    padding-left: 0;
+  }
+
+  [dir="rtl"] .hero-slide.slide-2 .hero-content {
+    text-align: left;
+    transform: translateX(12%);
+  }
+
+  [dir="ltr"] .hero-slide.slide-2 .hero-content {
+    text-align: right;
+    transform: translateX(-12%);
+  }
+
+  [dir="rtl"] .hero-slide.slide-2.active .hero-content {
+    transform: translateX(12%);
+  }
+
+  [dir="ltr"] .hero-slide.slide-2.active .hero-content {
+    transform: translateX(-12%);
+  }
+
+  [dir="rtl"] .hero-slide.slide-2 .hero-cta-btn {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  [dir="ltr"] .hero-slide.slide-2 .hero-cta-btn {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  /* Slide 3: Start aligned - shifted towards center */
+  [dir="rtl"] .hero-slide.slide-3 .hero-overlay {
+    justify-content: flex-start;
+    padding-right: 100px;
+    padding-left: 0;
+  }
+
+  [dir="ltr"] .hero-slide.slide-3 .hero-overlay {
+    justify-content: flex-start;
+    padding-left: 100px;
+    padding-right: 0;
+  }
+
+  [dir="rtl"] .hero-slide.slide-3 .hero-content {
+    text-align: right;
+    transform: translateX(-12%);
+  }
+
+  [dir="ltr"] .hero-slide.slide-3 .hero-content {
+    text-align: left;
+    transform: translateX(12%);
+  }
+
+  [dir="rtl"] .hero-slide.slide-3.active .hero-content {
+    transform: translateX(-12%);
+  }
+
+  [dir="ltr"] .hero-slide.slide-3.active .hero-content {
+    transform: translateX(12%);
+  }
+
+  [dir="rtl"] .hero-slide.slide-3 .hero-cta-btn {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  [dir="ltr"] .hero-slide.slide-3 .hero-cta-btn {
     margin-left: 0;
     margin-right: auto;
   }
@@ -165,7 +228,9 @@
   margin-bottom: 24px;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-in-out 0.3s, transform 0.6s ease-in-out 0.3s;
+  transition:
+    opacity 0.6s ease-in-out 0.3s,
+    transform 0.6s ease-in-out 0.3s;
 }
 
 .hero-slide.active .hero-title {
@@ -183,7 +248,9 @@
   text-transform: uppercase;
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-in-out 0.4s, transform 0.6s ease-in-out 0.4s;
+  transition:
+    opacity 0.6s ease-in-out 0.4s,
+    transform 0.6s ease-in-out 0.4s;
 }
 
 .hero-slide.active .hero-subtitle {
@@ -202,7 +269,9 @@
   line-height: 1.5em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.3s, opacity 0.6s ease-in-out 0.5s,
+  transition:
+    background 0.3s,
+    opacity 0.6s ease-in-out 0.5s,
     transform 0.3s ease-in-out 0s;
   opacity: 0;
   transform: translateY(20px);
@@ -250,7 +319,9 @@ a.hero-cta-btn:hover {
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  transition: background 0.3s, transform 0.3s;
+  transition:
+    background 0.3s,
+    transform 0.3s;
   font-size: 16px;
 }
 
@@ -259,12 +330,24 @@ a.hero-cta-btn:hover {
   transform: translateY(-50%) scale(1.1);
 }
 
-.hero-arrow-left {
-  right: 20px;
+[dir="rtl"] .hero-arrow-left {
+  left: 20px;
+  right: auto;
 }
 
-.hero-arrow-right {
+[dir="ltr"] .hero-arrow-left {
+  right: 20px;
+  left: auto;
+}
+
+[dir="rtl"] .hero-arrow-right {
+  right: 20px;
+  left: auto;
+}
+
+[dir="ltr"] .hero-arrow-right {
   left: 20px;
+  right: auto;
 }
 
 /* Hero Bullets */
@@ -423,7 +506,10 @@ a.hero-cta-btn:hover {
   line-height: 1.5em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition:
+    background 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
   margin-top: auto;
   display: inline-block;
   text-decoration: none;
@@ -458,7 +544,10 @@ a.service-btn {
   line-height: 1.5em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+  transition:
+    background 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
   margin-top: 24px;
   display: inline-flex;
   align-items: center;
@@ -508,8 +597,19 @@ a.service-btn {
   align-items: center;
   gap: 12px;
   border: 1px solid rgba(190, 146, 73, 0.15);
-  transition: box-shadow 0.3s, transform 0.3s, border-color 0.3s;
+  transition:
+    box-shadow 0.3s,
+    transform 0.3s,
+    border-color 0.3s;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[dir="rtl"] .branch-box {
+  text-align: center;
+}
+
+[dir="ltr"] .branch-box {
+  text-align: center;
 }
 
 .branch-box:hover {

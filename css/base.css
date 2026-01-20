@@ -41,7 +41,6 @@ body {
   color: var(--mine-shaft);
   line-height: 1.6;
   direction: ltr;
-  text-align: right;
   max-width: 100%;
   width: 100%;
   position: relative;
@@ -49,6 +48,19 @@ body {
   overflow-y: visible;
   margin: 0;
   padding: 0;
+  transition: direction 0.3s ease;
+}
+
+/* RTL specific styles */
+[dir="rtl"] body {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* LTR specific styles */
+[dir="ltr"] body {
+  direction: ltr !important;
+  text-align: left !important;
 }
 
 .container {

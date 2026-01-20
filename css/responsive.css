@@ -22,33 +22,80 @@
 
 @media (max-width: 968px) {
   .about-clinic-wrapper {
-    flex-direction: column;
-    padding-left: 0;
+    flex-direction: column !important;
+    padding: 0 30px !important;
+    gap: 0 !important;
+  }
+
+  [dir="rtl"] .about-clinic-wrapper {
+    flex-direction: column !important;
+  }
+
+  [dir="ltr"] .about-clinic-wrapper {
+    flex-direction: column !important;
   }
 
   .about-clinic-content {
-    width: 100%;
-    padding: 48px 30px;
+    width: 100% !important;
+    padding: 48px 0 !important;
+  }
+
+  [dir="rtl"] .about-clinic-content {
+    padding: 48px 0 !important;
+  }
+
+  [dir="ltr"] .about-clinic-content {
+    padding: 48px 0 !important;
   }
 
   .clinic-image-wrapper {
-    width: 100%;
+    width: 100% !important;
     height: 400px;
+    order: -1;
+  }
+
+  .clinic-image-wrapper img {
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
   }
 
   .testimonials-wrapper {
-    flex-direction: column;
+    flex-direction: column !important;
+    padding: 0 30px !important;
+    gap: 0 !important;
+  }
+
+  [dir="rtl"] .testimonials-wrapper {
+    flex-direction: column !important;
+  }
+
+  [dir="ltr"] .testimonials-wrapper {
+    flex-direction: column !important;
   }
 
   .testimonial-image-wrapper {
-    width: 100%;
+    width: 100% !important;
     height: 300px;
+    order: -1;
+  }
+
+  .testimonial-image-wrapper img {
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
   }
 
   .testimonials-content {
-    width: 100%;
-    padding: 30px;
+    width: 100% !important;
+    padding: 30px 0 !important;
     height: auto;
+  }
+
+  [dir="rtl"] .testimonials-content {
+    padding: 30px 0 !important;
+  }
+
+  [dir="ltr"] .testimonials-content {
+    padding: 30px 0 !important;
   }
 
   .testimonial-card {
@@ -86,10 +133,6 @@
     width: 100%;
   }
 
-  .footer-services,
-  .footer-contact {
-    text-align: center;
-  }
 
   .social-media {
     justify-content: center;
@@ -211,7 +254,9 @@
     width: 100%;
     border-bottom: 1px solid var(--mercury);
     justify-content: space-between;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
   }
 
   .nav-link:active {
@@ -249,7 +294,9 @@
     background: var(--mercury);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
+    transition:
+      max-height 0.3s ease,
+      padding 0.3s ease;
   }
 
   .has-dropdown.active .dropdown-menu {
@@ -422,27 +469,48 @@
   }
 
   .about-clinic-wrapper {
-    flex-direction: column;
-    padding: 0 20px;
-    padding-left: 0;
+    flex-direction: column !important;
+    padding: 0 20px !important;
     box-sizing: border-box;
     width: 100%;
+    gap: 0 !important;
+  }
+
+  [dir="rtl"] .about-clinic-wrapper {
+    flex-direction: column !important;
+  }
+
+  [dir="ltr"] .about-clinic-wrapper {
+    flex-direction: column !important;
   }
 
   .about-clinic-content {
-    width: 100%;
+    width: 100% !important;
     max-width: 100%;
-    padding: 30px 0;
+    padding: 30px 0 !important;
     box-sizing: border-box;
   }
 
+  [dir="rtl"] .about-clinic-content {
+    padding: 30px 0 !important;
+  }
+
+  [dir="ltr"] .about-clinic-content {
+    padding: 30px 0 !important;
+  }
+
   .clinic-image-wrapper {
-    width: 100%;
+    width: 100% !important;
     max-width: 100%;
     height: 350px;
     order: -1;
     margin-bottom: 20px;
     box-sizing: border-box;
+  }
+
+  .clinic-image-wrapper img {
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
   }
 
   .stats-row {
@@ -460,25 +528,46 @@
   }
 
   .testimonials-wrapper {
-    flex-direction: column;
-    padding: 0 20px;
-    padding-right: 0;
+    flex-direction: column !important;
+    padding: 0 20px !important;
     box-sizing: border-box;
     width: 100%;
+    gap: 0 !important;
+  }
+
+  [dir="rtl"] .testimonials-wrapper {
+    flex-direction: column !important;
+  }
+
+  [dir="ltr"] .testimonials-wrapper {
+    flex-direction: column !important;
   }
 
   .testimonial-image-wrapper {
-    width: 100%;
+    width: 100% !important;
     height: 300px;
+    order: -1;
+  }
+
+  .testimonial-image-wrapper img {
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
   }
 
   .testimonials-content {
-    width: 100%;
+    width: 100% !important;
     max-width: 100%;
-    padding: 30px 0;
-    padding-right: 0;
+    padding: 30px 0 !important;
     height: auto;
     box-sizing: border-box;
+  }
+
+  [dir="rtl"] .testimonials-content {
+    padding: 30px 0 !important;
+  }
+
+  [dir="ltr"] .testimonials-content {
+    padding: 30px 0 !important;
   }
 
   /* Services Section */
@@ -526,10 +615,6 @@
     width: 100%;
   }
 
-  .footer-services,
-  .footer-contact {
-    text-align: center;
-  }
 
   .social-media {
     justify-content: center;

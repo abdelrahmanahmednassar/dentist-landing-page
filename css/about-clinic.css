@@ -8,28 +8,47 @@
   display: flex;
   flex-direction: row;
   align-items: stretch;
-  max-width: 1713px;
-  margin: 0 auto;
-  padding-left: 268.5px;
-  gap: 40px;
+  max-width: 100%;
+  gap: 100px;
   box-sizing: border-box;
   width: 100%;
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .about-clinic-wrapper {
+  margin: 0;
+  padding: 0;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+[dir="ltr"] .about-clinic-wrapper {
+  margin: 0;
+  padding: 0;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 /* Left: Text Content */
 .about-clinic-content {
   width: 588px;
   max-width: 100%;
-  padding: 48px 16px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
+[dir="rtl"] .about-clinic-content {
+  padding: 48px 16px 48px 80px;
+}
+
+[dir="ltr"] .about-clinic-content {
+  padding: 48px 80px 48px 16px;
+}
+
 .section-header {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
   margin-bottom: 8px;
 }
 
@@ -39,7 +58,6 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 1.8000000544956751em;
-  text-align: right;
   margin-bottom: 0;
 }
 
@@ -49,7 +67,6 @@
   font-size: 25.2px;
   line-height: 1em;
   color: var(--haiti);
-  text-align: left;
   margin: 0;
   margin-top: 8.01px;
 }
@@ -64,7 +81,6 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.8571428571428572em;
-  text-align: right;
   margin: 0;
   margin-bottom: 0;
 }
@@ -91,7 +107,6 @@
   justify-content: flex-start;
   flex: 1;
   padding: 0;
-  text-align: center;
   min-width: 116.5px;
 }
 
@@ -125,7 +140,6 @@
   line-height: 1.2000000454130648em;
   letter-spacing: -5%;
   color: var(--tussock);
-  text-align: center;
   margin-top: 53.9px;
   padding: 0 27.98px;
 }
@@ -147,12 +161,51 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+[dir="rtl"] .clinic-image-wrapper img {
   clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
   -webkit-clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+[dir="ltr"] .clinic-image-wrapper img {
+  clip-path: polygon(0 0, 92% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 92% 0, 100% 100%, 0 100%);
 }
 
 .service-item h4 {
   font-size: 18px;
   font-weight: 700;
   color: var(--haiti);
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+  .about-clinic-wrapper {
+    flex-direction: column;
+    padding: 0 30px !important;
+  }
+
+  [dir="rtl"] .about-clinic-wrapper {
+    padding: 0 30px !important;
+  }
+
+  [dir="ltr"] .about-clinic-wrapper {
+    padding: 0 30px !important;
+  }
+
+  .about-clinic-content {
+    width: 100%;
+    padding: 48px 0;
+  }
+
+  .clinic-image-wrapper {
+    width: 100%;
+    height: 400px;
+  }
+
+  .clinic-image-wrapper img {
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+  }
 }
