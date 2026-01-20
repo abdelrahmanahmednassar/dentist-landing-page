@@ -1,0 +1,216 @@
+/* Top Header - Pixel Perfect from Figma */
+.topHeader {
+  background: var(--white);
+  border-bottom: 1px solid var(--mercury);
+}
+
+.phoneLink {
+  color: var(--black);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.phoneLink:hover {
+  color: var(--tussock);
+}
+
+.topHeaderContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 0 15px;
+}
+
+.appointmentBtn {
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  padding: 12px 24px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.4283332824707031em;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.3s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.appointmentBtn:hover {
+  background: #333333;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.languageToggleBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: var(--tussock);
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-family: var(--font-family);
+  line-height: 1;
+}
+
+.languageToggleBtn:hover {
+  opacity: 0.7;
+}
+
+.languageToggleBtn i {
+  font-size: 16px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.socialIcon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.socialIcon:hover {
+  color: var(--tussock);
+}
+
+.topHeaderRight {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.contactInfoTop {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  order: 2;
+}
+
+.contactItemTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--dusty-gray);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.contactItemTop i {
+  color: var(--dusty-gray);
+  font-size: 14px;
+}
+
+.languageSelector {
+  position: relative;
+  flex-shrink: 0;
+  order: 1;
+}
+
+.langLink {
+  color: var(--boulder);
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.langLink i {
+  font-size: 10px;
+}
+
+.langDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--white);
+  box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  padding: 8px 0;
+  min-width: 120px;
+  display: none;
+  z-index: 1000;
+}
+
+.languageSelector:hover .langDropdown {
+  display: block;
+}
+
+.langOption {
+  display: block;
+  padding: 8px 16px;
+  color: var(--boulder);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.langOption:hover {
+  background: var(--mercury);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .topHeader {
+    display: none;
+  }
+
+  .topHeaderContent {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .topHeaderRight {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .contactInfoTop {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .contactItemTop {
+    font-size: 12px;
+  }
+
+  .appointmentBtn {
+    width: 100%;
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}

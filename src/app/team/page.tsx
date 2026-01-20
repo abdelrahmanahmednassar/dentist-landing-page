@@ -1,0 +1,108 @@
+"use client";
+
+import { useMessages, useLocale } from "next-intl";
+import styles from "@/styles/team.module.css";
+import Link from "next/link";
+
+const teamMembers = [
+  {
+    image:
+      "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&h=500&fit=crop",
+    memberKey: "member1",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&h=500&fit=crop",
+    memberKey: "member2",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&h=500&fit=crop",
+    memberKey: "member3",
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=500&h=500&fit=crop",
+    memberKey: "member4",
+  },
+];
+
+export default function TeamPage() {
+  const language = useLocale();
+  const messages = useMessages() as any;
+  const team = messages.team;
+
+  return (
+    <section className={styles.teamSection}>
+      <div className="container">
+        <div className={styles.sectionHeader}>
+          <span className={styles.sectionLabel}>{team.label}</span>
+          <h1 className={styles.sectionTitle}>{team.title}</h1>
+          <p className={styles.sectionSubtitle}>{team.subtitle}</p>
+        </div>
+
+        <div className={styles.teamGrid}>
+          {teamMembers.map((member, index) => {
+            const memberData = team[member.memberKey as keyof typeof team] as {
+              name: string;
+              position: string;
+              bio: string;
+              cert1: string;
+              cert2: string;
+              cert3: string;
+              cert4: string;
+            };
+
+            return (
+              <div key={index} className={styles.teamCard}>
+                <div className={styles.teamImage}>
+                  <img
+                    src={member.image}
+                    alt={memberData.name}
+                    loading="lazy"
+                  />
+                  <div className={styles.teamOverlay}>
+                    <div className={styles.teamSocial}>
+                      <a href="#" aria-label="Facebook">
+                        <i className="bx bxl-facebook"></i>
+                      </a>
+                      <a href="#" aria-label="Instagram">
+                        <i className="bx bxl-instagram"></i>
+                      </a>
+                      <a href="#" aria-label="LinkedIn">
+                        <i className="bx bxl-linkedin"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.teamInfo}>
+                  <h3 className={styles.teamName}>{memberData.name}</h3>
+                  <p className={styles.teamPosition}>{memberData.position}</p>
+                  <p className={styles.teamBio}>{memberData.bio}</p>
+                  <div className={styles.teamCertificates}>
+                    <h4>{team.certificates}</h4>
+                    <ul>
+                      <li>{memberData.cert1}</li>
+                      <li>{memberData.cert2}</li>
+                      <li>{memberData.cert3}</li>
+                      <li>{memberData.cert4}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* CTA Section */}
+        <div className={styles.teamCta}>
+          <h2>{team.cta.title}</h2>
+          <p>{team.cta.text}</p>
+          <Link href="/contact-us" className={styles.ctaButton}>
+            {team.cta.button}
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}

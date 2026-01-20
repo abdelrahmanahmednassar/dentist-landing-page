@@ -1,6 +1,0 @@
-# Redirect sections folder to home page - these are fragments, not standalone pages
-/sections/* / 301
-
-# Ensure blog and service pages are accessed correctly
-/blog /blogs.html 301
-/services /services.html 301

@@ -1,0 +1,245 @@
+/* About Clinic Section */
+.aboutClinic {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.aboutClinicWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  max-width: 100%;
+  gap: 100px;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .aboutClinicWrapper {
+  margin: 0;
+  padding: 0;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+[dir="ltr"] .aboutClinicWrapper {
+  margin: 0;
+  padding: 0;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+/* Left: Text Content */
+.aboutClinicContent {
+  width: 588px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+[dir="rtl"] .aboutClinicContent {
+  padding: 48px 16px 48px 80px;
+}
+
+[dir="ltr"] .aboutClinicContent {
+  padding: 48px 80px 48px 16px;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.sectionLabel {
+  color: var(--tussock);
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.8000000544956751em;
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 25.2px;
+  line-height: 1em;
+  color: var(--haiti);
+  margin: 0;
+  margin-top: 8.01px;
+}
+
+.aboutText {
+  margin-bottom: 0;
+}
+
+.aboutText p {
+  color: var(--boulder);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.8571428571428572em;
+  margin: 0;
+  margin-bottom: 0;
+}
+
+.aboutText p + p {
+  margin-top: 10px;
+}
+
+.statsRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0;
+  margin: 15px -15px;
+  padding: 15px 0 35.16px;
+  flex-wrap: wrap;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+  padding: 0;
+  min-width: 116.5px;
+}
+
+.statNumber {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 38.5px;
+  line-height: 1.4000000396332184em;
+  color: var(--tussock);
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  height: 54px;
+}
+
+.statNumber span {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 38.5px;
+  line-height: 1em;
+  color: var(--tussock);
+  margin-right: 9.91px;
+}
+
+.statLabel {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 16.8px;
+  line-height: 1.2000000454130648em;
+  letter-spacing: -5%;
+  color: var(--tussock);
+  margin-top: 53.9px;
+  padding: 0 27.98px;
+}
+
+/* Right: Clinic Image */
+.clinicImageWrapper {
+  width: 856.5px;
+  max-width: 100%;
+  height: 100%;
+  overflow: visible;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.clinicImageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+[dir="rtl"] .clinicImageWrapper img {
+  clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%);
+}
+
+[dir="ltr"] .clinicImageWrapper img {
+  clip-path: polygon(0 0, 92% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 92% 0, 100% 100%, 0 100%);
+}
+
+.serviceItem h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--haiti);
+}
+
+/* Mobile Responsive */
+@media (max-width: 968px) {
+  .aboutClinicWrapper {
+    flex-direction: column-reverse !important;
+    padding: 0 30px !important;
+  }
+
+  [dir="rtl"] .aboutClinicWrapper {
+    flex-direction: column-reverse !important;
+    padding: 0 30px !important;
+  }
+
+  [dir="ltr"] .aboutClinicWrapper {
+    flex-direction: column-reverse !important;
+    padding: 0 30px !important;
+  }
+
+  .aboutClinicContent {
+    width: 100%;
+    padding: 48px 0;
+  }
+
+  .clinicImageWrapper {
+    width: 100%;
+    height: 400px;
+  }
+
+  .clinicImageWrapper img {
+    clip-path: none !important;
+    -webkit-clip-path: none !important;
+  }
+
+  .statsRow {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .statItem {
+    min-width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutClinicWrapper {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+
+  .statsRow {
+    gap: 15px;
+  }
+
+  .statItem {
+    min-width: calc(50% - 7.5px);
+  }
+
+  .statNumber {
+    font-size: 32px;
+  }
+
+  .statLabel {
+    font-size: 14px;
+  }
+}

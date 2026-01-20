@@ -1,0 +1,858 @@
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.phoneLink {
+  color: var(--black);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.phoneLink:hover {
+  color: var(--tussock);
+}
+
+.ctaBtnServiceBtn {
+  background: transparent !important;
+  border: 2px solid var(--tussock) !important;
+  box-shadow: none !important;
+  color: var(--tussock) !important;
+  padding: 18px 40px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.ctaBtnServiceBtn:hover {
+  background: transparent !important;
+  color: var(--tussock) !important;
+  border-color: #a67a3a !important;
+}
+
+/* Hero Slider */
+.heroSlider {
+  position: relative;
+  width: 100%;
+  height: 906px;
+  overflow: visible;
+}
+
+.heroSlide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.heroSlide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.heroSlide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.heroSlideSlide2 img {
+  object-position: 30% center;
+}
+
+.heroSlideSlide3 img {
+  object-position: 65% center;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.heroContent {
+  text-align: center;
+  color: var(--white);
+  max-width: 800px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 20;
+}
+
+/* Desktop-only: Alternate text alignment for slides */
+@media (min-width: 769px) {
+  /* Slide 1: Start aligned - shifted towards center */
+  [dir="rtl"] .heroSlideSlide1 .heroOverlay {
+    justify-content: flex-end;
+    padding-left: 100px;
+    padding-right: 0;
+  }
+
+  [dir="ltr"] .heroSlideSlide1 .heroOverlay {
+    justify-content: flex-start;
+    padding-left: 100px;
+    padding-right: 0;
+  }
+
+  [dir="rtl"] .heroSlideSlide1 .heroContent {
+    text-align: left;
+    transform: translateX(12%);
+  }
+
+  [dir="ltr"] .heroSlideSlide1 .heroContent {
+    text-align: left;
+    transform: translateX(12%);
+  }
+
+  [dir="rtl"] .heroSlideSlide1.active .heroContent {
+    transform: translateX(12%);
+  }
+
+  [dir="ltr"] .heroSlideSlide1.active .heroContent {
+    transform: translateX(12%);
+  }
+
+  [dir="rtl"] .heroSlideSlide1 .heroCtaBtn {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  [dir="ltr"] .heroSlideSlide1 .heroCtaBtn {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  /* Slide 2: End aligned - shifted towards center */
+  [dir="rtl"] .heroSlideSlide2 .heroOverlay {
+    justify-content: flex-start;
+    padding-right: 100px;
+    padding-left: 0;
+  }
+
+  [dir="ltr"] .heroSlideSlide2 .heroOverlay {
+    justify-content: flex-end;
+    padding-right: 100px;
+    padding-left: 0;
+  }
+
+  [dir="rtl"] .heroSlideSlide2 .heroContent {
+    text-align: right;
+    transform: translateX(-12%);
+  }
+
+  [dir="ltr"] .heroSlideSlide2 .heroContent {
+    text-align: right;
+    transform: translateX(-12%);
+  }
+
+  [dir="rtl"] .heroSlideSlide2.active .heroContent {
+    transform: translateX(-12%);
+  }
+
+  [dir="ltr"] .heroSlideSlide2.active .heroContent {
+    transform: translateX(-12%);
+  }
+
+  [dir="rtl"] .heroSlideSlide2 .heroCtaBtn {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  [dir="ltr"] .heroSlideSlide2 .heroCtaBtn {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  /* Slide 3: Start aligned - shifted towards center */
+  [dir="rtl"] .heroSlideSlide3 .heroOverlay {
+    justify-content: flex-end;
+    padding-left: 100px;
+    padding-right: 0;
+  }
+
+  [dir="ltr"] .heroSlideSlide3 .heroOverlay {
+    justify-content: flex-start;
+    padding-left: 100px;
+    padding-right: 0;
+  }
+
+  [dir="rtl"] .heroSlideSlide3 .heroContent {
+    text-align: left;
+    transform: translateX(12%);
+  }
+
+  [dir="ltr"] .heroSlideSlide3 .heroContent {
+    text-align: left;
+    transform: translateX(12%);
+  }
+
+  [dir="rtl"] .heroSlideSlide3.active .heroContent {
+    transform: translateX(12%);
+  }
+
+  [dir="ltr"] .heroSlideSlide3.active .heroContent {
+    transform: translateX(12%);
+  }
+
+  [dir="rtl"] .heroSlideSlide3 .heroCtaBtn {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  [dir="ltr"] .heroSlideSlide3 .heroCtaBtn {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  /* Larger arrows on desktop */
+  .heroArrow {
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    font-size: 28px;
+  }
+}
+
+.heroTitle {
+  font-family: var(--font-family);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 1.263157894736842em;
+  color: var(--white);
+  margin-bottom: 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease-in-out 0.3s,
+    transform 0.6s ease-in-out 0.3s;
+}
+
+.heroSlide.active .heroTitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heroSubtitle {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.2222222222222223em;
+  color: var(--white);
+  margin-bottom: 32px;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease-in-out 0.4s,
+    transform 0.6s ease-in-out 0.4s;
+}
+
+.heroSlide.active .heroSubtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heroCtaBtn {
+  background: var(--tussock);
+  color: var(--white);
+  border: 1px solid var(--black);
+  padding: 20px 80px;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    opacity 0.6s ease-in-out 0.5s,
+    transform 0.3s ease-in-out 0s;
+  opacity: 0;
+  transform: translateY(20px);
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  z-index: 25;
+  pointer-events: auto;
+}
+
+a.heroCtaBtn {
+  text-decoration: none;
+  color: var(--white);
+}
+
+a.heroCtaBtn:hover {
+  background: #a67a3a;
+  color: var(--white);
+  text-decoration: none;
+  transform: scale(1.05);
+}
+
+.heroSlide.active .heroCtaBtn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heroSlide.active .heroCtaBtn:hover {
+  transform: translateY(0) scale(1.05);
+}
+
+/* Hero Navigation Arrows */
+.heroArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--tussock);
+  color: var(--white);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition:
+    background 0.3s,
+    transform 0.3s;
+  font-size: 16px;
+}
+
+.heroArrow:hover {
+  background: #a67a3a;
+  transform: translateY(-50%) scale(1.1);
+}
+
+[dir="rtl"] .heroArrowLeft {
+  left: 20px;
+  right: auto;
+}
+
+[dir="ltr"] .heroArrowLeft {
+  right: 20px;
+  left: auto;
+}
+
+[dir="rtl"] .heroArrowRight {
+  right: 20px;
+  left: auto;
+}
+
+[dir="ltr"] .heroArrowRight {
+  left: 20px;
+  right: auto;
+}
+
+/* Hero Bullets */
+.heroBullets {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.heroBullet {
+  width: 15px;
+  height: 15px;
+  border-radius: 7.5px;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.heroBullet.active {
+  background: var(--white);
+}
+
+/* Hero Services (Cards Below Slider) */
+.heroServices {
+  background: transparent;
+  padding: 0;
+  margin-top: -180px;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 48px;
+  margin-bottom: 100px;
+}
+
+.serviceCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 0 15px;
+  position: relative;
+  z-index: 10;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.serviceCard {
+  background: var(--white);
+  padding: 48px;
+  border-radius: 8px;
+  box-shadow: 0px 10px 30px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 11;
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+}
+
+.serviceIcon {
+  width: 104px;
+  height: 104px;
+  border-radius: 20px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.serviceIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.serviceIconCalendar {
+  width: 104px;
+  height: 104px;
+}
+
+.serviceIconPhone {
+  width: 91px;
+  height: 91px;
+}
+
+.serviceImage {
+  width: 286px;
+  max-width: 100%;
+  height: 105px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.serviceImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.serviceCard h3 {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.1999999682108562em;
+  color: var(--haiti);
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.serviceCard p {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.8571428571428572em;
+  color: var(--boulder);
+  margin-bottom: 20px;
+  text-align: center;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+/* Logo Card - Doctor Name Styling */
+.serviceCardHasServiceImage p {
+  font-weight: 600;
+  color: #4a4a4a;
+  font-size: 15px;
+}
+
+.serviceBtn {
+  background: var(--tussock);
+  color: var(--white);
+  border: none;
+  padding: 18px 40px;
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+  margin-top: auto;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(166, 122, 58, 0.3);
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+a.serviceBtn {
+  text-decoration: none !important;
+  color: var(--white);
+}
+
+.serviceBtn:hover {
+  background: #a67a3a;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(166, 122, 58, 0.4);
+  color: var(--white);
+}
+
+/* WhatsApp Button in Contact Card */
+.whatsappBtn {
+  background: var(--tussock);
+  color: var(--white);
+  border: none;
+  padding: 18px 40px;
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(190, 146, 73, 0.3);
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.whatsappBtn i {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.whatsappBtn:hover {
+  background: #a67a3a;
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(190, 146, 73, 0.4);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.whatsappBtn:active {
+  transform: translateY(0);
+}
+
+/* Contact Branches Styling */
+.contactBranches {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.branchBox {
+  background: var(--white);
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(190, 146, 73, 0.15);
+  transition:
+    box-shadow 0.3s,
+    transform 0.3s,
+    border-color 0.3s;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+[dir="rtl"] .branchBox {
+  text-align: center;
+}
+
+[dir="ltr"] .branchBox {
+  text-align: center;
+}
+
+.branchBox:hover {
+  box-shadow: 0px 8px 24px rgba(190, 146, 73, 0.2);
+  transform: translateY(-3px);
+  border-color: rgba(190, 146, 73, 0.3);
+}
+
+.branchIcon {
+  font-size: 28px;
+  flex-shrink: 0;
+  margin-bottom: 4px;
+}
+
+.branchContent {
+  flex: 1;
+  text-align: center;
+  width: 100%;
+}
+
+.branchTitle {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.5em;
+  color: var(--haiti);
+  margin-bottom: 10px;
+}
+
+.branchPhone {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.6em;
+  color: var(--tussock);
+  margin-bottom: 10px;
+}
+
+.branchAddress {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.7em;
+  color: var(--boulder);
+  margin-bottom: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .heroSlide img {
+    object-position: 60% center;
+  }
+
+  .heroSlideSlide2 img {
+    object-position: 45% center;
+  }
+
+  .heroSlideSlide3 img {
+    object-position: 85% center;
+  }
+
+  .heroOverlay {
+    align-items: flex-start;
+    padding-top: 120px;
+  }
+
+  .heroTitle {
+    font-size: 42px;
+  }
+
+  .heroSubtitle {
+    font-size: 14px;
+  }
+
+  .heroCtaBtn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .heroServices {
+    margin-top: -100px;
+    max-width: 100%;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .serviceCards {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 15px;
+    max-width: 100%;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .serviceCard {
+    width: 100%;
+    max-width: 100%;
+    padding: 24px 20px;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+  .serviceCard h3 {
+    font-size: 18px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .serviceCard p {
+    font-size: 13px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .serviceIcon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .serviceImage {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    aspect-ratio: 286 / 105;
+    margin-top: 10px;
+  }
+
+  .serviceBtn {
+    font-size: 15px;
+    padding: 16px 30px;
+  }
+
+  .contactBranches {
+    gap: 16px;
+  }
+
+  .branchBox {
+    padding: 20px 16px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .branchIcon {
+    margin: 0 auto 4px;
+    font-size: 24px;
+  }
+
+  .branchContent {
+    text-align: center;
+  }
+
+  .branchTitle {
+    font-size: 16px;
+  }
+
+  .branchPhone {
+    font-size: 14px;
+  }
+
+  .branchAddress {
+    font-size: 12px;
+  }
+
+  .whatsappBtn {
+    font-size: 15px;
+    padding: 16px 30px;
+  }
+
+  .whatsappBtn i {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroSlide img {
+    object-position: 65% center;
+  }
+
+  .heroSlideSlide2 img {
+    object-position: 50% center;
+  }
+
+  .heroSlideSlide3 img {
+    object-position: 90% center;
+  }
+
+  .heroOverlay {
+    padding-top: 160px;
+  }
+
+  .heroTitle {
+    font-size: 35px;
+  }
+
+  .heroSubtitle {
+    font-size: 12px;
+  }
+
+  .heroServices {
+    margin-top: -80px;
+    max-width: 100%;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .serviceCards {
+    gap: 15px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .serviceCard {
+    padding: 20px 15px;
+    min-width: 0;
+  }
+
+  .serviceCard h3 {
+    font-size: 16px;
+  }
+
+  .serviceCard p {
+    font-size: 12px;
+  }
+
+  .serviceIcon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .serviceImage {
+    max-width: 200px;
+  }
+}

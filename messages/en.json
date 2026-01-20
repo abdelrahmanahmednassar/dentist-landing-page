@@ -1,0 +1,994 @@
+{
+  "header": {
+    "appointment": "MAKE AN APPOINTMENT",
+    "hours": "Sat - Thu 2:00pm - 10:00pm / Friday - CLOSED"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Our Services",
+    "cases": "Cases",
+    "team": "Our Team",
+    "blogs": "Blog",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "slide1": {
+      "title": "Fayed Dental Clinic",
+      "subtitle": "The Icon of Luxury Dentistry",
+      "cta": "About Us"
+    },
+    "slide2": {
+      "title": "Bright Smile",
+      "subtitle": "Advanced dental care services with the latest technologies",
+      "cta": "Our Services"
+    },
+    "slide3": {
+      "title": "Exceptional Healthcare",
+      "subtitle": "Years of experience in dental treatment and cosmetics",
+      "cta": "Book Appointment"
+    },
+    "card1": {
+      "title": "Book Your Clinic Appointment",
+      "desc": "Get rid of your dental problems easily",
+      "btn": "Book Now"
+    },
+    "card2": {
+      "title": "Book Online Consultation",
+      "desc": "Learn about your case details before visiting the clinic directly from the doctor through a video call",
+      "btn": "Book Consultation Now"
+    },
+    "card3": {
+      "title": "Contact Us",
+      "desc": "We're always here to answer your questions",
+      "btn": "Call Us Now"
+    }
+  },
+  "cases": {
+    "title": "Results From Our Clinic",
+    "section1": "Dental Implants",
+    "section2": "Cosmetic Dentistry with Veneers",
+    "section3": "Zirconia Crowns",
+    "section4": "Laser Whitening",
+    "section5": "Cosmetic Laser Fillings",
+    "section6": "Root Canal Treatment",
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "about": {
+    "label": "About Us",
+    "title": "About Fayed Dental Clinic",
+    "intro": "About Us – Fayed Dental Clinic",
+    "p1": "At Fayed Dental Clinic, we believe that a beautiful smile starts with proper and thoughtful healthcare. With over 7 years of experience in dentistry and cosmetic dentistry, we provide our patients with comprehensive services to the highest standards of quality and precision, using the latest technologies and modern equipment to ensure the best results.",
+    "p2": "Our goal is not only treatment, but also to provide a comfortable and safe experience for every patient, from the first moment of entering the clinic until the completion of the treatment plan and continuous follow-up. We pay attention to the finest details, from complete sterilization to choosing the most suitable treatment plan that suits each patient's condition and special needs.",
+    "p3": "At Fayed Dental Clinic, we combine experience, comfort, and professionalism... to give you a healthy smile that lasts.",
+    "stat1": {
+      "number": "3500",
+      "label": "Satisfied Clients"
+    },
+    "stat2": {
+      "number": "2500",
+      "label": "Successful Implants"
+    },
+    "stat3": {
+      "number": "30",
+      "label": "Team Members"
+    },
+    "stat4": {
+      "number": "1600",
+      "label": "Happy Smiles"
+    }
+  },
+  "testimonials": {
+    "title": "Client Reviews",
+    "t1": {
+      "text1": "Medical team at the highest level, from the moment you enter the center you feel that the entire team is concerned about your case, with the latest dental treatment and cosmetic technologies in the world.",
+      "text2": "Punctuality in appointments and continuous follow-up, and the final result is excellent.",
+      "author": "Laila Mansour"
+    },
+    "t2": {
+      "text1": "The experience was comfortable from booking until the sessions were completed. The staff is very cooperative and explains every step before it happens.",
+      "text2": "Classy service and a new smile that made a difference for me at work and in self-confidence.",
+      "author": "Ahmed Mostafa"
+    },
+    "t3": {
+      "text1": "I was worried about the pain, but the team used comfortable anesthesia techniques and completely relieved my anxiety.",
+      "text2": "Post-procedure care was excellent, and all questions found clear answers.",
+      "author": "Sarah Hassan"
+    }
+  },
+  "services": {
+    "label": "What We Offer",
+    "title": "Discover Our Key Services",
+    "subtitle": "We are on a mission to change the way people view dental health services",
+    "s1": {
+      "title": "Dental Implants",
+      "desc": "The optimal solution for tooth replacement with painless and safe procedures using the latest global technologies. Get permanent, natural-looking teeth that last forever by dental implant specialists at Fayed Dental Clinic"
+    },
+    "s2": {
+      "title": "Cosmetic Dentistry",
+      "desc": "Computer smile design technology gives you brighter and more aligned teeth without pain. Guaranteed and fast results while maintaining a natural appearance using the latest techniques and products in cosmetic dentistry at Fayed Dental Clinic"
+    },
+    "s3": {
+      "title": "Hybrid Veneers",
+      "desc": "Get a Hollywood smile with comfortable and painless procedures! Hybrid veneers technology provides you with brilliant white and brighter teeth with the accuracy and speed of advanced computer smile design techniques"
+    },
+    "s4": {
+      "title": "3N Veneers",
+      "desc": "German 3N Veneers technology, available exclusively at Fayed Dental Clinic, gives you exceptionally bright and beautiful teeth with quick and painless procedures. The latest and most advanced technology in cosmetic dentistry for results that last for years"
+    },
+    "learnMore": "Learn More",
+    "cta": {
+      "question": "Need a Specialist?",
+      "text": "Get the best now! Just make an appointment",
+      "btn": "Book Appointment"
+    }
+  },
+  "footer": {
+    "services": {
+      "title": "Our Services",
+      "intro": "Clinic - Dr. Mohamed Fayed, Oral & dental specialist"
+    },
+    "service1": "Maxillofacial Surgery",
+    "service2": "Dental Implants",
+    "service3": "Orthodontics",
+    "service4": "Conservative Treatment & Fillings",
+    "service5": "Cosmetic Dentistry",
+    "service6": "Root Canal & Nerve Filling",
+    "contact": {
+      "title": "Contact Us"
+    },
+    "address": {
+      "label": "Address:",
+      "branch1": "Mohandessin Branch",
+      "branch1Text": "47 Arab League Street - off Shehab Street",
+      "branch2": "Heliopolis Branch",
+      "branch2Text": "165 Oudi Tower, Alf Maskan Square - Suez Street"
+    },
+    "phone": {
+      "label": "Phone Number:"
+    },
+    "hours": {
+      "label": "Working Hours:",
+      "text": "Saturday - Thursday: 2 PM to 10 PM, Friday Closed"
+    },
+    "copyright": "Fayed Dental Clinic. © 2022. All Rights Reserved"
+  },
+  "common": {
+    "whatsapp": "WhatsApp",
+    "scrollTop": "Back to Top"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "We are always here to answer your questions and help you get your dream smile",
+    "branch1": {
+      "title": "Mohandessin Branch",
+      "address": "47 Arab League Street<br>Off Shehab Street"
+    },
+    "branch2": {
+      "title": "Heliopolis Branch",
+      "address": "165 Oudi Tower<br>Alf Maskan Square - Suez Street"
+    },
+    "phone": {
+      "title": "Phone Number"
+    },
+    "hours": {
+      "title": "Working Hours",
+      "text": "Saturday - Thursday: 2 PM to 10 PM<br>Friday: Closed"
+    },
+    "whatsapp": {
+      "title": "WhatsApp"
+    },
+    "email": {
+      "title": "Email"
+    },
+    "cta": "Book Your Appointment Now via WhatsApp"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest articles and tips about dental health and beauty",
+    "back": "Back to Blog",
+    "category": {
+      "all": "All",
+      "care": "Dental Care",
+      "cosmetic": "Cosmetic Dentistry",
+      "implants": "Dental Implants",
+      "tips": "General Tips"
+    },
+    "post1": {
+      "title": "7 Steps for Daily Dental Care",
+      "excerpt": "Learn the best daily practices to maintain healthy teeth and a bright smile. From brushing to flossing.",
+      "date": "January 15, 2026",
+      "readTime": "5 min",
+      "tag1": "Daily Care",
+      "tag2": "Oral Health"
+    },
+    "post2": {
+      "title": "Everything You Need to Know About Laser Teeth Whitening",
+      "excerpt": "Laser teeth whitening is one of the most popular cosmetic procedures. Discover how it works, its benefits, and expected results.",
+      "date": "January 12, 2026",
+      "readTime": "7 min",
+      "tag1": "Teeth Whitening",
+      "tag2": "Laser",
+      "tag3": "Smile"
+    },
+    "post3": {
+      "title": "Your Complete Guide to Dental Implants: Steps and Benefits",
+      "excerpt": "Dental implants are the optimal solution for replacing missing teeth. Learn about procedures, timeline, and success rate.",
+      "date": "January 8, 2026",
+      "readTime": "10 min",
+      "tag1": "Implants",
+      "tag2": "Surgery",
+      "tag3": "Titanium"
+    },
+    "post4": {
+      "title": "Veneers and the Difference Between Types",
+      "excerpt": "Learn about different types of veneers: traditional, lumineers, and 3N Veneers. Choose the best for your case.",
+      "date": "January 5, 2026",
+      "readTime": "6 min",
+      "tag1": "Veneers",
+      "tag2": "Hollywood Smile"
+    },
+    "post5": {
+      "title": "Foods That Strengthen Your Teeth and Others to Avoid",
+      "excerpt": "Your diet greatly affects your dental health. Discover beneficial foods and those harmful to your teeth.",
+      "date": "January 2, 2026",
+      "readTime": "4 min",
+      "tag1": "Nutrition",
+      "tag2": "Prevention"
+    },
+    "post6": {
+      "title": "Children's Dental Care: When to Start?",
+      "excerpt": "Children's dental care begins from the first tooth. Learn the right steps to protect your child's teeth.",
+      "date": "December 28, 2025",
+      "readTime": "5 min",
+      "tag1": "Children",
+      "tag2": "Prevention"
+    }
+  },
+  "team": {
+    "label": "Our Team",
+    "title": "Meet Our Distinguished Team",
+    "subtitle": "A team of specialists and experts in dentistry and cosmetic dentistry, dedicated to providing the best healthcare for our patients",
+    "certificates": "Certificates and Qualifications",
+    "member1": {
+      "name": "Dr. Mohamed Fayed",
+      "position": "Clinic Founder - Dental Implants & Cosmetic Dentistry Specialist",
+      "bio": "Over 7 years of experience in dentistry and cosmetic dentistry. Specialist in dental implants and digital smile design.",
+      "cert1": "Bachelor of Dental Surgery (BDS)",
+      "cert2": "Advanced Dental Implantology Diploma",
+      "cert3": "Digital Smile Design (DSD) Certificate",
+      "cert4": "Member of American Academy of Implant Dentistry"
+    },
+    "member2": {
+      "name": "Dr. Sarah Ahmed",
+      "position": "Cosmetic Dentistry & Veneers Specialist",
+      "bio": "Specialist in cosmetic dentistry and porcelain veneers with 5 years of experience. Expert in veneers and advanced whitening techniques.",
+      "cert1": "Bachelor of Dental Surgery (BDS)",
+      "cert2": "Master's in Cosmetic Dentistry",
+      "cert3": "Advanced Hybrid Veneers Certificate",
+      "cert4": "Laser Teeth Whitening Diploma"
+    },
+    "member3": {
+      "name": "Dr. Ahmed Hassan",
+      "position": "Root Canal & Cosmetic Filling Specialist",
+      "bio": "Expert in root canal treatment and cosmetic fillings with 6 years of experience. Specialist in precise treatments using microscope.",
+      "cert1": "Bachelor of Dental Surgery (BDS)",
+      "cert2": "Advanced Endodontics Diploma",
+      "cert3": "Laser Cosmetic Filling Certificate",
+      "cert4": "Microscopic Root Canal Treatment Course"
+    },
+    "member4": {
+      "name": "Dr. Mona Ibrahim",
+      "position": "Pediatric Dentistry Specialist",
+      "bio": "Specialist in pediatric dentistry with 4 years of experience. Distinguished by her gentle approach to children and anxiety relief.",
+      "cert1": "Bachelor of Dental Surgery (BDS)",
+      "cert2": "Master's in Pediatric Dentistry",
+      "cert3": "Child Psychology Diploma",
+      "cert4": "Dental Caries Prevention Certificate"
+    },
+    "cta": {
+      "title": "Book Your Appointment with Our Distinguished Team",
+      "text": "Our team is ready to provide the best dental care for you. Book your free consultation now!",
+      "button": "Book Your Appointment Now"
+    }
+  },
+  "servicePages": {
+    "teethImplants": {
+      "category": "Dental Implants",
+      "title": "Dental Implants in Egypt",
+      "lead": "Get natural-looking teeth with advanced dental implants. We use the latest technologies to ensure comfort and lasting results.",
+      "imageAlt": "Dental Implants service at Dr. Fayed Dental Clinic",
+      "whatIs": {
+        "title": "What Are Dental Implants?",
+        "p1": "Dental implants are titanium screws surgically placed in the jawbone to replace missing teeth roots. They provide a strong foundation for fixed or removable replacement teeth that match your natural teeth.",
+        "p2": "The implant integrates with the jawbone to become a permanent part of your mouth, providing superior stability and functionality compared to traditional dentures or bridges."
+      },
+      "benefits": {
+        "title": "Benefits of Dental Implants",
+        "item1": {
+          "title": "Natural Appearance",
+          "desc": "Implants look and feel like natural teeth, restoring your beautiful smile"
+        },
+        "item2": {
+          "title": "Improved Function",
+          "desc": "Eat, speak, and smile with confidence without worrying about slipping"
+        },
+        "item3": {
+          "title": "Bone Preservation",
+          "desc": "Prevents bone loss and maintains facial structure"
+        },
+        "item4": {
+          "title": "Durability",
+          "desc": "With proper care, implants can last a lifetime"
+        },
+        "item5": {
+          "title": "Oral Health",
+          "desc": "Doesn't require altering adjacent teeth like bridges do"
+        },
+        "item6": {
+          "title": "High Success Rate",
+          "desc": "Success rate exceeds 95% with modern techniques"
+        }
+      },
+      "steps": {
+        "title": "Dental Implant Procedure Steps",
+        "step1": {
+          "title": "Initial Consultation",
+          "desc": "Comprehensive examination and 3D imaging to assess bone health and create treatment plan"
+        },
+        "step2": {
+          "title": "Implant Placement",
+          "desc": "Surgical placement of titanium implant in jawbone under local anesthesia"
+        },
+        "step3": {
+          "title": "Healing Period",
+          "desc": "3-6 months for osseointegration where implant fuses with bone"
+        },
+        "step4": {
+          "title": "Abutment Placement",
+          "desc": "Connecting piece attached to implant to support the crown"
+        },
+        "step5": {
+          "title": "Crown Installation",
+          "desc": "Custom-made crown placed on abutment, matching your natural teeth"
+        }
+      },
+      "cta": {
+        "title": "Ready to Restore Your Smile?",
+        "text": "Book your free consultation today and learn how dental implants can transform your life",
+        "button": "Book Free Consultation"
+      }
+    },
+    "teethBeautification": {
+      "category": "Cosmetic Dentistry",
+      "title": "Comprehensive Teeth Beautification",
+      "lead": "Transform your smile with our comprehensive cosmetic dentistry services. From whitening to veneers, we offer complete smile makeovers.",
+      "imageAlt": "Teeth Beautification service at Dr. Fayed Dental Clinic",
+      "services": {
+        "title": "Our Cosmetic Services",
+        "item1": {
+          "title": "Professional Teeth Whitening",
+          "desc": "Advanced laser whitening for teeth up to 8 shades brighter"
+        },
+        "item2": {
+          "title": "Porcelain Veneers",
+          "desc": "Ultra-thin shells for perfect smile transformation"
+        },
+        "item3": {
+          "title": "Dental Bonding",
+          "desc": "Fix chips, cracks, and gaps with tooth-colored resin"
+        },
+        "item4": {
+          "title": "Gum Contouring",
+          "desc": "Reshape gum line for balanced, attractive smile"
+        },
+        "item5": {
+          "title": "Invisalign",
+          "desc": "Straighten teeth discreetly with clear aligners"
+        },
+        "item6": {
+          "title": "Smile Makeover",
+          "desc": "Comprehensive treatment combining multiple procedures"
+        },
+        "item7": {
+          "title": "Digital Smile Design",
+          "desc": "Preview your new smile before treatment begins"
+        }
+      },
+      "dsd": {
+        "title": "Digital Smile Design (DSD)",
+        "intro": "We use advanced DSD technology to design your perfect smile digitally before any treatment begins.",
+        "step1": {
+          "title": "Digital Photography",
+          "desc": "High-resolution photos and videos of your face and smile"
+        },
+        "step2": {
+          "title": "Smile Analysis",
+          "desc": "Precise measurements and facial proportions analysis"
+        },
+        "step3": {
+          "title": "Design Preview",
+          "desc": "See your new smile in 3D before treatment"
+        },
+        "step4": {
+          "title": "Treatment Planning",
+          "desc": "Detailed roadmap for achieving your dream smile"
+        }
+      },
+      "whyUs": {
+        "title": "Why Choose Us for Teeth Beautification?",
+        "item1": {
+          "title": "Expert Cosmetic Dentists",
+          "desc": "Highly trained specialists in aesthetic dentistry"
+        },
+        "item2": {
+          "title": "Latest Technology",
+          "desc": "State-of-the-art equipment for best results"
+        },
+        "item3": {
+          "title": "Custom Solutions",
+          "desc": "Personalized treatment plans for your unique needs"
+        },
+        "item4": {
+          "title": "Natural Results",
+          "desc": "Beautiful smiles that look and feel natural"
+        },
+        "item5": {
+          "title": "Comfortable Experience",
+          "desc": "Painless procedures with sedation options"
+        },
+        "item6": {
+          "title": "Guaranteed Results",
+          "desc": "We stand behind our work with satisfaction guarantee"
+        },
+        "item7": {
+          "title": "Affordable Pricing",
+          "desc": "Competitive rates with flexible payment plans"
+        }
+      },
+      "cta": {
+        "title": "Start Your Smile Transformation Today",
+        "text": "Book your free DSD consultation and see your new smile before treatment begins",
+        "button": "Book Free DSD Session"
+      }
+    },
+    "hybridVeneers": {
+      "category": "Veneers",
+      "title": "Hybrid Veneers - Perfect Smile Solution",
+      "lead": "Combine the best of both worlds with hybrid veneers. Strong like porcelain, flexible like composite, and perfect for your smile.",
+      "imageAlt": "Hybrid Veneers service at Dr. Fayed Dental Clinic",
+      "whatIs": {
+        "title": "What Are Hybrid Veneers?",
+        "p1": "Hybrid veneers represent the latest advancement in cosmetic dentistry, combining the strength and aesthetics of porcelain with the flexibility and repairability of composite resin. This innovative material offers superior durability while maintaining a natural appearance.",
+        "p2": "The unique composition allows for minimal tooth preparation, making the procedure less invasive while delivering exceptional results that can last for many years with proper care."
+      },
+      "benefits": {
+        "title": "Benefits of Hybrid Veneers",
+        "item1": {
+          "title": "Minimal Preparation",
+          "desc": "Requires less tooth reduction than traditional veneers"
+        },
+        "item2": {
+          "title": "Natural Aesthetics",
+          "desc": "Mimics natural tooth translucency and color"
+        },
+        "item3": {
+          "title": "Strong & Durable",
+          "desc": "Resistant to chipping and staining"
+        },
+        "item4": {
+          "title": "Repairable",
+          "desc": "Can be easily repaired if damaged"
+        },
+        "item5": {
+          "title": "Cost-Effective",
+          "desc": "More affordable than porcelain veneers"
+        },
+        "item6": {
+          "title": "Quick Results",
+          "desc": "Often completed in just one visit"
+        }
+      },
+      "steps": {
+        "title": "Hybrid Veneer Procedure",
+        "step1": {
+          "title": "Consultation & Planning",
+          "desc": "Smile analysis and treatment planning with DSD"
+        },
+        "step2": {
+          "title": "Tooth Preparation",
+          "desc": "Minimal preparation of tooth surface"
+        },
+        "step3": {
+          "title": "Shade Selection",
+          "desc": "Choose perfect color to match your natural teeth"
+        },
+        "step4": {
+          "title": "Veneer Application",
+          "desc": "Direct application and sculpting of hybrid material"
+        },
+        "step5": {
+          "title": "Polishing & Finishing",
+          "desc": "Final adjustments for perfect fit and shine"
+        }
+      },
+      "comparison": {
+        "title": "How Do Hybrid Veneers Compare?",
+        "vsTraditional": {
+          "title": "Hybrid vs. Traditional Porcelain Veneers",
+          "hybridPros": "Less invasive, repairable, more affordable, faster procedure",
+          "traditionalPros": "Slightly more stain resistant, premium appearance"
+        },
+        "vsLumineers": {
+          "title": "Hybrid vs. Lumineers",
+          "hybridPros": "More customizable, better for major corrections, more affordable",
+          "lumineersPros": "Ultra-thin, no preparation needed"
+        },
+        "whoNeedsIt": {
+          "title": "Who Are Hybrid Veneers Right For?",
+          "desc": "Ideal for anyone seeking smile enhancement with minimal tooth alteration. Perfect for correcting discoloration, minor misalignment, chips, gaps, or uneven teeth."
+        }
+      },
+      "cta": {
+        "title": "Transform Your Smile with Hybrid Veneers",
+        "text": "Book your consultation today and discover the perfect veneer solution for you",
+        "button": "Book Your Consultation"
+      }
+    },
+    "threeNVeneers": {
+      "category": "Premium Veneers",
+      "title": "3N Veneers - Ultra-Thin Perfection",
+      "lead": "Experience the latest in veneer technology with 3N veneers. Ultra-thin, ultra-strong, and ultra-beautiful results without tooth preparation.",
+      "imageAlt": "3N Veneers service at Dr. Fayed Dental Clinic",
+      "whatIs": {
+        "title": "What Are 3N Veneers?",
+        "p1": "3N Veneers are the newest generation of ultra-thin porcelain veneers, typically just 0.3mm thick. They're designed to be bonded directly to your natural teeth with minimal to no tooth preparation, preserving your natural tooth structure.",
+        "p2": "Using advanced ceramic technology, 3N veneers offer exceptional strength despite their thinness, providing a natural-looking smile transformation that's both beautiful and durable."
+      },
+      "benefits": {
+        "title": "Advantages of 3N Veneers",
+        "item1": {
+          "title": "No Tooth Reduction",
+          "desc": "Preserves your natural tooth structure completely"
+        },
+        "item2": {
+          "title": "Ultra-Thin Design",
+          "desc": "Only 0.3mm thick - thinner than a contact lens"
+        },
+        "item3": {
+          "title": "Reversible Procedure",
+          "desc": "Can be removed without damaging natural teeth"
+        },
+        "item4": {
+          "title": "No Sensitivity",
+          "desc": "Minimal risk of tooth sensitivity after placement"
+        },
+        "item5": {
+          "title": "Natural Translucency",
+          "desc": "Mimics natural tooth enamel perfectly"
+        },
+        "item6": {
+          "title": "Stain Resistant",
+          "desc": "High-quality porcelain resists staining"
+        },
+        "item7": {
+          "title": "Long-Lasting",
+          "desc": "Can last 10-20 years with proper care"
+        },
+        "item8": {
+          "title": "Fast Results",
+          "desc": "Complete smile transformation in 2-3 visits"
+        }
+      },
+      "features": {
+        "title": "Key Features of 3N Veneers",
+        "item1": {
+          "title": "German Precision",
+          "desc": "Manufactured with German technology for perfect fit"
+        },
+        "item2": {
+          "title": "Custom Shading",
+          "desc": "Multiple layers for natural color gradation"
+        },
+        "item3": {
+          "title": "Digital Design",
+          "desc": "Created using CAD/CAM technology"
+        },
+        "item4": {
+          "title": "High-Strength Ceramic",
+          "desc": "Advanced material resists chipping and cracking"
+        },
+        "item5": {
+          "title": "Biocompatible",
+          "desc": "Gentle on gums and oral tissues"
+        },
+        "item6": {
+          "title": "Natural Fluorescence",
+          "desc": "Looks natural under all lighting conditions"
+        },
+        "item7": {
+          "title": "Precision Fit",
+          "desc": "Custom-made for your exact tooth shape"
+        },
+        "item8": {
+          "title": "Instant Smile Preview",
+          "desc": "See your results with temporary veneers first"
+        }
+      },
+      "steps": {
+        "title": "3N Veneer Treatment Process",
+        "step1": {
+          "title": "Digital Smile Design",
+          "desc": "3D imaging and smile design consultation"
+        },
+        "step2": {
+          "title": "Tooth Preparation",
+          "desc": "Minimal or no preparation of tooth surface"
+        },
+        "step3": {
+          "title": "Impressions & Molds",
+          "desc": "Precise digital scans of your teeth"
+        },
+        "step4": {
+          "title": "Temporary Veneers",
+          "desc": "Try out your new smile with temporaries"
+        },
+        "step5": {
+          "title": "Custom Fabrication",
+          "desc": "Veneers crafted in specialized lab (7-10 days)"
+        },
+        "step6": {
+          "title": "Final Bonding",
+          "desc": "Permanent placement with special adhesive"
+        }
+      },
+      "cta": {
+        "title": "Get Your Perfect Smile with 3N Veneers",
+        "text": "Book your free consultation and discover if 3N veneers are right for you",
+        "button": "Book Free Consultation"
+      }
+    }
+  },
+  "blogPages": {
+    "laserTeethWhitening": {
+      "category": "Cosmetic",
+      "title": "Laser Teeth Whitening: Technology and Results",
+      "date": "January 12, 2026",
+      "readTime": "6 min read",
+      "author": "Dr. Mohamed Fayed",
+      "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&h=600&fit=crop",
+      "imageAlt": "Laser Teeth Whitening",
+      "lead": "Laser teeth whitening is the latest and fastest technology to achieve a bright white smile. In this article, we review everything you need to know about this advanced technique.",
+      "whatIs": {
+        "heading": "What is Laser Teeth Whitening?",
+        "content": "Laser teeth whitening is an advanced cosmetic procedure that uses laser light energy to activate the whitening agent applied to the teeth. This technique achieves fast and effective results in just one session lasting about an hour."
+      },
+      "benefits": {
+        "heading": "Benefits of Laser Teeth Whitening",
+        "item1": {
+          "title": "Immediate Results",
+          "desc": "You can notice the difference right after the first session, as teeth become noticeably whiter by several shades."
+        },
+        "item2": {
+          "title": "Safe and Effective",
+          "desc": "Laser technology is completely safe for teeth and gums when performed by a specialist."
+        },
+        "item3": {
+          "title": "Long-lasting Results",
+          "desc": "With proper care, results can last for years."
+        },
+        "item4": {
+          "title": "Painless Procedure",
+          "desc": "Most patients feel no pain during or after the session."
+        }
+      },
+      "procedure": {
+        "heading": "Whitening Procedure Steps",
+        "p1": "The dentist begins by examining the teeth and gums to ensure they are suitable for whitening. Then the teeth are thoroughly cleaned to remove any deposits or tartar.",
+        "p2": "A protective guard is placed on the gums, then the whitening gel is applied to the teeth. After that, laser light is directed at the teeth to activate the whitening agent.",
+        "p3": "The session takes about 45-60 minutes, and in some cases, you may need an additional session to achieve the ideal result."
+      },
+      "maintenance": {
+        "heading": "Maintaining Results",
+        "intro": "To maintain your teeth whiteness for as long as possible, follow these tips:",
+        "tip1": "Avoid colored drinks like coffee and tea in the first days",
+        "tip2": "Brush your teeth regularly using whitening toothpaste",
+        "tip3": "Avoid smoking completely",
+        "tip4": "Reduce consumption of foods that cause tooth staining",
+        "tip5": "Use a straw when drinking colored beverages"
+      },
+      "cta": {
+        "title": "Are You Ready for a Brighter Smile?",
+        "text": "Book a free consultation to assess your case and learn about the best whitening options",
+        "button": "Book Your Appointment Now"
+      },
+      "tags": [
+        "Teeth Whitening",
+        "Laser",
+        "Cosmetic"
+      ]
+    },
+    "dailyDentalCare": {
+      "category": "Dental Care",
+      "title": "7 Steps for Daily Dental Care",
+      "date": "January 15, 2026",
+      "readTime": "5 min read",
+      "author": "Dr. Mohamed Fayed",
+      "image": "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=1200&h=600&fit=crop",
+      "imageAlt": "Daily Dental Care",
+      "lead": "Daily dental care is the foundation of oral and dental health. In this article, we provide you with a comprehensive guide to maintaining healthy teeth and a bright smile through 7 simple and effective steps.",
+      "steps": {
+        "step1": {
+          "title": "Brush Your Teeth Twice Daily",
+          "desc": "Brushing your teeth is one of the most important steps in daily care. Make sure to brush your teeth twice a day, morning and evening, for two minutes each time. Use fluoride toothpaste to protect your teeth from decay."
+        },
+        "step2": {
+          "title": "Use Dental Floss Daily",
+          "desc": "Dental floss helps remove food debris and plaque from between teeth and places that toothbrushes can't reach. Use it at least once a day, preferably before bedtime."
+        },
+        "step3": {
+          "title": "Use Appropriate Mouthwash",
+          "desc": "Mouthwash helps kill bacteria and freshen breath. Choose a mouthwash containing fluoride and antibacterial agents. Use it after brushing and flossing for best results."
+        },
+        "step4": {
+          "title": "Eat Healthy Foods",
+          "desc": "A healthy diet plays an important role in dental health. Eat foods rich in calcium and vitamins such as milk, cheese, leafy vegetables, and nuts. Avoid excess sugars and carbonated drinks."
+        },
+        "step5": {
+          "title": "Drink Plenty of Water",
+          "desc": "Water helps wash away food debris and bacteria from the mouth. Drink enough water daily, especially after meals. Water also stimulates saliva production which protects teeth from decay."
+        },
+        "step6": {
+          "title": "Avoid Smoking",
+          "desc": "Smoking causes tooth staining, bad breath, and gum disease. It also increases the risk of oral cancer. Quitting smoking significantly improves oral and dental health."
+        },
+        "step7": {
+          "title": "Visit Your Dentist Regularly",
+          "desc": "Regular dental checkups every 6 months are necessary for early detection of any problems. Professional cleaning removes accumulated tartar and maintains gum health."
+        }
+      },
+      "cta": {
+        "title": "Need a Consultation?",
+        "text": "Our medical team is ready to help you maintain your dental health",
+        "button": "Book Your Appointment Now"
+      },
+      "tags": [
+        "Daily Care",
+        "Oral Health",
+        "Tips"
+      ]
+    },
+    "dentalImplantsGuide": {
+      "category": "Implants",
+      "title": "Your Complete Guide to Dental Implants",
+      "date": "January 10, 2026",
+      "readTime": "8 min read",
+      "author": "Dr. Mohamed Fayed",
+      "image": "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1200&h=600&fit=crop",
+      "imageAlt": "Dental Implants",
+      "lead": "Dental implants are the optimal and most stable solution for replacing missing teeth. In this comprehensive guide, we review everything you need to know about this advanced procedure.",
+      "whatIs": {
+        "heading": "What are Dental Implants?",
+        "content": "Dental implants are a simple surgical procedure in which an artificial titanium root is placed in the jawbone to replace the root of a missing tooth. After a healing period of 3-6 months, an artificial crown is attached to the implant."
+      },
+      "types": {
+        "heading": "Types of Dental Implants",
+        "type1": {
+          "title": "Traditional Implants",
+          "desc": "Done in two stages, where the implant is left to heal before installing the final crown."
+        },
+        "type2": {
+          "title": "Immediate Implants",
+          "desc": "A temporary tooth is installed on the same day as the implant, and replaced with a permanent crown after healing."
+        },
+        "type3": {
+          "title": "All-on-4 Implants",
+          "desc": "Advanced technique to replace an entire jaw with only four implants."
+        }
+      },
+      "procedure": {
+        "heading": "Implant Procedure Stages",
+        "stage1": {
+          "title": "Assessment and Planning",
+          "desc": "The mouth and teeth are examined with 3D X-rays to determine the ideal implant location and bone density."
+        },
+        "stage2": {
+          "title": "Implantation",
+          "desc": "Done under local anesthesia, where a small opening is made in the gum and the implant is placed in the bone. The procedure is painless and takes about 30-45 minutes per implant."
+        },
+        "stage3": {
+          "title": "Healing",
+          "desc": "A critical period of 3-6 months during which osseointegration occurs between the implant and bone."
+        },
+        "stage4": {
+          "title": "Final Crown",
+          "desc": "After confirming implant stability, measurements are taken and a permanent crown is made from porcelain or zirconia."
+        }
+      },
+      "benefits": {
+        "heading": "Benefits of Dental Implants",
+        "benefit1": "Permanent solution that lasts a lifetime with proper care",
+        "benefit2": "Completely natural appearance indistinguishable from real teeth",
+        "benefit3": "Does not affect adjacent teeth like traditional bridges",
+        "benefit4": "Preserves jawbone from deterioration",
+        "benefit5": "Complete restoration of chewing and speech function",
+        "benefit6": "High success rate reaching 98%"
+      },
+      "care": {
+        "heading": "Caring for Dental Implants",
+        "content": "Caring for implants is similar to caring for natural teeth. Brush twice daily, use dental floss, and visit your dentist regularly for checkups and professional cleaning."
+      },
+      "cta": {
+        "title": "Free Dental Implant Consultation",
+        "text": "Our specialized team is ready to assess your case and create an appropriate treatment plan",
+        "button": "Book Your Free Consultation"
+      },
+      "tags": [
+        "Dental Implants",
+        "Tooth Replacement",
+        "Surgery"
+      ]
+    },
+    "veneersVsLumineers": {
+      "category": "Cosmetic",
+      "title": "Veneers vs Lumineers: Which is Better?",
+      "date": "January 8, 2026",
+      "readTime": "7 min read",
+      "author": "Dr. Mohamed Fayed",
+      "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1200&h=600&fit=crop",
+      "imageAlt": "Veneers and Lumineers",
+      "lead": "Both veneers and lumineers are popular cosmetic solutions for achieving a Hollywood smile. In this article, we compare them to help you choose the right one.",
+      "veneersInfo": {
+        "heading": "What are Veneers?",
+        "content": "Veneers (porcelain shells) are thin porcelain shells 0.5-0.7mm thick that are bonded to the front surface of teeth. Installing veneers requires grinding a thin layer of tooth enamel to make room for the shell."
+      },
+      "lumineersInfo": {
+        "heading": "What are Lumineers?",
+        "content": "Lumineers are a thinner and more advanced type of porcelain veneer, only 0.2-0.3mm thick. This ultra-thinness means that in most cases they don't require tooth grinding, making them a reversible option."
+      },
+      "comparison": {
+        "heading": "Detailed Comparison",
+        "aspect1": {
+          "title": "Thickness and Procedures",
+          "desc": "Veneers are thicker and require tooth grinding, while lumineers are thinner and usually don't require grinding. This means lumineers are less invasive and preserve the original tooth structure."
+        },
+        "aspect2": {
+          "title": "Natural Appearance",
+          "desc": "Both provide a wonderful natural appearance, but veneers may be better for severe discoloration cases due to their greater thickness providing stronger coverage."
+        },
+        "aspect3": {
+          "title": "Durability",
+          "desc": "Veneers are more durable due to their thickness and may last 15-20 years, while lumineers last about 10-15 years. Both require good care."
+        }
+      },
+      "choosing": {
+        "heading": "How to Choose the Right One?",
+        "content": "Choose veneers if your teeth suffer from severe discoloration or need significant shape correction. Choose lumineers if your teeth are in good condition and you want slight improvement while preserving the original tooth structure."
+      },
+      "cta": {
+        "title": "Which is Better for Your Smile?",
+        "text": "Book a free consultation to assess your case and get a personalized recommendation",
+        "button": "Book Your Consultation Now"
+      },
+      "tags": [
+        "Veneers",
+        "Lumineers",
+        "Hollywood Smile"
+      ]
+    },
+    "healthyFoodsForTeeth": {
+      "category": "Tips",
+      "title": "Beneficial and Harmful Foods for Dental Health",
+      "date": "January 5, 2026",
+      "readTime": "6 min read",
+      "author": "Dr. Mohamed Fayed",
+      "image": "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&h=600&fit=crop",
+      "imageAlt": "Healthy Foods for Teeth",
+      "lead": "Diet plays a crucial role in dental and gum health. In this article, we review the best foods to strengthen your teeth and foods to avoid.",
+      "beneficialFoods": {
+        "heading": "Beneficial Foods for Dental Health",
+        "food1": {
+          "title": "Dairy Products",
+          "desc": "Milk, cheese, and yogurt are rich in calcium and phosphorus necessary for strengthening tooth enamel. Cheese especially increases saliva production which protects teeth from acids."
+        },
+        "food2": {
+          "title": "Leafy Vegetables",
+          "desc": "Spinach, kale, and broccoli are full of vitamins and minerals that enhance oral health. They also contain folic acid which helps treat gum disease."
+        },
+        "food3": {
+          "title": "Apples and Carrots",
+          "desc": "Crunchy fruits and vegetables work as a natural toothbrush. Chewing them stimulates saliva production and helps clean teeth of food debris."
+        }
+      },
+      "harmfulFoods": {
+        "heading": "Harmful Foods for Teeth",
+        "food1": {
+          "title": "Sweets and Sugars",
+          "desc": "Bacteria in the mouth feed on sugar and produce acids that attack tooth enamel. Sticky candies are especially dangerous because they stick to teeth for a long time."
+        },
+        "food2": {
+          "title": "Carbonated Drinks",
+          "desc": "Contain high amounts of sugar and acids that dissolve tooth enamel. Even diet drinks contain harmful acids."
+        },
+        "food3": {
+          "title": "Starchy Foods",
+          "desc": "White bread, french fries, and chips turn into sugar in the mouth and stick between teeth, feeding harmful bacteria."
+        }
+      },
+      "tips": {
+        "heading": "Additional Tips",
+        "tip1": "Rinse your mouth with water after eating acidic or sugary foods",
+        "tip2": "Don't brush immediately after eating acidic foods, wait 30 minutes",
+        "tip3": "Use a straw when drinking acidic or sugary beverages",
+        "tip4": "Eat sweets with meals instead of as snacks",
+        "tip5": "Choose water as your main beverage throughout the day"
+      },
+      "cta": {
+        "title": "Need a Nutrition Plan for Your Teeth?",
+        "text": "Consult our specialized doctors for personalized advice for your case",
+        "button": "Book a Nutrition Consultation"
+      },
+      "tags": [
+        "Nutrition",
+        "Oral Health",
+        "Tips"
+      ]
+    },
+    "childrenDentalCare": {
+      "category": "Dental Care",
+      "title": "How to Care for Children's Teeth from Birth",
+      "date": "January 3, 2026",
+      "readTime": "7 min read",
+      "author": "Dr. Mohamed Fayed",
+      "image": "https://plus.unsplash.com/premium_photo-1663958034026-2d6311bc344c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lkcyUyMHRlZXRofGVufDB8fDB8fHww",
+      "imageAlt": "Children's Dental Care",
+      "lead": "Caring for children's teeth starts from the first days after birth. In this comprehensive guide, we provide practical tips for each age stage to ensure healthy teeth for your child.",
+      "infancyStage": {
+        "heading": "Infancy Stage (0-6 months)",
+        "content": "Even though teeth haven't appeared yet, it's important to gently clean the infant's gums after feeding. Use a clean, damp cloth to wipe the gums. This removes milk residue and accustoms the baby to oral care routine."
+      },
+      "teethingStage": {
+        "heading": "Teething Stage (6-12 months)",
+        "firstTeeth": {
+          "title": "First Teeth Appearance",
+          "desc": "Usually the lower front teeth appear first between 6-10 months. Use a soft infant toothbrush without paste or with a very small amount of children's toothpaste."
+        },
+        "teethingRelief": {
+          "title": "Relieving Teething Pain",
+          "desc": "Use clean, chilled teethers, or gently massage gums with a clean finger. Avoid teething gels containing benzocaine without consulting a doctor."
+        }
+      },
+      "preschoolAge": {
+        "heading": "Preschool Age (1-5 years)",
+        "brushing": {
+          "title": "Brushing Teeth",
+          "desc": "Clean your child's teeth twice daily with fluoride toothpaste the size of a grain of rice until age 3, then pea-sized from 3-6 years."
+        },
+        "firstVisit": {
+          "title": "First Dentist Visit",
+          "desc": "Should be when the first tooth appears or at one year old, whichever comes first. Early visits help detect any problems early and accustom the child to the dentist."
+        }
+      },
+      "generalTips": {
+        "heading": "Important General Tips",
+        "tip1": "Teach your child to spit out toothpaste and not swallow it",
+        "tip2": "Reduce sweets and sweetened juices",
+        "tip3": "Encourage drinking water instead of sugary drinks",
+        "tip4": "Make brushing fun using songs or a timer",
+        "tip5": "Be a good role model by brushing your teeth in front of your child",
+        "tip6": "Schedule regular checkups every 6 months"
+      },
+      "cta": {
+        "title": "Your Child's First Dentist Visit?",
+        "text": "Our clinic is specially equipped to welcome children in a comfortable and fun environment",
+        "button": "Book Your Child's Appointment Now"
+      },
+      "tags": [
+        "Children's Teeth",
+        "Early Care",
+        "Teething"
+      ]
+    }
+  }
+}

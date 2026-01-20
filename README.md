@@ -1,68 +1,36 @@
-# Capital Dental Clinic Landing Page
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This is a responsive landing page for Capital Dental Clinic, implemented from a Figma design.
+## Getting Started
 
-## Structure
+First, run the development server:
 
-- `index.html` - Main HTML file with all sections
-- `styles.css` - Complete CSS styling with responsive design
-- `images/` - Directory for images (logo, cases, doctor photo, etc.)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Features
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **RTL Support**: Full right-to-left layout for Arabic content
-- **Modern UI**: Clean, professional design matching the Figma specifications
-- **Sections Included**:
-  - Top header with appointment button and social media links
-  - Contact information bar
-  - Main navigation with dropdown menu
-  - Hero section with three call-to-action cards
-  - Cases gallery section
-  - About doctor section
-  - About clinic section with statistics
-  - Services grid
-  - Testimonials section
-  - Footer
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Images Needed
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-The following images should be added to the `images/` directory:
+## Learn More
 
-- `logo.png` - Clinic logo (recommended size: 200x60px)
-- `doctor.jpg` - Doctor photo (recommended size: 600x800px)
-- `case-1.jpg`, `case-2.jpg`, `case-3.jpg` - Case study images (recommended size: 400x500px)
+To learn more about Next.js, take a look at the following resources:
 
-## Color Palette
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-- Primary Gold: `#BE9249` (Tussock)
-- Dark Blue: `#0E152F` (Haiti)
-- Text Dark: `#333333` (Mine Shaft)
-- Text Gray: `#777777` (Boulder)
-- Background: `#FFFFFF` (White)
-- Border: `#E7E7E7` (Mercury)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Font
+## Deploy on Vercel
 
-The page uses the Tajawal font family (Google Fonts), which supports Arabic text beautifully.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Usage
-
-1. Open `index.html` in a web browser
-2. Add the required images to the `images/` directory
-3. Customize content as needed
-
-## Notes
-
-- All text content is in Arabic (RTL)
-- The design follows the Figma specifications closely
-- Images are referenced but need to be added manually or downloaded from Figma
-- The page is fully responsive and will adapt to different screen sizes
-
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
