@@ -124,21 +124,9 @@ export default async function RootLayout({
       <head>
         <meta name="theme-color" content="#BE9249" />
         <link
-          rel="preload"
+          rel="stylesheet"
           href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-          as="style"
-          onLoad={(e) => {
-            const target = e.target as HTMLLinkElement;
-            target.onload = null;
-            target.rel = "stylesheet";
-          }}
         />
-        <noscript>
-          <link
-            rel="stylesheet"
-            href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-          />
-        </noscript>
 
         {/* Structured Data - Dentist */}
         <script
