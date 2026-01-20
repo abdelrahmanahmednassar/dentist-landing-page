@@ -1,0 +1,2 @@
+# Redirect sections folder to home page
+/sections/* / 301
