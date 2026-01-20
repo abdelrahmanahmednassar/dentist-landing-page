@@ -1,15 +1,11 @@
-"use client";
-
-import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import styles from "@/styles/hero.module.css";
+import HeroSlider from "@/components/HeroSlider";
 
-export default function Hero() {
-  const t = useTranslations();
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const autoSlideRef = useRef<NodeJS.Timeout | null>(null);
+export default async function Hero() {
+  const t = await getTranslations();
 
   const slides = [
     {
@@ -42,108 +38,9 @@ export default function Hero() {
     },
   ];
 
-  const startAutoSlide = () => {
-    if (autoSlideRef.current) {
-      clearInterval(autoSlideRef.current);
-    }
-    autoSlideRef.current = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
-  };
-
-  const stopAutoSlide = () => {
-    if (autoSlideRef.current) {
-      clearInterval(autoSlideRef.current);
-      autoSlideRef.current = null;
-    }
-  };
-
-  useEffect(() => {
-    startAutoSlide();
-    return () => stopAutoSlide();
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-    startAutoSlide(); // Reset timer on manual navigation
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-    startAutoSlide(); // Reset timer on manual navigation
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
-    startAutoSlide(); // Reset timer on manual navigation
-  };
-
   return (
     <section className={styles.hero} id="home">
-      <div className={styles.heroSlider}>
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`${styles.heroSlide} ${slide.className} ${
-              index === currentSlide ? styles.active : ""
-            }`}
-          >
-            <Image
-              src={slide.image}
-              alt={slide.alt}
-              fill
-              priority={index === 0}
-              style={{ objectFit: "cover" }}
-            />
-            <div className={styles.heroOverlay}>
-              <div className={styles.heroContent}>
-                <h1 className={styles.heroTitle}>{slide.title}</h1>
-                <p className={styles.heroSubtitle}>{slide.subtitle}</p>
-                {slide.isExternal ? (
-                  <Link
-                    href={slide.ctaLink}
-                    className={styles.heroCtaBtn}
-                    target="_blank"
-                  >
-                    {slide.cta}
-                  </Link>
-                ) : (
-                  <Link href={slide.ctaLink} className={styles.heroCtaBtn}>
-                    {slide.cta}
-                  </Link>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-
-        <button
-          className={`${styles.heroArrow} ${styles.heroArrowLeft}`}
-          onClick={prevSlide}
-          aria-label="Previous slide"
-        >
-          <i className="bx bx-chevron-right"></i>
-        </button>
-        <button
-          className={`${styles.heroArrow} ${styles.heroArrowRight}`}
-          onClick={nextSlide}
-          aria-label="Next slide"
-        >
-          <i className="bx bx-chevron-left"></i>
-        </button>
-
-        <div className={styles.heroBullets}>
-          {slides.map((_, index) => (
-            <span
-              key={index}
-              className={`${styles.heroBullet} ${
-                index === currentSlide ? styles.active : ""
-              }`}
-              onClick={() => goToSlide(index)}
-            />
-          ))}
-        </div>
-      </div>
+      <HeroSlider slides={slides} />
 
       {/* Service Cards Below Hero */}
       <div className={styles.heroServices}>

@@ -132,6 +132,14 @@
   transition: transform 0.5s ease;
 }
 
+[dir="rtl"] .testimonialsTrack {
+  flex-direction: row-reverse;
+}
+
+[dir="ltr"] .testimonialsTrack {
+  flex-direction: row;
+}
+
 [dir="rtl"] #testimonial-slide-1:checked ~ .testimonialsTrack {
   transform: translateX(0);
 }
