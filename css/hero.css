@@ -89,9 +89,9 @@
 @media (min-width: 769px) {
   /* Slide 1: Start aligned - shifted towards center */
   [dir="rtl"] .hero-slide.slide-1 .hero-overlay {
-    justify-content: flex-start;
-    padding-right: 100px;
-    padding-left: 0;
+    justify-content: flex-end;
+    padding-left: 100px;
+    padding-right: 0;
   }
 
   [dir="ltr"] .hero-slide.slide-1 .hero-overlay {
@@ -101,8 +101,8 @@
   }
 
   [dir="rtl"] .hero-slide.slide-1 .hero-content {
-    text-align: right;
-    transform: translateX(-12%);
+    text-align: left;
+    transform: translateX(12%);
   }
 
   [dir="ltr"] .hero-slide.slide-1 .hero-content {
@@ -111,7 +111,7 @@
   }
 
   [dir="rtl"] .hero-slide.slide-1.active .hero-content {
-    transform: translateX(-12%);
+    transform: translateX(12%);
   }
 
   [dir="ltr"] .hero-slide.slide-1.active .hero-content {
@@ -119,8 +119,8 @@
   }
 
   [dir="rtl"] .hero-slide.slide-1 .hero-cta-btn {
-    margin-right: 0;
-    margin-left: auto;
+    margin-left: 0;
+    margin-right: auto;
   }
 
   [dir="ltr"] .hero-slide.slide-1 .hero-cta-btn {
@@ -130,9 +130,9 @@
 
   /* Slide 2: End aligned - shifted towards center */
   [dir="rtl"] .hero-slide.slide-2 .hero-overlay {
-    justify-content: flex-end;
-    padding-left: 100px;
-    padding-right: 0;
+    justify-content: flex-start;
+    padding-right: 100px;
+    padding-left: 0;
   }
 
   [dir="ltr"] .hero-slide.slide-2 .hero-overlay {
@@ -142,8 +142,8 @@
   }
 
   [dir="rtl"] .hero-slide.slide-2 .hero-content {
-    text-align: left;
-    transform: translateX(12%);
+    text-align: right;
+    transform: translateX(-12%);
   }
 
   [dir="ltr"] .hero-slide.slide-2 .hero-content {
@@ -152,7 +152,7 @@
   }
 
   [dir="rtl"] .hero-slide.slide-2.active .hero-content {
-    transform: translateX(12%);
+    transform: translateX(-12%);
   }
 
   [dir="ltr"] .hero-slide.slide-2.active .hero-content {
@@ -160,8 +160,8 @@
   }
 
   [dir="rtl"] .hero-slide.slide-2 .hero-cta-btn {
-    margin-left: 0;
-    margin-right: auto;
+    margin-right: 0;
+    margin-left: auto;
   }
 
   [dir="ltr"] .hero-slide.slide-2 .hero-cta-btn {
@@ -171,9 +171,9 @@
 
   /* Slide 3: Start aligned - shifted towards center */
   [dir="rtl"] .hero-slide.slide-3 .hero-overlay {
-    justify-content: flex-start;
-    padding-right: 100px;
-    padding-left: 0;
+    justify-content: flex-end;
+    padding-left: 100px;
+    padding-right: 0;
   }
 
   [dir="ltr"] .hero-slide.slide-3 .hero-overlay {
@@ -183,8 +183,8 @@
   }
 
   [dir="rtl"] .hero-slide.slide-3 .hero-content {
-    text-align: right;
-    transform: translateX(-12%);
+    text-align: left;
+    transform: translateX(12%);
   }
 
   [dir="ltr"] .hero-slide.slide-3 .hero-content {
@@ -193,7 +193,7 @@
   }
 
   [dir="rtl"] .hero-slide.slide-3.active .hero-content {
-    transform: translateX(-12%);
+    transform: translateX(12%);
   }
 
   [dir="ltr"] .hero-slide.slide-3.active .hero-content {
