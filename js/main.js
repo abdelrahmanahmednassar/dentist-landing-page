@@ -56,6 +56,42 @@ document.addEventListener("DOMContentLoaded", async () => {
       { id: "section-nav", file: "sections/nav.html" },
       { id: "section-footer", file: "sections/footer.html" },
     ],
+    blogs: [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+    // Blog detail pages
+    "daily-dental-care": [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+    "laser-teeth-whitening": [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+    "dental-implants-guide": [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+    "veneers-vs-lumineers": [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+    "healthy-foods-for-teeth": [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
+    "children-dental-care": [
+      { id: "section-header", file: "sections/header.html" },
+      { id: "section-nav", file: "sections/nav.html" },
+      { id: "section-footer", file: "sections/footer.html" },
+    ],
   };
 
   // Get sections for current page
@@ -93,16 +129,33 @@ function getCurrentPage() {
 function highlightActiveNavLink() {
   const currentPage = getCurrentPage();
 
+  // Blog detail pages should highlight the blogs nav item
+  const blogDetailPages = [
+    "daily-dental-care",
+    "laser-teeth-whitening",
+    "dental-implants-guide",
+    "veneers-vs-lumineers",
+    "healthy-foods-for-teeth",
+    "children-dental-care",
+  ];
+
+  // Determine which nav item to highlight
+  let targetPage = currentPage;
+  if (blogDetailPages.includes(currentPage)) {
+    targetPage = "blogs";
+  }
+
   // Map page names to nav link hrefs
   const pageToNav = {
     index: "index.html",
     "about-us": "about-us.html",
     services: "services.html",
     cases: "cases.html",
+    blogs: "blogs.html",
     "contact-us": "contact-us.html",
   };
 
-  const targetHref = pageToNav[currentPage];
+  const targetHref = pageToNav[targetPage];
 
   // Find and highlight the active link
   const navLinks = document.querySelectorAll(".nav-menu .nav-link");
@@ -153,6 +206,7 @@ function updateLanguageToggleButton() {
 function initializePageFunctionality() {
   initializeHeroSlider();
   initializeCasesSlider();
+  initializeTestimonialsSlider();
   initializeMobileMenu();
   initializeScrollToTop();
 }
@@ -516,4 +570,66 @@ function initializeScrollToTop() {
       behavior: "smooth",
     });
   });
+}
+
+// Testimonials Slider Auto-scroll
+function initializeTestimonialsSlider() {
+  const slider = document.querySelector(".testimonials-slider");
+  if (!slider) return;
+
+  const inputs = slider.querySelectorAll('input[name="testimonial-slide"]');
+  if (!inputs.length) return;
+
+  let currentIndex = 0;
+  let autoTimer = null;
+  const autoDelay = 5000; // 5 seconds between slides
+
+  const goToSlide = (index) => {
+    currentIndex = index;
+    inputs[index].checked = true;
+  };
+
+  const nextSlide = () => {
+    currentIndex = (currentIndex + 1) % inputs.length;
+    goToSlide(currentIndex);
+  };
+
+  const stopAuto = () => {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  };
+
+  const startAuto = () => {
+    stopAuto();
+    autoTimer = setInterval(() => {
+      nextSlide();
+    }, autoDelay);
+  };
+
+  // Add click listeners to navigation arrows and dots
+  const arrows = slider.querySelectorAll(".slider-arrow");
+  const dots = slider.querySelectorAll(".slider-dots label");
+
+  arrows.forEach((arrow) => {
+    arrow.addEventListener("click", () => {
+      stopAuto();
+      startAuto(); // Restart auto after manual interaction
+    });
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      stopAuto();
+      startAuto(); // Restart auto after manual interaction
+    });
+  });
+
+  // Pause on hover
+  slider.addEventListener("mouseenter", stopAuto);
+  slider.addEventListener("mouseleave", startAuto);
+
+  // Start auto-scrolling
+  startAuto();
 }

@@ -10,6 +10,7 @@ const translations = {
     "nav.about": "من نحن",
     "nav.services": "خدماتنا",
     "nav.cases": "حالات",
+    "nav.blogs": "المدونة",
     "nav.contact": "اتصل بنا",
 
     // Hero Section
@@ -30,7 +31,7 @@ const translations = {
     "hero.card2.title": "احجز استشارة الكترونية",
     "hero.card2.desc":
       "اعرف تفاصيل حالتك قبل زيارة العيادة من الطبيب مباشرة من خلال محادثة فيديو",
-    "hero.card2.btn": "احجز الآن +",
+    "hero.card2.btn": "احجز الاستشارة الآن",
     "hero.card3.title": "تواصل معنا",
     "hero.card3.desc": "نحن هنا دائمًا للإجابة على أسئلتك",
     "hero.card3.btn": "اتصل بنا الآن",
@@ -90,16 +91,16 @@ const translations = {
       "نحن في مهمة لتغيير الطريقة التي ينظر بها الناس إلى خدمات صحة الأسنان",
     "services.s1.title": "زراعة الاسنان",
     "services.s1.desc":
-      "الحل الأمثل لتعويض الفقد في الأسنان صار أقرب وأسهل من أي وقت سابق من خلال زراعة الأسنان بأيدي متخصصي زراعة الأسنان في فايد دينتال كلينك",
+      "الحل الأمثل لتعويض الفقد في الأسنان بإجراءات غير مؤلمة وآمنة باستخدام أحدث التقنيات العالمية. احصل على أسنان ثابتة وطبيعية المظهر تدوم للأبد على يد متخصصي زراعة الأسنان في فايد دينتال كلينك",
     "services.s2.title": "تجميل الأسنان",
     "services.s2.desc":
-      "تقنية تصميم الإبتسامة بالكمبيوتر هي الأساس الذي يتم من خلاله تصنيع كل التقنيات والمنتجات المستخدمة في تجميل الأسنان داخل فايد دينتال كلينك",
+      "تقنية تصميم الإبتسامة بالكمبيوتر توفر لك أسنان أكثر إشراقاً وتناسقاً بدون ألم. نتائج مضمونة وسريعة مع الحفاظ على المظهر الطبيعي باستخدام أحدث التقنيات والمنتجات المستخدمة في تجميل الأسنان داخل فايد دينتال كلينك",
     "services.s3.title": "Hybrid veneers",
     "services.s3.desc":
-      "لتجميل الأسنان واحدة من أحدث طرق تجميل الأسنان والتي تجمع بين دقة وسرعة تقنيات تصميم الإبتسامة بالكمبيوتر المستخدمة في تصنيع ال veneers",
+      "احصل على ابتسامة هوليود بإجراءات مريحة وغير مؤلمة! تقنية Hybrid veneers توفر لك أسنان ناصعة البياض وأكثر إشراقاً مع دقة وسرعة تقنيات تصميم الإبتسامة بالكمبيوتر المتقدمة",
     "services.s4.title": "3N Veneers",
     "services.s4.desc":
-      "تقنية 3N Veneers متاحة لأول مرة حصرياً في فايد دينتال كلينك. تقنية 3N Veneers الألمانية هي أحدث وأكثر التقنيات تقدماً في عالم تجميل الأسنان",
+      "تقنية 3N Veneers الألمانية المتاحة حصرياً في فايد دينتال كلينك تمنحك أسنان فائقة الإشراق والجمال بإجراءات سريعة وغير مؤلمة. أحدث وأكثر التقنيات تقدماً في عالم تجميل الأسنان لنتائج تدوم لسنوات",
     "services.cta.question": "هل تحتاج إلى متخصص ؟",
     "services.cta.text": "احصل على الأفضل الآن! فقط قم بتحديد موعد",
     "services.cta.btn": "حجز موعد",
@@ -146,6 +147,60 @@ const translations = {
     "contact.whatsapp.title": "واتساب",
     "contact.email.title": "البريد الإلكتروني",
     "contact.cta": "احجز موعدك الآن عبر واتساب",
+
+    // Blog Page
+    "blog.title": "المدونة",
+    "blog.subtitle": "أحدث المقالات والنصائح حول صحة وجمال الأسنان",
+    "blog.back": "العودة للمدونة",
+    "blog.category.all": "الكل",
+    "blog.category.care": "العناية بالأسنان",
+    "blog.category.cosmetic": "تجميل الأسنان",
+    "blog.category.implants": "زراعة الأسنان",
+    "blog.category.tips": "نصائح عامة",
+    "blog.post1.title": "٧ خطوات للعناية اليومية بالأسنان",
+    "blog.post1.excerpt":
+      "تعرف على أفضل الممارسات اليومية للحفاظ على أسنان صحية وابتسامة مشرقة. من تنظيف الأسنان بالفرشاة إلى استخدام الخيط الطبي.",
+    "blog.post2.title": "كل ما تحتاج معرفته عن تبييض الأسنان بالليزر",
+    "blog.post2.excerpt":
+      "تبييض الأسنان بالليزر هو أحد أكثر الإجراءات التجميلية شيوعاً. اكتشف كيف يعمل، مميزاته، والنتائج المتوقعة.",
+    "blog.post3.title": "دليلك الشامل لزراعة الأسنان: الخطوات والفوائد",
+    "blog.post3.excerpt":
+      "زراعة الأسنان هي الحل الأمثل لتعويض الأسنان المفقودة. تعرف على الإجراءات، المدة الزمنية، ومعدل النجاح.",
+    "blog.post4.title": "الفينير والفرق بين الأنواع المختلفة",
+    "blog.post4.excerpt":
+      "تعرف على أنواع الفينير المختلفة: التقليدي، اللومينير، والـ 3N Veneers. اختر الأنسب لحالتك.",
+    "blog.post5.title": "أطعمة تقوي أسنانك وأخرى يجب تجنبها",
+    "blog.post5.excerpt":
+      "نظامك الغذائي يؤثر بشكل كبير على صحة أسنانك. اكتشف الأطعمة المفيدة وتلك الضارة لأسنانك.",
+    "blog.post6.title": "العناية بأسنان الأطفال: متى تبدأ؟",
+    "blog.post6.excerpt":
+      "العناية بأسنان الأطفال تبدأ منذ ظهور أول سن. تعرف على الخطوات الصحيحة لحماية أسنان طفلك.",
+    "blog.post1.date": "١٥ يناير ٢٠٢٦",
+    "blog.post1.readTime": "٥ دقائق",
+    "blog.post1.tag1": "العناية اليومية",
+    "blog.post1.tag2": "صحة الفم",
+    "blog.post2.date": "١٢ يناير ٢٠٢٦",
+    "blog.post2.readTime": "٧ دقائق",
+    "blog.post2.tag1": "تبييض الأسنان",
+    "blog.post2.tag2": "ليزر",
+    "blog.post2.tag3": "ابتسامة",
+    "blog.post3.date": "٨ يناير ٢٠٢٦",
+    "blog.post3.readTime": "١٠ دقائق",
+    "blog.post3.tag1": "زراعة",
+    "blog.post3.tag2": "جراحة",
+    "blog.post3.tag3": "تيتانيوم",
+    "blog.post4.date": "٥ يناير ٢٠٢٦",
+    "blog.post4.readTime": "٦ دقائق",
+    "blog.post4.tag1": "فينير",
+    "blog.post4.tag2": "ابتسامة هوليوود",
+    "blog.post5.date": "٢ يناير ٢٠٢٦",
+    "blog.post5.readTime": "٤ دقائق",
+    "blog.post5.tag1": "تغذية",
+    "blog.post5.tag2": "وقاية",
+    "blog.post6.date": "٢٨ ديسمبر ٢٠٢٥",
+    "blog.post6.readTime": "٥ دقائق",
+    "blog.post6.tag1": "أطفال",
+    "blog.post6.tag2": "وقاية",
   },
   en: {
     // Header
@@ -157,6 +212,7 @@ const translations = {
     "nav.about": "About Us",
     "nav.services": "Our Services",
     "nav.cases": "Cases",
+    "nav.blogs": "Blog",
     "nav.contact": "Contact Us",
 
     // Hero Section
@@ -179,7 +235,7 @@ const translations = {
     "hero.card2.title": "Book Online Consultation",
     "hero.card2.desc":
       "Learn about your case details before visiting the clinic directly from the doctor through a video call",
-    "hero.card2.btn": "+ Book Now",
+    "hero.card2.btn": "Book Consultation Now",
     "hero.card3.title": "Contact Us",
     "hero.card3.desc": "We're always here to answer your questions",
     "hero.card3.btn": "Call Us Now",
@@ -239,16 +295,16 @@ const translations = {
       "We are on a mission to change the way people view dental health services",
     "services.s1.title": "Dental Implants",
     "services.s1.desc":
-      "The optimal solution to compensate for tooth loss has become closer and easier than ever before through dental implants by dental implant specialists at Fayed Dental Clinic",
+      "The optimal solution for tooth replacement with painless and safe procedures using the latest global technologies. Get permanent, natural-looking teeth that last forever by dental implant specialists at Fayed Dental Clinic",
     "services.s2.title": "Cosmetic Dentistry",
     "services.s2.desc":
-      "Computer smile design technology is the basis through which all techniques and products used in cosmetic dentistry are manufactured inside Fayed Dental Clinic",
+      "Computer smile design technology gives you brighter and more aligned teeth without pain. Guaranteed and fast results while maintaining a natural appearance using the latest techniques and products in cosmetic dentistry at Fayed Dental Clinic",
     "services.s3.title": "Hybrid Veneers",
     "services.s3.desc":
-      "For cosmetic dentistry, one of the latest methods of cosmetic dentistry that combines the accuracy and speed of computer smile design techniques used in the manufacture of veneers",
+      "Get a Hollywood smile with comfortable and painless procedures! Hybrid veneers technology provides you with brilliant white and brighter teeth with the accuracy and speed of advanced computer smile design techniques",
     "services.s4.title": "3N Veneers",
     "services.s4.desc":
-      "3N Veneers technology is available for the first time exclusively at Fayed Dental Clinic. German 3N Veneers technology is the latest and most advanced technology in the world of cosmetic dentistry",
+      "German 3N Veneers technology, available exclusively at Fayed Dental Clinic, gives you exceptionally bright and beautiful teeth with quick and painless procedures. The latest and most advanced technology in cosmetic dentistry for results that last for years",
     "services.cta.question": "Need a Specialist?",
     "services.cta.text": "Get the best now! Just make an appointment",
     "services.cta.btn": "Book Appointment",
@@ -295,5 +351,61 @@ const translations = {
     "contact.whatsapp.title": "WhatsApp",
     "contact.email.title": "Email",
     "contact.cta": "Book Your Appointment Now via WhatsApp",
+
+    // Blog Page
+    "blog.title": "Blog",
+    "blog.subtitle": "Latest articles and tips about dental health and beauty",
+    "blog.back": "Back to Blog",
+    "blog.category.all": "All",
+    "blog.category.care": "Dental Care",
+    "blog.category.cosmetic": "Cosmetic Dentistry",
+    "blog.category.implants": "Dental Implants",
+    "blog.category.tips": "General Tips",
+    "blog.post1.title": "7 Steps for Daily Dental Care",
+    "blog.post1.excerpt":
+      "Learn the best daily practices to maintain healthy teeth and a bright smile. From brushing to flossing.",
+    "blog.post2.title":
+      "Everything You Need to Know About Laser Teeth Whitening",
+    "blog.post2.excerpt":
+      "Laser teeth whitening is one of the most popular cosmetic procedures. Discover how it works, its benefits, and expected results.",
+    "blog.post3.title":
+      "Your Complete Guide to Dental Implants: Steps and Benefits",
+    "blog.post3.excerpt":
+      "Dental implants are the optimal solution for replacing missing teeth. Learn about procedures, timeline, and success rate.",
+    "blog.post4.title": "Veneers and the Difference Between Types",
+    "blog.post4.excerpt":
+      "Learn about different types of veneers: traditional, lumineers, and 3N Veneers. Choose the best for your case.",
+    "blog.post5.title": "Foods That Strengthen Your Teeth and Others to Avoid",
+    "blog.post5.excerpt":
+      "Your diet greatly affects your dental health. Discover beneficial foods and those harmful to your teeth.",
+    "blog.post6.title": "Children's Dental Care: When to Start?",
+    "blog.post6.excerpt":
+      "Children's dental care begins from the first tooth. Learn the right steps to protect your child's teeth.",
+    "blog.post1.date": "January 15, 2026",
+    "blog.post1.readTime": "5 min",
+    "blog.post1.tag1": "Daily Care",
+    "blog.post1.tag2": "Oral Health",
+    "blog.post2.date": "January 12, 2026",
+    "blog.post2.readTime": "7 min",
+    "blog.post2.tag1": "Teeth Whitening",
+    "blog.post2.tag2": "Laser",
+    "blog.post2.tag3": "Smile",
+    "blog.post3.date": "January 8, 2026",
+    "blog.post3.readTime": "10 min",
+    "blog.post3.tag1": "Implants",
+    "blog.post3.tag2": "Surgery",
+    "blog.post3.tag3": "Titanium",
+    "blog.post4.date": "January 5, 2026",
+    "blog.post4.readTime": "6 min",
+    "blog.post4.tag1": "Veneers",
+    "blog.post4.tag2": "Hollywood Smile",
+    "blog.post5.date": "January 2, 2026",
+    "blog.post5.readTime": "4 min",
+    "blog.post5.tag1": "Nutrition",
+    "blog.post5.tag2": "Prevention",
+    "blog.post6.date": "December 28, 2025",
+    "blog.post6.readTime": "5 min",
+    "blog.post6.tag1": "Children",
+    "blog.post6.tag2": "Prevention",
   },
 };

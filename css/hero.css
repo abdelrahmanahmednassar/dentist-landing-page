@@ -13,7 +13,7 @@
   }
   .cta-btn.service-btn {
     background: transparent;
-    border: none;
+    border: 2px solid var(--tussock);
     box-shadow: none;
     color: var(--tussock);
     padding: 18px 40px;
@@ -264,8 +264,8 @@
   border: 1px solid var(--black);
   padding: 20px 80px;
   font-family: var(--font-family);
-  font-weight: 500;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 18px;
   line-height: 1.5em;
   text-transform: uppercase;
   cursor: pointer;
@@ -501,7 +501,7 @@ a.hero-cta-btn:hover {
   border: none;
   padding: 18px 40px;
   font-family: var(--font-family);
-  font-weight: 700;
+  font-weight: 600;
   font-size: 17px;
   line-height: 1.5em;
   text-transform: uppercase;
@@ -539,7 +539,7 @@ a.service-btn {
   border: none;
   padding: 18px 40px;
   font-family: var(--font-family);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 16px;
   line-height: 1.5em;
   text-transform: uppercase;

@@ -89,14 +89,9 @@
   flex-shrink: 0;
 }
 
-.nav-link[href="contact-us.html"] {
-  font-weight: 900;
-}
-
 .nav-link.active {
   color: var(--tussock);
   font-weight: 700;
-}
 }
 
 .nav-link.home-link {

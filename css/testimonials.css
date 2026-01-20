@@ -141,7 +141,7 @@
 }
 
 [dir="rtl"] #testimonial-slide-2:checked ~ .testimonials-track {
-  transform: translateX(-33.3333%);
+  transform: translateX(33.3333%);
 }
 
 [dir="ltr"] #testimonial-slide-2:checked ~ .testimonials-track {
@@ -149,7 +149,7 @@
 }
 
 [dir="rtl"] #testimonial-slide-3:checked ~ .testimonials-track {
-  transform: translateX(-66.6667%);
+  transform: translateX(66.6667%);
 }
 
 [dir="ltr"] #testimonial-slide-3:checked ~ .testimonials-track {
