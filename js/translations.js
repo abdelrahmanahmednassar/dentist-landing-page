@@ -101,6 +101,7 @@ const translations = {
     "services.s4.title": "3N Veneers",
     "services.s4.desc":
       "تقنية 3N Veneers الألمانية المتاحة حصرياً في فايد دينتال كلينك تمنحك أسنان فائقة الإشراق والجمال بإجراءات سريعة وغير مؤلمة. أحدث وأكثر التقنيات تقدماً في عالم تجميل الأسنان لنتائج تدوم لسنوات",
+    "services.learnMore": "تعرف على المزيد",
     "services.cta.question": "هل تحتاج إلى متخصص ؟",
     "services.cta.text": "احصل على الأفضل الآن! فقط قم بتحديد موعد",
     "services.cta.btn": "حجز موعد",
@@ -305,6 +306,7 @@ const translations = {
     "services.s4.title": "3N Veneers",
     "services.s4.desc":
       "German 3N Veneers technology, available exclusively at Fayed Dental Clinic, gives you exceptionally bright and beautiful teeth with quick and painless procedures. The latest and most advanced technology in cosmetic dentistry for results that last for years",
+    "services.learnMore": "Learn More",
     "services.cta.question": "Need a Specialist?",
     "services.cta.text": "Get the best now! Just make an appointment",
     "services.cta.btn": "Book Appointment",

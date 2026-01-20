@@ -92,6 +92,27 @@ document.addEventListener("DOMContentLoaded", async () => {
       { id: "section-nav", file: "sections/nav.html" },
       { id: "section-footer", file: "sections/footer.html" },
     ],
+    // Service detail pages
+    "teeth-implants": [
+      { id: "header-container", file: "sections/header.html" },
+      { id: "nav-container", file: "sections/nav.html" },
+      { id: "footer-container", file: "sections/footer.html" },
+    ],
+    "teeth-beautification": [
+      { id: "header-container", file: "sections/header.html" },
+      { id: "nav-container", file: "sections/nav.html" },
+      { id: "footer-container", file: "sections/footer.html" },
+    ],
+    "hybrid-veneers": [
+      { id: "header-container", file: "sections/header.html" },
+      { id: "nav-container", file: "sections/nav.html" },
+      { id: "footer-container", file: "sections/footer.html" },
+    ],
+    "3n-veneers": [
+      { id: "header-container", file: "sections/header.html" },
+      { id: "nav-container", file: "sections/nav.html" },
+      { id: "footer-container", file: "sections/footer.html" },
+    ],
   };
 
   // Get sections for current page
@@ -139,10 +160,20 @@ function highlightActiveNavLink() {
     "children-dental-care",
   ];
 
+  // Service detail pages should highlight the services nav item
+  const serviceDetailPages = [
+    "teeth-implants",
+    "teeth-beautification",
+    "hybrid-veneers",
+    "3n-veneers",
+  ];
+
   // Determine which nav item to highlight
   let targetPage = currentPage;
   if (blogDetailPages.includes(currentPage)) {
     targetPage = "blogs";
+  } else if (serviceDetailPages.includes(currentPage)) {
+    targetPage = "services";
   }
 
   // Map page names to nav link hrefs
