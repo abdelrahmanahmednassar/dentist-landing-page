@@ -124,35 +124,68 @@
           أحلامك
         </p>
 
-        <div class="contact-info-grid">
-          <div class="contact-info-card">
-            <i class="bx bx-map"></i>
-            <h3 data-i18n="contact.branch1.title">فرع المهندسين</h3>
-            <p data-i18n="contact.branch1.address">
-              ٤٧ شارع جامعة الدول العربية<br />
-              متفرع من شارع شهاب
-            </p>
+        <div class="branches-container">
+          <!-- فرع المهندسين -->
+          <div class="branch-section">
+            <div class="branch-info">
+              <h3 data-i18n="contact.branch1.title">فرع المهندسين</h3>
+              <div class="branch-details">
+                <p class="branch-phones">
+                  <i class="bx bx-phone"></i>
+                  <a href="tel:01034317813">01034317813</a> /
+                  <a href="tel:01034313422">01034313422</a>
+                </p>
+                <p class="branch-address" data-i18n="contact.branch1.address">
+                  <i class="bx bx-map"></i>
+                  ٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب
+                </p>
+              </div>
+            </div>
+            <div class="branch-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4366.432391789551!2d31.199875823740133!3d30.049085318349537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145841368450289b%3A0x4f294191ab48dc64!2z2YXZitixINi52YLYqNip2Iwg2K3ZiiDYp9mE2LnYrNmI2LLYqdiMINmF2K3Yp9mB2LjYqSDYp9mE2KzZitiy2KkgMzc1MjIxMw!5e1!3m2!1sar!2seg!4v1768907109791!5m2!1sar!2seg"
+                width="100%"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
 
-          <div class="contact-info-card">
-            <i class="bx bx-map"></i>
-            <h3 data-i18n="contact.branch2.title">فرع مصر الجديدة</h3>
-            <p data-i18n="contact.branch2.address">
-              ١٦٥ برج عُدي<br />
-              ميدان الألف مسكن - شارع السويس
-            </p>
+          <!-- فرع مصر الجديدة -->
+          <div class="branch-section">
+            <div class="branch-info">
+              <h3 data-i18n="contact.branch2.title">فرع مصر الجديدة</h3>
+              <div class="branch-details">
+                <p class="branch-phones">
+                  <i class="bx bx-phone"></i>
+                  <a href="tel:01551089973">01551089973</a> /
+                  <a href="tel:01060614740">01060614740</a>
+                </p>
+                <p class="branch-address" data-i18n="contact.branch2.address">
+                  <i class="bx bx-map"></i>
+                  ١٦٥ برج عُدي ميدان الألف مسكن - شارع السويس
+                </p>
+              </div>
+            </div>
+            <div class="branch-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d17453.12786570742!2d31.36128238197!3d30.12046910854262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14581500016b36cd%3A0x3e367764a1d3d54e!2z2YXZitiv2KfZhiDYp9mE2YEg2YXYs9mD2YY!5e1!3m2!1sar!2seg!4v1768907152950!5m2!1sar!2seg"
+                width="100%"
+                height="300"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
           </div>
+        </div>
 
-          <div class="contact-info-card">
-            <i class="bx bx-phone"></i>
-            <h3 data-i18n="contact.phone.title">رقم الهاتف</h3>
-            <p>
-              <a href="tel:01034317813">01034317813</a><br />
-              <a href="tel:01551089973">01551089973</a>
-            </p>
-          </div>
-
-          <div class="contact-info-card">
+        <div class="additional-info">
+          <div class="info-card">
             <i class="bx bx-time-five"></i>
             <h3 data-i18n="contact.hours.title">مواعيد العمل</h3>
             <p data-i18n="contact.hours.text">
@@ -161,7 +194,7 @@
             </p>
           </div>
 
-          <div class="contact-info-card">
+          <div class="info-card">
             <i class="bx bxl-whatsapp"></i>
             <h3 data-i18n="contact.whatsapp.title">واتساب</h3>
             <p>
@@ -171,7 +204,7 @@
             </p>
           </div>
 
-          <div class="contact-info-card">
+          <div class="info-card">
             <i class="bx bx-envelope"></i>
             <h3 data-i18n="contact.email.title">البريد الإلكتروني</h3>
             <p>
@@ -191,16 +224,6 @@
           >
             احجز موعدك الآن عبر واتساب
           </a>
-        </div>
-
-        <!-- Google Maps -->
-        <div class="contact-map">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.0666748894834!2d31.200847615100823!3d30.062231681882387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145840c4e1f4c5a7%3A0x3a4b4b4b4b4b4b4b!2s47%20Gameat%20Al%20Dewal%20Al%20Arabiya%2C%20Ad%20Doqi%2C%20Giza%20Governorate!5e0!3m2!1sen!2seg!4v1642000000000!5m2!1sen!2seg"
-            allowfullscreen=""
-            loading="lazy"
-          >
-          </iframe>
         </div>
       </div>
     </section>

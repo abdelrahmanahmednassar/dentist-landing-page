@@ -48,7 +48,6 @@
     margin: 0 0 24px 0;
   }
 
-
   .footer-services-list {
     list-style: none;
     padding: 0;
@@ -63,26 +62,7 @@
     font-weight: 400;
     font-size: 14px;
     color: var(--white);
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
-
-  [dir="ltr"] .footer-services-list li {
-    justify-content: flex-start;
-  }
-
-  [dir="rtl"] .footer-services-list li {
-    justify-content: flex-end;
-  }
-
-  .footer-services-list li i {
-    color: var(--tussock);
-    font-size: 12px;
-  }
-
-
-
 
   .contact-info {
     display: flex;
@@ -98,8 +78,6 @@
     color: var(--white);
   }
 
-
-
   .contact-item strong {
     display: block;
     margin-bottom: 8px;
@@ -111,13 +89,9 @@
     line-height: 1.6;
   }
 
-
   .contact-item div {
     margin: 12px 0;
   }
-
-
-
 
   .social-media {
     display: flex;

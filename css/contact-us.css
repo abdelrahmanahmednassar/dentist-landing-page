@@ -25,81 +25,162 @@
   margin-bottom: 60px;
 }
 
-.contact-info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
+/* Branch Sections */
+.branches-container {
   margin-bottom: 60px;
 }
 
-.contact-info-card {
+.branch-section {
   background: #f9f9f9;
-  padding: 40px 30px;
-  border-radius: 8px;
-  text-align: center;
+  border-radius: 12px;
+  padding: 40px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
 }
 
-.contact-info-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+.branch-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
-.contact-info-card i {
-  font-size: 48px;
+.branch-info {
+  margin-bottom: 30px;
+}
+
+.branch-info h3 {
+  font-size: 28px;
   color: var(--tussock);
   margin-bottom: 20px;
-}
-
-.contact-info-card h3 {
-  font-size: 24px;
-  color: var(--haiti);
-  margin-bottom: 15px;
   font-weight: 700;
+  text-align: center;
 }
 
-.contact-info-card p {
+.branch-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.branch-phones,
+.branch-address {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-size: 16px;
-  color: var(--boulder);
+  color: var(--tundora);
   line-height: 1.8;
-  margin-bottom: 10px;
 }
 
-.contact-info-card p br {
-  display: block;
-  content: "";
-  margin-top: 5px;
+[dir="rtl"] .branch-phones,
+[dir="rtl"] .branch-address {
+  flex-direction: row-reverse;
+  text-align: right;
 }
 
-.contact-info-card a {
+[dir="ltr"] .branch-phones,
+[dir="ltr"] .branch-address {
+  flex-direction: row;
+  text-align: left;
+}
+
+.branch-phones i,
+.branch-address i {
+  font-size: 24px;
   color: var(--tussock);
-  text-decoration: none;
-  font-weight: 500;
+  flex-shrink: 0;
 }
 
-.contact-info-card a:hover {
+.branch-phones a {
+  color: var(--tundora);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.branch-phones a:hover {
+  color: var(--tussock);
   text-decoration: underline;
 }
 
-.contact-map {
+.branch-map {
   width: 100%;
-  height: 450px;
   border-radius: 8px;
   overflow: hidden;
-  margin-top: 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-map iframe {
+.branch-map iframe {
   width: 100%;
-  height: 100%;
+  height: 350px;
   border: 0;
+  display: block;
 }
 
+/* Additional Info Cards */
+.additional-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.info-card {
+  background: #f9f9f9;
+  padding: 35px 25px;
+  border-radius: 10px;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-card i {
+  font-size: 42px;
+  color: var(--tussock);
+  margin-bottom: 18px;
+  display: block;
+}
+
+.info-card h3 {
+  font-size: 20px;
+  color: var(--haiti);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.info-card p {
+  font-size: 15px;
+  color: var(--boulder);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.info-card a {
+  color: var(--tussock);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.info-card a:hover {
+  color: #a67d3a;
+  text-decoration: underline;
+}
+
+/* CTA Button */
 .contact-cta {
   text-align: center;
   margin-top: 60px;
+  margin-bottom: 40px;
 }
 
 .contact-cta-btn {
@@ -107,31 +188,59 @@
   background: var(--tussock);
   color: #fff;
   padding: 18px 50px;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 18px;
   font-weight: 600;
   text-decoration: none;
   transition:
     background 0.3s ease,
-    transform 0.3s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(190, 146, 73, 0.3);
 }
 
 .contact-cta-btn:hover {
   background: #a67d3a;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(190, 146, 73, 0.4);
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .contact-page-title {
     font-size: 32px;
   }
 
-  .contact-info-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
+  .contact-page-subtitle {
+    font-size: 16px;
+    margin-bottom: 40px;
   }
 
-  .contact-map {
-    height: 300px;
+  .branch-section {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+
+  .branch-info h3 {
+    font-size: 24px;
+  }
+
+  .branch-phones,
+  .branch-address {
+    font-size: 14px;
+  }
+
+  .branch-map iframe {
+    height: 250px;
+  }
+
+  .additional-info {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contact-cta-btn {
+    padding: 15px 35px;
+    font-size: 16px;
   }
 }
