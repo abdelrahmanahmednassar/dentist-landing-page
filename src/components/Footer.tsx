@@ -105,6 +105,17 @@ export default async function Footer() {
         </div>
         <div className={styles.footerBottom}>
           <p>{t("footer.copyright")}</p>
+          <p className={styles.footerCredit}>
+            Made with <i className="bx bxs-heart"></i> by{" "}
+            <Link
+              href="https://abdelrahman-nassar.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.creditLink}
+            >
+              Abdelrahman Nassar
+            </Link>
+          </p>
         </div>
       </div>
     </footer>
