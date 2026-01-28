@@ -59,7 +59,7 @@ export default async function BlogsPage() {
         {/* Page Header */}
         <div className={styles.blogPageHeader}>
           <h1 className={styles.blogPageTitle}>
-            {locale === "ar" ? "المدونة" : "Blog"}
+            {locale === "ar" ? "المدونة" : "Blogs"}
           </h1>
           <p className={styles.blogPageSubtitle}>
             {locale === "ar"

@@ -9,7 +9,7 @@
     "services": "Our Services",
     "cases": "Cases",
     "team": "Our Team",
-    "blogs": "Blog",
+    "blogs": "Blogs",
     "contact": "Contact Us"
   },
   "hero": {
@@ -194,56 +194,6 @@
       "cosmetic": "Cosmetic Dentistry",
       "implants": "Dental Implants",
       "tips": "General Tips"
-    },
-    "post1": {
-      "title": "7 Steps for Daily Dental Care",
-      "excerpt": "Learn the best daily practices to maintain healthy teeth and a bright smile. From brushing to flossing.",
-      "date": "January 15, 2026",
-      "readTime": "5 min",
-      "tag1": "Daily Care",
-      "tag2": "Oral Health"
-    },
-    "post2": {
-      "title": "Everything You Need to Know About Laser Teeth Whitening",
-      "excerpt": "Laser teeth whitening is one of the most popular cosmetic procedures. Discover how it works, its benefits, and expected results.",
-      "date": "January 12, 2026",
-      "readTime": "7 min",
-      "tag1": "Teeth Whitening",
-      "tag2": "Laser",
-      "tag3": "Smile"
-    },
-    "post3": {
-      "title": "Your Complete Guide to Dental Implants: Steps and Benefits",
-      "excerpt": "Dental implants are the optimal solution for replacing missing teeth. Learn about procedures, timeline, and success rate.",
-      "date": "January 8, 2026",
-      "readTime": "10 min",
-      "tag1": "Implants",
-      "tag2": "Surgery",
-      "tag3": "Titanium"
-    },
-    "post4": {
-      "title": "Veneers and the Difference Between Types",
-      "excerpt": "Learn about different types of veneers: traditional, lumineers, and 3N Veneers. Choose the best for your case.",
-      "date": "January 5, 2026",
-      "readTime": "6 min",
-      "tag1": "Veneers",
-      "tag2": "Hollywood Smile"
-    },
-    "post5": {
-      "title": "Foods That Strengthen Your Teeth and Others to Avoid",
-      "excerpt": "Your diet greatly affects your dental health. Discover beneficial foods and those harmful to your teeth.",
-      "date": "January 2, 2026",
-      "readTime": "4 min",
-      "tag1": "Nutrition",
-      "tag2": "Prevention"
-    },
-    "post6": {
-      "title": "Children's Dental Care: When to Start?",
-      "excerpt": "Children's dental care begins from the first tooth. Learn the right steps to protect your child's teeth.",
-      "date": "December 28, 2025",
-      "readTime": "5 min",
-      "tag1": "Children",
-      "tag2": "Prevention"
     }
   },
   "team": {

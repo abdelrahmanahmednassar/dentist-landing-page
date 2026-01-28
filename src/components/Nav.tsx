@@ -59,7 +59,7 @@ export default function Nav() {
   const isServicesActive = pathname.startsWith("/services");
 
   // Check if blogs should be highlighted (for blog detail pages)
-  const isBlogsActive = pathname.startsWith("/blog");
+  const isBlogsActive = pathname.startsWith("/blogs");
 
   return (
     <nav className={styles.mainNav}>

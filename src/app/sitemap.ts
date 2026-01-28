@@ -76,37 +76,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Blog posts
     {
-      url: `${baseUrl}/blog/children-dental-care`,
+      url: `${baseUrl}/blogs/children-dental-care`,
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/blog/daily-dental-care`,
+      url: `${baseUrl}/blogs/daily-dental-care`,
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/blog/dental-implants-guide`,
+      url: `${baseUrl}/blogs/dental-implants-guide`,
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/blog/healthy-foods-for-teeth`,
+      url: `${baseUrl}/blogs/healthy-foods-for-teeth`,
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/blog/laser-teeth-whitening`,
+      url: `${baseUrl}/blogs/laser-teeth-whitening`,
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
-      url: `${baseUrl}/blog/veneers-vs-lumineers`,
+      url: `${baseUrl}/blogs/veneers-vs-lumineers`,
       lastModified: currentDate,
       changeFrequency: "monthly",
       priority: 0.6,
