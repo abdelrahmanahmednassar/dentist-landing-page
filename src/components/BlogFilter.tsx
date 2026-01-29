@@ -24,7 +24,13 @@ export default function BlogFilter() {
       tag: "all",
     };
 
-    const uniqueTags = Array.from(new Set(blogs.map((blog) => blog.tag)));
+    const uniqueTags = Array.from(
+      new Set(
+        blogs
+          .map((blog) => blog?.tag)
+          .filter((tag): tag is string => tag !== undefined),
+      ),
+    );
     const tagCategories = uniqueTags.map((tag) => ({
       id: tag,
       label: tag,
@@ -37,7 +43,7 @@ export default function BlogFilter() {
   // Filter blogs by category using the tag from each blog
   const filteredBlogs = useMemo(() => {
     if (activeCategory === "all") return blogs;
-    return blogs.filter((blog) => blog.tag === activeCategory);
+    return blogs.filter((blog) => blog?.tag === activeCategory);
   }, [blogs, activeCategory]);
 
   return (
@@ -59,35 +65,35 @@ export default function BlogFilter() {
       <div className={styles.blogGrid}>
         {filteredBlogs.map((blog) => (
           <Link
-            key={blog.id}
-            href={`/blogs/${blog.id}`}
+            key={blog?.id}
+            href={`/blogs/${blog?.id}`}
             className={styles.blogCardLink}
           >
             <article className={styles.blogCard}>
               <div className={styles.blogCardImage}>
                 <Image
-                  src={blog.imagePath}
-                  alt={blog.title}
+                  src={blog?.imagePath || ""}
+                  alt={blog?.title || ""}
                   loading="lazy"
                   width={1200}
                   height={600}
                 />
-                <span className={styles.blogCategory}>{blog.tag}</span>
+                <span className={styles.blogCategory}>{blog?.tag}</span>
               </div>
               <div className={styles.blogCardContent}>
                 <div className={styles.blogMeta}>
                   <span className={styles.blogDate}>
                     <i className="bx bx-calendar"></i>
-                    <span>{blog.publishDate}</span>
+                    <span>{blog?.publishDate}</span>
                   </span>
                   <span className={styles.blogReadTime}>
                     <i className="bx bx-time"></i>
-                    <span>{blog.timeToRead}</span>
+                    <span>{blog?.timeToRead}</span>
                   </span>
                 </div>
-                <h3 className={styles.blogCardTitle}>{blog.title}</h3>
+                <h3 className={styles.blogCardTitle}>{blog?.title}</h3>
                 <p className={styles.blogCardExcerpt}>
-                  {blog.content.replace(/<[^>]*>/g, "").substring(0, 150)}...
+                  {blog?.content.replace(/<[^>]*>/g, "").substring(0, 150)}...
                 </p>
               </div>
             </article>

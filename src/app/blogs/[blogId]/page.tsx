@@ -1,6 +1,16 @@
 import { notFound } from "next/navigation";
 import { getLocale } from "next-intl/server";
 import { BLOGS } from "@/date/blogs";
+
+type Blog = {
+  id: string;
+  title: string;
+  tag: string;
+  timeToRead: string;
+  imagePath: string;
+  publishDate: string;
+  content: string;
+};
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/styles/blog-detail.module.css";
@@ -17,7 +27,7 @@ export default async function BlogPage({ params }: PageProps) {
   const blogs = locale === "ar" ? BLOGS.ar : BLOGS.en;
 
   // Find the blog by ID
-  const blog = blogs.find((b) => b.id === blogId); // If blog not found, show 404
+  const blog = blogs.find((b) => b?.id === blogId); // If blog not found, show 404
   if (!blog) {
     notFound();
   }
@@ -66,14 +76,38 @@ export default async function BlogPage({ params }: PageProps) {
 } // Generate static params for all blog IDs
 export async function generateStaticParams() {
   const allBlogIds = [
-    ...BLOGS.en.map((blog) => ({ blogId: blog.id })),
-    ...BLOGS.ar.map((blog) => ({ blogId: blog.id })),
+    ...BLOGS.en
+      .filter(
+        (blog): blog is Blog =>
+          !!blog &&
+          typeof blog.id === "string" &&
+          typeof blog.title === "string" &&
+          typeof blog.tag === "string" &&
+          typeof blog.timeToRead === "string" &&
+          typeof blog.imagePath === "string" &&
+          typeof blog.publishDate === "string" &&
+          typeof blog.content === "string",
+      )
+      .map((blog) => ({ blogId: blog.id })),
+    ...BLOGS.ar
+      .filter(
+        (blog): blog is Blog =>
+          !!blog &&
+          typeof blog.id === "string" &&
+          typeof blog.title === "string" &&
+          typeof blog.tag === "string" &&
+          typeof blog.timeToRead === "string" &&
+          typeof blog.imagePath === "string" &&
+          typeof blog.publishDate === "string" &&
+          typeof blog.content === "string",
+      )
+      .map((blog) => ({ blogId: blog.id })),
   ];
 
-  // Remove duplicates
-  const uniqueIds = Array.from(
-    new Set(allBlogIds.map((item) => item.blogId)),
-  ).map((blogId) => ({ blogId }));
+  // Remove duplicates and undefined
+  const uniqueIds = Array.from(new Set(allBlogIds.map((item) => item.blogId)))
+    .filter((blogId) => blogId !== undefined)
+    .map((blogId) => ({ blogId }));
 
   return uniqueIds;
 }
