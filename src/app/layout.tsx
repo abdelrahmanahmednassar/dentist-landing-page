@@ -27,7 +27,7 @@ const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP || "+201002507882";
 export const metadata: Metadata = {
   title: "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
   description:
-      "ﺗﻌﺮّف ﻋﲆ ﻋﻴﺎدة ﻓﺎﻳﺪ ﻟﻄﺐ اﻷﺳﻨﺎن، أﻃﺒﺎؤﻧﺎ اﻟﺨﱪاء، واﻟﱱاﻣﻨﺎ ﺑﺘﻘﺪﻳﻢ رﻋﺎﻳﺔ آﻣﻨﺔ وﺣﺪﻳﺜﺔ وﺧﺎﻟﻴﺔ ﻣﻦ اﻷﻟﻢ ﻓﻲ القاهرة",
+    "ﺗﻌﺮّف ﻋﲆ ﻋﻴﺎدة ﻓﺎﻳﺪ ﻟﻄﺐ اﻷﺳﻨﺎن، أﻃﺒﺎؤﻧﺎ اﻟﺨﱪاء، واﻟﱱاﻣﻨﺎ ﺑﺘﻘﺪﻳﻢ رﻋﺎﻳﺔ آﻣﻨﺔ وﺣﺪﻳﺜﺔ وﺧﺎﻟﻴﺔ ﻣﻦ اﻷﻟﻢ ﻓﻲ القاهرة",
   keywords: [
     "عيادة أسنان القاهرة",
     "دكتور أسنان",
@@ -62,9 +62,9 @@ export const metadata: Metadata = {
     type: "website",
     url: `${SITE_URL}/`,
     title:
-        "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
+      "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
     description:
-        "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو. خبرة أكثر من 7 سنوات في مجال طب الأسنان بأحدث التقنيات.",
+      "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو. خبرة أكثر من 7 سنوات في مجال طب الأسنان بأحدث التقنيات.",
     siteName: "فايد دينتال كلينك",
     locale: "ar_EG",
     images: [
@@ -80,9 +80,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-        "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
+      "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
     description:
-        "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو.",
+      "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو.",
     images: ["/images/preview-image.png"],
   },
   icons: {
@@ -120,8 +120,8 @@ export const metadata: Metadata = {
 };
 
 export default async function RootLayout({
-                                           children,
-                                         }: Readonly<{
+  children,
+}: Readonly<{
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
@@ -129,22 +129,22 @@ export default async function RootLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-      <html
-          lang={locale}
-          dir={dir}
-          className={tajawal.className}
-          data-scroll-behavior="smooth"
-          itemScope
-          itemType="https://schema.org/WebSite"
-      >
+    <html
+      lang={locale}
+      dir={dir}
+      className={tajawal.className}
+      data-scroll-behavior="smooth"
+      itemScope
+      itemType="https://schema.org/WebSite"
+    >
       <head>
         <meta name="theme-color" content="#BE9249" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
@@ -154,39 +154,39 @@ export default async function RootLayout({
         <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
       </head>
       <body>
-      {/* Google Tag Manager (noscript) */}
-      <noscript>
-        <iframe
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
             src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
             height="0"
             width="0"
             style={{ display: "none", visibility: "hidden" }}
-        />
-      </noscript>
+          />
+        </noscript>
 
-      <Providers locale={locale} messages={messages}>
-        <Header />
-        <Nav />
-        {children}
-        <Footer />
+        <Providers locale={locale} messages={messages}>
+          <Header />
+          <Nav />
+          {children}
+          <Footer />
 
-        {/* WhatsApp Float Button */}
-        <Link
+          {/* WhatsApp Float Button */}
+          <Link
             href={`https://wa.me/${WHATSAPP.replace(/\+/g, "")}`}
             className={styles.whatsappFloat}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Contact us on WhatsApp"
-        >
-          <i className="bx bxl-whatsapp"></i>
-        </Link>
+          >
+            <i className="bx bxl-whatsapp"></i>
+          </Link>
 
-        {/* Scroll to Top Button */}
-        <ScrollToTop />
-      </Providers>
+          {/* Scroll to Top Button */}
+          <ScrollToTop />
+        </Providers>
 
-      {/* Google Tag Manager - Main Script */}
-      <Script
+        {/* Google Tag Manager - Main Script */}
+        <Script
           id="gtm-script"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -198,15 +198,15 @@ export default async function RootLayout({
               })(window,document,'script','dataLayer','${GTM_ID}');
             `,
           }}
-      />
+        />
 
-      {/* Google Ads Script - Only if not using GTM for tracking */}
-      {/* If you're using GTM, configure Google Ads there instead and remove this script */}
-      <Script
+        {/* Google Ads Script - Only if not using GTM for tracking */}
+        {/* If you're using GTM, configure Google Ads there instead and remove this script */}
+        <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
           strategy="afterInteractive"
-      />
-      <Script
+        />
+        <Script
           id="google-ads-init"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
@@ -217,10 +217,10 @@ export default async function RootLayout({
               gtag('config', '${GOOGLE_ADS_ID}');
             `,
           }}
-      />
+        />
 
-      {/* Structured Data - Dentist */}
-      <Script
+        {/* Structured Data - Dentist */}
+        <Script
           id="structured-data-dentist"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -230,7 +230,7 @@ export default async function RootLayout({
               name: "فايد دينتال كلينك - Dr. Mohamed Fayed",
               alternateName: "Fayed Dental Clinic",
               description:
-                  "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو.",
+                "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو.",
               url: SITE_URL,
               logo: `${SITE_URL}/images/logo.png`,
               image: `${SITE_URL}/images/preview-image.png`,
@@ -239,7 +239,7 @@ export default async function RootLayout({
               address: {
                 "@type": "PostalAddress",
                 streetAddress:
-                    "٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب",
+                  "٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب",
                 addressLocality: "القاهرة",
                 addressRegion: "القاهرة",
                 addressCountry: "EG",
@@ -284,7 +284,7 @@ export default async function RootLayout({
                       "@type": "Service",
                       name: "زراعة الأسنان",
                       description:
-                          "الحل الأمثل لتعويض الفقد في الأسنان بأيدي متخصصي زراعة الأسنان",
+                        "الحل الأمثل لتعويض الفقد في الأسنان بأيدي متخصصي زراعة الأسنان",
                     },
                   },
                   {
@@ -293,7 +293,7 @@ export default async function RootLayout({
                       "@type": "Service",
                       name: "تجميل الأسنان",
                       description:
-                          "تقنية تصميم الإبتسامة بالكمبيوتر في تجميل الأسنان",
+                        "تقنية تصميم الإبتسامة بالكمبيوتر في تجميل الأسنان",
                     },
                   },
                   {
@@ -302,7 +302,7 @@ export default async function RootLayout({
                       "@type": "Service",
                       name: "Hybrid veneers",
                       description:
-                          "أحدث طرق تجميل الأسنان والتي تجمع بين دقة وسرعة تقنيات تصميم الإبتسامة بالكمبيوتر",
+                        "أحدث طرق تجميل الأسنان والتي تجمع بين دقة وسرعة تقنيات تصميم الإبتسامة بالكمبيوتر",
                     },
                   },
                   {
@@ -311,7 +311,7 @@ export default async function RootLayout({
                       "@type": "Service",
                       name: "3N Veneers",
                       description:
-                          "أحدث وأكثر التقنيات تقدماً في عالم تجميل الأسنان",
+                        "أحدث وأكثر التقنيات تقدماً في عالم تجميل الأسنان",
                     },
                   },
                   {
@@ -320,7 +320,7 @@ export default async function RootLayout({
                       "@type": "Service",
                       name: "علاج الجذور وحشو العصب",
                       description:
-                          "علاج جذور الأسنان وحشو العصب بأحدث التقنيات",
+                        "علاج جذور الأسنان وحشو العصب بأحدث التقنيات",
                     },
                   },
                   {
@@ -345,10 +345,10 @@ export default async function RootLayout({
               ],
             }),
           }}
-      />
+        />
 
-      {/* Structured Data - Organization */}
-      <Script
+        {/* Structured Data - Organization */}
+        <Script
           id="structured-data-organization"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -373,10 +373,10 @@ export default async function RootLayout({
               ],
             }),
           }}
-      />
+        />
 
-      {/* Structured Data - BreadcrumbList */}
-      <Script
+        {/* Structured Data - BreadcrumbList */}
+        <Script
           id="structured-data-breadcrumb"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -393,10 +393,10 @@ export default async function RootLayout({
               ],
             }),
           }}
-      />
+        />
 
-      {/* Structured Data - WebSite */}
-      <Script
+        {/* Structured Data - WebSite */}
+        <Script
           id="structured-data-website"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -415,10 +415,10 @@ export default async function RootLayout({
               },
             }),
           }}
-      />
+        />
 
-      {/* Structured Data - LocalBusiness */}
-      <Script
+        {/* Structured Data - LocalBusiness */}
+        <Script
           id="structured-data-local-business"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -434,7 +434,7 @@ export default async function RootLayout({
               address: {
                 "@type": "PostalAddress",
                 streetAddress:
-                    "٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب",
+                  "٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب",
                 addressLocality: "القاهرة",
                 addressRegion: "القاهرة",
                 postalCode: "",
@@ -460,8 +460,8 @@ export default async function RootLayout({
               },
             }),
           }}
-      />
+        />
       </body>
-      </html>
+    </html>
   );
 }
