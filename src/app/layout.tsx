@@ -17,10 +17,17 @@ const tajawal = Tajawal({
   display: "swap",
 });
 
+// Environment variables (create .env.local file)
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fayed.clinic";
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-MTJHBG8W";
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-17913088176";
+const PHONE = process.env.NEXT_PUBLIC_PHONE || "+201034317813";
+const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP || "+201002507882";
+
 export const metadata: Metadata = {
   title: "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
   description:
-    "ﺗﻌﺮّف ﻋﲆ ﻋﻴﺎدة ﻓﺎﻳﺪ ﻟﻄﺐ اﻷﺳﻨﺎن، أﻃﺒﺎؤﻧﺎ اﻟﺨﱪاء، واﻟﱱاﻣﻨﺎ ﺑﺘﻘﺪﻳﻢ رﻋﺎﻳﺔ آﻣﻨﺔ وﺣﺪﻳﺜﺔ وﺧﺎﻟﻴﺔ ﻣﻦ اﻷﻟﻢ ﻓﻲ القاهرة",
+      "ﺗﻌﺮّف ﻋﲆ ﻋﻴﺎدة ﻓﺎﻳﺪ ﻟﻄﺐ اﻷﺳﻨﺎن، أﻃﺒﺎؤﻧﺎ اﻟﺨﱪاء، واﻟﱱاﻣﻨﺎ ﺑﺘﻘﺪﻳﻢ رﻋﺎﻳﺔ آﻣﻨﺔ وﺣﺪﻳﺜﺔ وﺧﺎﻟﻴﺔ ﻣﻦ اﻷﻟﻢ ﻓﻲ القاهرة",
   keywords: [
     "عيادة أسنان القاهرة",
     "دكتور أسنان",
@@ -47,17 +54,17 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  metadataBase: new URL("https://fayed.clinic"),
+  metadataBase: new URL(SITE_URL),
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
-    url: "https://fayed.clinic/",
+    url: `${SITE_URL}/`,
     title:
-      "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
+        "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
     description:
-      "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو. خبرة أكثر من 7 سنوات في مجال طب الأسنان بأحدث التقنيات.",
+        "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو. خبرة أكثر من 7 سنوات في مجال طب الأسنان بأحدث التقنيات.",
     siteName: "فايد دينتال كلينك",
     locale: "ar_EG",
     images: [
@@ -66,15 +73,16 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "فايد دينتال كلينك",
+        type: "image/png",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
+        "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
     description:
-      "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو.",
+        "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو.",
     images: ["/images/preview-image.png"],
   },
   icons: {
@@ -103,11 +111,17 @@ export const metadata: Metadata = {
   other: {
     language: "Arabic",
     "revisit-after": "7 days",
+    "format-detection": "telephone=no",
   },
+  // Add Google verification if you have it
+  // verification: {
+  //   google: "your-google-site-verification-code",
+  // },
 };
+
 export default async function RootLayout({
-  children,
-}: Readonly<{
+                                           children,
+                                         }: Readonly<{
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
@@ -115,34 +129,99 @@ export default async function RootLayout({
   const dir = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html
-      lang={locale}
-      dir={dir}
-      className={tajawal.className}
-      data-scroll-behavior="smooth"
-    >
+      <html
+          lang={locale}
+          dir={dir}
+          className={tajawal.className}
+          data-scroll-behavior="smooth"
+          itemScope
+          itemType="https://schema.org/WebSite"
+      >
       <head>
         <meta name="theme-color" content="#BE9249" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
         />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
         {/* hreflang tags for language alternatives */}
-        <link rel="alternate" hrefLang="ar" href="https://fayed.clinic" />
-        <link rel="alternate" hrefLang="en" href="https://fayed.clinic" />
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href="https://fayed.clinic"
+        <link rel="alternate" hrefLang="ar" href={SITE_URL} />
+        <link rel="alternate" hrefLang="en" href={SITE_URL} />
+        <link rel="alternate" hrefLang="x-default" href={SITE_URL} />
+      </head>
+      <body>
+      {/* Google Tag Manager (noscript) */}
+      <noscript>
+        <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
         />
+      </noscript>
 
-        {/* Structured Data - Dentist */}
-        <script
+      <Providers locale={locale} messages={messages}>
+        <Header />
+        <Nav />
+        {children}
+        <Footer />
+
+        {/* WhatsApp Float Button */}
+        <Link
+            href={`https://wa.me/${WHATSAPP.replace(/\+/g, "")}`}
+            className={styles.whatsappFloat}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Contact us on WhatsApp"
+        >
+          <i className="bx bxl-whatsapp"></i>
+        </Link>
+
+        {/* Scroll to Top Button */}
+        <ScrollToTop />
+      </Providers>
+
+      {/* Google Tag Manager - Main Script */}
+      <Script
+          id="gtm-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','${GTM_ID}');
+            `,
+          }}
+      />
+
+      {/* Google Ads Script - Only if not using GTM for tracking */}
+      {/* If you're using GTM, configure Google Ads there instead and remove this script */}
+      <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+          strategy="afterInteractive"
+      />
+      <Script
+          id="google-ads-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GOOGLE_ADS_ID}');
+            `,
+          }}
+      />
+
+      {/* Structured Data - Dentist */}
+      <Script
+          id="structured-data-dentist"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -151,16 +230,16 @@ export default async function RootLayout({
               name: "فايد دينتال كلينك - Dr. Mohamed Fayed",
               alternateName: "Fayed Dental Clinic",
               description:
-                "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو.",
-              url: "https://fayed.clinic",
-              logo: "https://fayed.clinic/images/logo.png",
-              image: "https://fayed.clinic/images/preview-image.png",
-              telephone: "+201034317813",
+                  "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو.",
+              url: SITE_URL,
+              logo: `${SITE_URL}/images/logo.png`,
+              image: `${SITE_URL}/images/preview-image.png`,
+              telephone: PHONE,
               email: "info@fayedentalclinic.com",
               address: {
                 "@type": "PostalAddress",
                 streetAddress:
-                  "٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب",
+                    "٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب",
                 addressLocality: "القاهرة",
                 addressRegion: "القاهرة",
                 addressCountry: "EG",
@@ -186,6 +265,7 @@ export default async function RootLayout({
                 },
               ],
               priceRange: "$$",
+              currenciesAccepted: "EGP",
               medicalSpecialty: [
                 "Dentistry",
                 "Oral Surgery",
@@ -204,7 +284,7 @@ export default async function RootLayout({
                       "@type": "Service",
                       name: "زراعة الأسنان",
                       description:
-                        "الحل الأمثل لتعويض الفقد في الأسنان بأيدي متخصصي زراعة الأسنان",
+                          "الحل الأمثل لتعويض الفقد في الأسنان بأيدي متخصصي زراعة الأسنان",
                     },
                   },
                   {
@@ -213,7 +293,7 @@ export default async function RootLayout({
                       "@type": "Service",
                       name: "تجميل الأسنان",
                       description:
-                        "تقنية تصميم الإبتسامة بالكمبيوتر في تجميل الأسنان",
+                          "تقنية تصميم الإبتسامة بالكمبيوتر في تجميل الأسنان",
                     },
                   },
                   {
@@ -222,7 +302,7 @@ export default async function RootLayout({
                       "@type": "Service",
                       name: "Hybrid veneers",
                       description:
-                        "أحدث طرق تجميل الأسنان والتي تجمع بين دقة وسرعة تقنيات تصميم الإبتسامة بالكمبيوتر",
+                          "أحدث طرق تجميل الأسنان والتي تجمع بين دقة وسرعة تقنيات تصميم الإبتسامة بالكمبيوتر",
                     },
                   },
                   {
@@ -231,7 +311,7 @@ export default async function RootLayout({
                       "@type": "Service",
                       name: "3N Veneers",
                       description:
-                        "أحدث وأكثر التقنيات تقدماً في عالم تجميل الأسنان",
+                          "أحدث وأكثر التقنيات تقدماً في عالم تجميل الأسنان",
                     },
                   },
                   {
@@ -240,7 +320,7 @@ export default async function RootLayout({
                       "@type": "Service",
                       name: "علاج الجذور وحشو العصب",
                       description:
-                        "علاج جذور الأسنان وحشو العصب بأحدث التقنيات",
+                          "علاج جذور الأسنان وحشو العصب بأحدث التقنيات",
                     },
                   },
                   {
@@ -265,10 +345,11 @@ export default async function RootLayout({
               ],
             }),
           }}
-        />
+      />
 
-        {/* Structured Data - Organization */}
-        <script
+      {/* Structured Data - Organization */}
+      <Script
+          id="structured-data-organization"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -276,11 +357,11 @@ export default async function RootLayout({
               "@type": "Organization",
               name: "فايد دينتال كلينك - Fayed Dental Clinic",
               alternateName: "Dr. Mohamed Fayed Dental Clinic",
-              url: "https://fayed.clinic",
-              logo: "https://fayed.clinic/images/logo.png",
+              url: SITE_URL,
+              logo: `${SITE_URL}/images/logo.png`,
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+201034317813",
+                telephone: PHONE,
                 contactType: "Customer Service",
                 areaServed: "EG",
                 availableLanguage: ["Arabic", "English"],
@@ -292,10 +373,11 @@ export default async function RootLayout({
               ],
             }),
           }}
-        />
+      />
 
-        {/* Structured Data - BreadcrumbList */}
-        <script
+      {/* Structured Data - BreadcrumbList */}
+      <Script
+          id="structured-data-breadcrumb"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
@@ -306,52 +388,53 @@ export default async function RootLayout({
                   "@type": "ListItem",
                   position: 1,
                   name: "الرئيسية",
-                  item: "https://fayed.clinic",
+                  item: SITE_URL,
                 },
               ],
             }),
           }}
-        />
+      />
 
-        {/* Structured Data - WebSite */}
-        <script
+      {/* Structured Data - WebSite */}
+      <Script
+          id="structured-data-website"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "فايد دينتال كلينك",
-              url: "https://fayed.clinic",
+              url: SITE_URL,
               potentialAction: {
                 "@type": "SearchAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate:
-                    "https://fayed.clinic/search?q={search_term_string}",
+                  urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
                 },
                 "query-input": "required name=search_term_string",
               },
             }),
           }}
-        />
+      />
 
-        {/* Structured Data - LocalBusiness */}
-        <script
+      {/* Structured Data - LocalBusiness */}
+      <Script
+          id="structured-data-local-business"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               name: "فايد دينتال كلينك",
-              image: "https://fayed.clinic/images/preview-image.png",
-              "@id": "https://fayed.clinic",
-              url: "https://fayed.clinic",
-              telephone: "+201034317813",
+              image: `${SITE_URL}/images/preview-image.png`,
+              "@id": SITE_URL,
+              url: SITE_URL,
+              telephone: PHONE,
               priceRange: "$$",
               address: {
                 "@type": "PostalAddress",
                 streetAddress:
-                  "٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب",
+                    "٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب",
                 addressLocality: "القاهرة",
                 addressRegion: "القاهرة",
                 postalCode: "",
@@ -377,55 +460,8 @@ export default async function RootLayout({
               },
             }),
           }}
-        />
-      </head>
-      <body>
-        {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-MTJHBG8W"
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
-
-        <Providers locale={locale} messages={messages}>
-          <Header />
-          <Nav />
-          {children}
-          <Footer />
-
-          {/* WhatsApp Float Button */}
-          <Link
-            href="https://wa.me/201002507882"
-            className={styles.whatsappFloat}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Contact us on WhatsApp"
-          >
-            <i className="bx bxl-whatsapp"></i>
-          </Link>
-
-          {/* Scroll to Top Button */}
-          <ScrollToTop />
-        </Providers>
-
-        {/* Google Tag Manager */}
-        <Script
-          id="gtm-script"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-MTJHBG8W');
-            `,
-          }}
-        />
+      />
       </body>
-    </html>
+      </html>
   );
 }
