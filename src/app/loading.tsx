@@ -1,6 +1,8 @@
 import React from "react";
+import { getTranslations } from "next-intl/server";
 
-const loading = () => {
+const loading = async () => {
+  const t = await getTranslations();
   return (
     <>
       <style>{`
@@ -16,17 +18,23 @@ const loading = () => {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
         }
+        .loadingContainer {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+        .loadingText {
+          margin-left: 8px;
+        }
+        [dir="rtl"] .loadingText {
+          margin-left: 0;
+          margin-right: 8px;
+        }
       `}</style>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          minHeight: "100vh",
-        }}
-      >
-        <div className="spinner" style={{ marginRight: "8px" }}></div>
-        loading
+      <div className="loadingContainer">
+        <div className="spinner"></div>
+        <span className="loadingText">{t("loading")}</span>
       </div>
     </>
   );
