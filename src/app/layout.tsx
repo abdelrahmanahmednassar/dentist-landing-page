@@ -125,8 +125,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
-  const messages = await getMessages();
+  const messages = (await getMessages()) as any;
   const dir = locale === "ar" ? "rtl" : "ltr";
+  const whatsappCta =
+    messages?.whatsappCta || messages?.nav?.contact || "Contact Us";
 
   return (
     <html
@@ -176,12 +178,12 @@ export default async function RootLayout({
             className={styles.whatsappFloat}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Contact us on WhatsApp"
+            aria-label={`${whatsappCta} on WhatsApp`}
           >
             <span className={styles.whatsappIcon} aria-hidden="true">
               <i className="bx bxl-whatsapp"></i>
             </span>
-            <span className={styles.whatsappText}>تواصل معنا</span>
+            <span className={styles.whatsappText}>{whatsappCta}</span>
           </Link>
 
           {/* Scroll to Top Button */}
