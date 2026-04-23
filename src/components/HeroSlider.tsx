@@ -78,7 +78,11 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
           />
           <div className={styles.heroOverlay}>
             <div className={styles.heroContent}>
-              <h1 className={styles.heroTitle}>{slide.title}</h1>
+              {index === 0 ? (
+                <h1 className={styles.heroTitle}>{slide.title}</h1>
+              ) : (
+                <h2 className={styles.heroTitle}>{slide.title}</h2>
+              )}
               <p className={styles.heroSubtitle}>{slide.subtitle}</p>
               {slide.isExternal ? (
                 <Link
