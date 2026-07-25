@@ -2,9 +2,34 @@ import { NextResponse } from 'next/server';
 import { db, users } from '@/db';
 import { eq } from 'drizzle-orm';
 import { comparePassword, signSessionToken, COOKIE_NAME } from '@/lib/auth';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 export async function POST(request: Request) {
   try {
+    // Extract client IP address for rate limiting
+    const ip =
+      request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+      request.headers.get('x-real-ip') ||
+      '127.0.0.1';
+
+    // Rate limit: Max 5 attempts per 15 minutes window per IP
+    const rateLimit = checkRateLimit(`login:${ip}`, 5, 15 * 60 * 1000);
+
+    if (!rateLimit.success) {
+      const resetMinutes = Math.ceil(rateLimit.resetInSeconds / 60);
+      return NextResponse.json(
+        {
+          error: `Too many login attempts. Please try again in ${resetMinutes} minute${resetMinutes > 1 ? 's' : ''}.`,
+        },
+        {
+          status: 429,
+          headers: {
+            'Retry-After': String(rateLimit.resetInSeconds),
+          },
+        }
+      );
+    }
+
     const body = await request.json();
     const { email, password } = body;
 
