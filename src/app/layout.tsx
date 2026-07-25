@@ -175,7 +175,7 @@ export default async function RootLayout({
           {children}
           <Footer />
 
-          {/* WhatsApp Float Badge */}
+          {/* WhatsApp Floating Button */}
           <Link
             href={`https://wa.me/${WHATSAPP.replace(/\+/g, "")}`}
             className={styles.whatsappFloat}
@@ -183,10 +183,7 @@ export default async function RootLayout({
             rel="noopener noreferrer"
             aria-label={`${whatsappCta} on WhatsApp`}
           >
-            <span className={styles.whatsappIcon} aria-hidden="true">
-              <i className="bx bxl-whatsapp"></i>
-            </span>
-            <span className={styles.whatsappText}>{whatsappCta}</span>
+            <i className="bx bxl-whatsapp"></i>
           </Link>
 
           {/* Scroll to Top Button */}

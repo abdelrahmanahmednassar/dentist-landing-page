@@ -342,6 +342,7 @@ a.heroCtaBtn:hover {
 [dir="rtl"] .heroArrowLeft {
   left: 20px;
   right: auto;
+  rotate: 180deg;
 }
 
 [dir="ltr"] .heroArrowLeft {
@@ -352,6 +353,7 @@ a.heroCtaBtn:hover {
 [dir="rtl"] .heroArrowRight {
   right: 20px;
   left: auto;
+  rotate: 180deg;
 }
 
 [dir="ltr"] .heroArrowRight {

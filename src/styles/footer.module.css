@@ -169,75 +169,22 @@
   position: fixed !important;
   bottom: 30px;
   right: 30px;
-  min-width: 160px;
+  width: 50px;
   height: 50px;
   background: #25d366;
-  border-radius: 30px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   color: var(--white);
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 15px;
+  font-size: 28px;
   text-decoration: none;
-  padding: 0 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   z-index: 9999 !important;
   transition:
     transform 0.3s,
     box-shadow 0.3s;
   pointer-events: auto;
-}
-
-.whatsappFloat::after {
-  content: "";
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  width: 10px;
-  height: 10px;
-  background: #ff3b30;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
-  animation: whatsapp-dot-pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes whatsapp-dot-pulse {
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.4);
-    opacity: 0.7;
-  }
-}
-
-.whatsappIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.whatsappIcon i {
-  font-size: 16px;
-  color: #ffffff;
-}
-
-.whatsappText {
-  color: #ffffff;
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1;
 }
 
 [dir="ltr"] .whatsappFloat {
@@ -340,29 +287,10 @@
   }
 
   .whatsappFloat {
-    position: fixed !important;
-    min-width: 130px;
+    width: 44px;
     height: 44px;
-    font-size: 13px;
-    bottom: 16px;
-    right: 16px;
-    padding: 0 10px;
-    border-radius: 26px;
-    gap: 8px;
-    z-index: 9999 !important;
-  }
-
-  .whatsappIcon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .whatsappIcon i {
-    font-size: 14px;
-  }
-
-  .whatsappText {
-    font-size: 12px;
+    font-size: 24px;
+    bottom: 20px;
   }
 
   .scrollToTop {
@@ -380,34 +308,9 @@
   }
 
   .whatsappFloat {
-    min-width: 110px;
+    width: 40px;
     height: 40px;
-    font-size: 12px;
-    bottom: 14px;
-    right: 14px;
-    padding: 0 8px;
-    border-radius: 24px;
-    gap: 6px;
-  }
-
-  .whatsappIcon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .whatsappIcon i {
-    font-size: 12px;
-  }
-
-  .whatsappText {
-    font-size: 11px;
-  }
-
-  .whatsappFloat::after {
-    top: 6px;
-    right: 6px;
-    width: 8px;
-    height: 8px;
-    border-width: 1px;
+    font-size: 22px;
+    bottom: 16px;
   }
 }

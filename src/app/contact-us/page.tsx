@@ -77,13 +77,13 @@ export default async function ContactUsPage() {
             </div>
             <div className={styles.branchMap}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4366.432391789551!2d31.199875823740133!3d30.049085318349537!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145841368450289b%3A0x4f294191ab48dc64!2z2YXZitixINi52YLYqNip2Iwg2K3ZiiDYp9mE2LnYrNmI2LLYqdiMINmF2K3Yp9mB2LjYqSDYp9mE2KzZitiy2KkgMzc1MjIxMw!5e1!3m2!1sar!2seg!4v1768907109791!5m2!1sar!2seg"
-                width="100%"
-                height="300"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2840.7962063966456!2d31.200516465675747!3d30.04684770270235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458150054242b79%3A0x3f7cd5365b7f2a47!2z2LnZitin2K_YqSDYry7Zhdit2YXYryDZgdin2YrYryDZhNi32Kgg2KfZhNij2LPZhtin2YYgLSBNb2hhbWVkIEZheWVkIENsaW5pYw!5e0!3m2!1sar!2seg!4v1785004515230!5m2!1sar!2seg"
+                width="600"
+                height="450"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                referrerPolicy="strict-origin-when-cross-origin"
               ></iframe>
             </div>
           </div>
