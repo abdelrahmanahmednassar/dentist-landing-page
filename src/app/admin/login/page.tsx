@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
+import PasswordInput from '@/components/PasswordInput';
 import styles from '@/styles/admin.module.css';
 
 export default function AdminLoginPage() {
@@ -87,17 +88,13 @@ export default function AdminLoginPage() {
             />
           </div>
 
-          <div className={styles.formGroup}>
-            <label className={styles.label}>Password</label>
-            <input
-              type="password"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className={styles.input}
-            />
-          </div>
+          <PasswordInput
+            label="Password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="••••••••"
+          />
 
           <button
             type="submit"

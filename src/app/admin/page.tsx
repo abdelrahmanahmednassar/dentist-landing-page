@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import PasswordInput from '@/components/PasswordInput';
 import styles from '@/styles/admin.module.css';
 
 interface AdminUser {
@@ -17,6 +18,7 @@ export default function AdminDashboardPage() {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+
   const [passwordLoading, setPasswordLoading] = useState(false);
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [passwordSuccess, setPasswordSuccess] = useState<string | null>(null);
@@ -174,41 +176,29 @@ export default function AdminDashboardPage() {
           )}
 
           <form onSubmit={handleChangePassword} className={styles.form} style={{ maxWidth: '480px' }}>
-            <div className={styles.formGroup}>
-              <label className={styles.label}>Current Password</label>
-              <input
-                type="password"
-                required
-                value={currentPassword}
-                onChange={(e) => setCurrentPassword(e.target.value)}
-                placeholder="Enter current password"
-                className={styles.input}
-              />
-            </div>
+            <PasswordInput
+              label="Current Password"
+              required
+              value={currentPassword}
+              onChange={(e) => setCurrentPassword(e.target.value)}
+              placeholder="Enter current password"
+            />
 
-            <div className={styles.formGroup}>
-              <label className={styles.label}>New Password</label>
-              <input
-                type="password"
-                required
-                value={newPassword}
-                onChange={(e) => setNewPassword(e.target.value)}
-                placeholder="Enter new password (min. 6 characters)"
-                className={styles.input}
-              />
-            </div>
+            <PasswordInput
+              label="New Password"
+              required
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="Enter new password (min. 6 characters)"
+            />
 
-            <div className={styles.formGroup}>
-              <label className={styles.label}>Confirm New Password</label>
-              <input
-                type="password"
-                required
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                placeholder="Re-enter new password"
-                className={styles.input}
-              />
-            </div>
+            <PasswordInput
+              label="Confirm New Password"
+              required
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              placeholder="Re-enter new password"
+            />
 
             <button
               type="submit"
