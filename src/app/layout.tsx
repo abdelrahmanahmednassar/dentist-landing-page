@@ -25,11 +25,16 @@ const PHONE = process.env.NEXT_PUBLIC_PHONE || "+201034317813";
 const WHATSAPP = process.env.NEXT_PUBLIC_WHATSAPP || "+201002507882";
 
 export const metadata: Metadata = {
-  title: "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
+  title: "فايد دينتال كلينك | افضل عيادة اسنان في مصر - دكتور محمد فايد",
   description:
-    "ﺗﻌﺮّف ﻋﲆ ﻋﻴﺎدة ﻓﺎﻳﺪ ﻟﻄﺐ اﻷﺳﻨﺎن، أﻃﺒﺎؤﻧﺎ اﻟﺨﱪاء، واﻟﱱاﻣﻨﺎ ﺑﺘﻘﺪﻳﻢ رﻋﺎﻳﺔ آﻣﻨﺔ وﺣﺪﻳﺜﺔ وﺧﺎﻟﻴﺔ ﻣﻦ اﻷﻟﻢ ﻓﻲ القاهرة",
+    "فايد دينتال كلينك مع دكتور محمد فايد من أفضل عيادات الأسنان في مصر. نقدم زراعة الأسنان وتجميل الأسنان والفينير وعلاج الجذور بأحدث التقنيات في القاهرة.",
   keywords: [
+    "افضل عيادة اسنان",
+    "افضل عيادة اسنان في مصر",
+    "أفضل عيادة اسنان",
+    "أفضل عيادة اسنان في مصر",
     "عيادة أسنان القاهرة",
+    "عيادة أسنان في مصر",
     "دكتور أسنان",
     "زراعة أسنان",
     "تجميل أسنان",
@@ -61,10 +66,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${SITE_URL}/`,
-    title:
-      "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
+    title: "فايد دينتال كلينك | افضل عيادة اسنان في مصر",
     description:
-      "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو. خبرة أكثر من 7 سنوات في مجال طب الأسنان بأحدث التقنيات.",
+      "ابحث عن افضل عيادة اسنان أو افضل عيادة اسنان في مصر؟ فايد دينتال كلينك يقدم رعاية متقدمة في زراعة وتجميل الأسنان في القاهرة.",
     siteName: "فايد دينتال كلينك",
     locale: "ar_EG",
     images: [
@@ -79,10 +83,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "فايد دينتال كلينك - دكتور محمد فايد | عيادة أسنان متخصصة في القاهرة",
+    title: "فايد دينتال كلينك | افضل عيادة اسنان في مصر",
     description:
-      "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو.",
+      "فايد دينتال كلينك من أفضل عيادات الأسنان في مصر بخدمات زراعة وتجميل وعلاج الأسنان بأحدث التقنيات.",
     images: ["/images/preview-image.png"],
   },
   icons: {
@@ -125,8 +128,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const locale = await getLocale();
-  const messages = await getMessages();
+  const messages = (await getMessages()) as any;
   const dir = locale === "ar" ? "rtl" : "ltr";
+  const whatsappCta =
+    messages?.whatsappCta || messages?.nav?.contact || "Contact Us";
 
   return (
     <html
@@ -170,15 +175,18 @@ export default async function RootLayout({
           {children}
           <Footer />
 
-          {/* WhatsApp Float Button */}
+          {/* WhatsApp Float Badge */}
           <Link
             href={`https://wa.me/${WHATSAPP.replace(/\+/g, "")}`}
             className={styles.whatsappFloat}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Contact us on WhatsApp"
+            aria-label={`${whatsappCta} on WhatsApp`}
           >
-            <i className="bx bxl-whatsapp"></i>
+            <span className={styles.whatsappIcon} aria-hidden="true">
+              <i className="bx bxl-whatsapp"></i>
+            </span>
+            <span className={styles.whatsappText}>{whatsappCta}</span>
           </Link>
 
           {/* Scroll to Top Button */}
@@ -230,7 +238,7 @@ export default async function RootLayout({
               name: "فايد دينتال كلينك - Dr. Mohamed Fayed",
               alternateName: "Fayed Dental Clinic",
               description:
-                "عيادة فايد دينتال كلينك - دكتور محمد فايد، أخصائي طب وتجميل الأسنان. نقدم خدمات زراعة الأسنان، تجميل الأسنان، الفينير، تبييض الأسنان، علاج الجذور، والحشو.",
+                "فايد دينتال كلينك - دكتور محمد فايد، عيادة أسنان متخصصة في القاهرة وتعد من أفضل خيارات الباحثين عن افضل عيادة اسنان في مصر لخدمات زراعة وتجميل الأسنان.",
               url: SITE_URL,
               logo: `${SITE_URL}/images/logo.png`,
               image: `${SITE_URL}/images/preview-image.png`,
@@ -242,7 +250,12 @@ export default async function RootLayout({
                   "٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب",
                 addressLocality: "القاهرة",
                 addressRegion: "القاهرة",
+                postalCode: "",
                 addressCountry: "EG",
+              },
+              areaServed: {
+                "@type": "Country",
+                name: "Egypt",
               },
               geo: {
                 "@type": "GeoCoordinates",
@@ -359,6 +372,8 @@ export default async function RootLayout({
               alternateName: "Dr. Mohamed Fayed Dental Clinic",
               url: SITE_URL,
               logo: `${SITE_URL}/images/logo.png`,
+              description:
+                "فايد دينتال كلينك من أفضل عيادات الأسنان في مصر بقيادة دكتور محمد فايد.",
               contactPoint: {
                 "@type": "ContactPoint",
                 telephone: PHONE,

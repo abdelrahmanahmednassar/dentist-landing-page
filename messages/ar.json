@@ -3,6 +3,7 @@
     "appointment": "MAKE AN APPOINTMENT",
     "hours": "Sat - Thu 2:00pm - 10:00pm / Friday - CLOSED"
   },
+  "loading": "جارٍ التحميل",
   "nav": {
     "home": "الرئيسية",
     "about": "من نحن",
@@ -12,6 +13,7 @@
     "blogs": "المدونة",
     "contact": "اتصل بنا"
   },
+  "whatsappCta": "تواصل معنا",
   "hero": {
     "slide1": {
       "title": "عيادة فايد لطب الأسنان",

@@ -7,6 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: [],
     },
+    host: "https://fayed.clinic",
     sitemap: "https://fayed.clinic/sitemap.xml",
   };
 }
