@@ -1,11 +1,14 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useState, Suspense } from 'react';
+import { useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
+
 import PasswordInput from '@/components/PasswordInput';
 import styles from '@/styles/admin.module.css';
 
-export default function AdminLoginPage() {
+function AdminLoginForm() {
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const fromPath = searchParams.get('from') || '/admin';
@@ -112,3 +115,12 @@ export default function AdminLoginPage() {
     </div>
   );
 }
+
+export default function AdminLoginPage() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>Loading...</div>}>
+      <AdminLoginForm />
+    </Suspense>
+  );
+}
+

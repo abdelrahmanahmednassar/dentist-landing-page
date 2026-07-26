@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Script from "next/script";
 import { Tajawal } from "next/font/google";
-import { getMessages, getLocale } from "next-intl/server";
-import "./globals.css";
-import Header from "@/components/Header";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import ScrollToTop from "@/components/ScrollToTop";
+
+import { getMessages, setRequestLocale } from "next-intl/server";
+import { hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+import "../globals.css";
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 import { Providers } from "@/components/Providers";
-import styles from "@/styles/footer.module.css";
 
 const tajawal = Tajawal({
+
   weight: ["400", "700"],
   subsets: ["arabic"],
   display: "swap",
@@ -124,14 +128,22 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
-  const locale = await getLocale();
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
   const messages = (await getMessages()) as any;
   const dir = locale === "ar" ? "rtl" : "ltr";
-  const whatsappCta =
-    messages?.whatsappCta || messages?.nav?.contact || "Contact Us";
+
+
 
   return (
     <html
@@ -170,24 +182,7 @@ export default async function RootLayout({
         </noscript>
 
         <Providers locale={locale} messages={messages}>
-          <Header />
-          <Nav />
           {children}
-          <Footer />
-
-          {/* WhatsApp Floating Button */}
-          <Link
-            href={`https://wa.me/${WHATSAPP.replace(/\+/g, "")}`}
-            className={styles.whatsappFloat}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${whatsappCta} on WhatsApp`}
-          >
-            <i className="bx bxl-whatsapp"></i>
-          </Link>
-
-          {/* Scroll to Top Button */}
-          <ScrollToTop />
         </Providers>
 
         {/* Google Tag Manager - Main Script */}

@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { Link, useRouter } from "@/i18n/navigation";
+
 import { BlogForm, BlogFormData } from '@/components/BlogForm';
 import styles from '@/styles/admin.module.css';
 

@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+
 import Image from "next/image";
 import styles from "@/styles/services.module.css";
 import { getTranslations } from "next-intl/server";

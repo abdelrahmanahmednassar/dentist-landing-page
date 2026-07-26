@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import styles from "@/styles/admin-layout.module.css";
 
 interface AdminUser {
@@ -18,7 +17,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   useEffect(() => {
-    if (pathname.startsWith("/admin/login")) return;
+    if (pathname.includes("/login")) return;
 
     async function fetchUser() {
       try {
@@ -44,7 +43,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     window.location.href = "/admin/login";
   };
 
-  if (pathname.startsWith("/admin/login")) {
+  if (pathname.includes("/login")) {
     return <>{children}</>;
   }
 

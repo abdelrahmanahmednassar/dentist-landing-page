@@ -3,7 +3,8 @@ import { getLocale } from "next-intl/server";
 import { db, blogs } from "@/db";
 import { eq, or } from "drizzle-orm";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+
 import { RichTextDisplay } from "@/components/RichTextDisplay";
 import styles from "@/styles/blog-detail.module.css";
 

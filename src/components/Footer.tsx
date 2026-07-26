@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+
 import styles from "@/styles/footer.module.css";
 import { getTranslations } from "next-intl/server";
 

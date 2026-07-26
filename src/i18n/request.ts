@@ -1,9 +1,12 @@
 import { getRequestConfig } from "next-intl/server";
-import { cookies } from "next/headers";
+import { hasLocale } from "next-intl";
+import { routing } from "./routing";
 
-export default getRequestConfig(async () => {
-  const cookieStore = await cookies();
-  const locale = cookieStore.get("locale")?.value || "ar";
+export default getRequestConfig(async ({ requestLocale }) => {
+  const requestedLocale = (await requestLocale) ?? routing.defaultLocale;
+  const locale = hasLocale(routing.locales, requestedLocale)
+    ? requestedLocale
+    : routing.defaultLocale;
 
   return {
     locale,
@@ -11,3 +14,4 @@ export default getRequestConfig(async () => {
     timeZone: "Africa/Cairo",
   };
 });
+

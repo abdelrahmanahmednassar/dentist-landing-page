@@ -1,5 +1,6 @@
 import { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+
 import styles from "@/styles/contact-us.module.css";
 import { getTranslations } from "next-intl/server";
 

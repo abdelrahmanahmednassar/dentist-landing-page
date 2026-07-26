@@ -4,7 +4,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { useLocale } from 'next-intl';
 import styles from '@/styles/blogs-page.module.css';
 import Image from 'next/image';
-import Link from 'next/link';
+import { Link } from '@/i18n/navigation';
+
 
 interface DbBlog {
   id: string;

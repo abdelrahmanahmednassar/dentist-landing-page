@@ -1,7 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { Link } from "@/i18n/navigation";
+
 import PasswordInput from '@/components/PasswordInput';
 import styles from '@/styles/admin.module.css';
 
