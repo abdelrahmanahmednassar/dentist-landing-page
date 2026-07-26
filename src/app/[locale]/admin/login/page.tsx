@@ -109,7 +109,7 @@ function AdminLoginForm() {
         </form>
 
         <div className={styles.footerNote}>
-          Protected admin area. Accounts managed via database.
+          Protected admin area.
         </div>
       </div>
     </div>

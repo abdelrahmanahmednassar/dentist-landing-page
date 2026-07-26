@@ -7,11 +7,21 @@ interface ProvidersProps {
   children: ReactNode;
   locale: string;
   messages: any;
+  timeZone?: string;
 }
 
-export function Providers({ children, locale, messages }: ProvidersProps) {
+export function Providers({
+  children,
+  locale,
+  messages,
+  timeZone = "Africa/Cairo",
+}: ProvidersProps) {
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
+    <NextIntlClientProvider
+      locale={locale}
+      messages={messages}
+      timeZone={timeZone}
+    >
       {children}
     </NextIntlClientProvider>
   );
