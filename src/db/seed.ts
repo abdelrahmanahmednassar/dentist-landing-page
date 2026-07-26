@@ -1,4 +1,6 @@
-import 'dotenv/config';
+import { config } from 'dotenv';
+config({ path: '.env.local', quiet: true });
+config({ path: '.env', quiet: true });
 import bcrypt from 'bcryptjs';
 import { db, users } from './index';
 import { eq } from 'drizzle-orm';
