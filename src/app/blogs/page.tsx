@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "فايد دينتال كلينك",
     images: [
       {
-        url: "/images/blogs-preview.jpg",
+        url: "/images/blogs-preview.png",
         width: 1200,
         height: 630,
         alt: "مدونة فايد دينتال كلينك",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: "المدونة - فايد دينتال كلينك",
     description:
       "اقرأ أحدث المقالات والنصائح حول صحة وتجميل الأسنان من خبراء فايد دينتال كلينك.",
-    images: ["/images/blogs-preview.jpg"],
+    images: ["/images/blogs-preview.png"],
   },
   robots: {
     index: true,

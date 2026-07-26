@@ -1,18 +1,10 @@
 import { notFound } from "next/navigation";
 import { getLocale } from "next-intl/server";
-import { BLOGS } from "@/date/blogs";
-
-type Blog = {
-  id: string;
-  title: string;
-  tag: string;
-  timeToRead: string;
-  imagePath: string;
-  publishDate: string;
-  content: string;
-};
+import { db, blogs } from "@/db";
+import { eq, or } from "drizzle-orm";
 import Image from "next/image";
 import Link from "next/link";
+import { RichTextDisplay } from "@/components/RichTextDisplay";
 import styles from "@/styles/blog-detail.module.css";
 
 interface PageProps {
@@ -24,11 +16,49 @@ interface PageProps {
 export default async function BlogPage({ params }: PageProps) {
   const { blogId } = await params;
   const locale = await getLocale();
-  const blogs = locale === "ar" ? BLOGS.ar : BLOGS.en;
 
-  // Find the blog by ID
-  const blog = blogs.find((b) => b?.id === blogId); // If blog not found, show 404
-  if (!blog) {
+  let blogData: {
+    title: string;
+    tag: string;
+    timeToRead: string;
+    imagePath: string;
+    publishDate: string;
+    content: string;
+  } | null = null;
+
+  try {
+    const [dbBlog] = await db
+      .select()
+      .from(blogs)
+      .where(or(eq(blogs.id, blogId), eq(blogs.slug, blogId)));
+
+    if (dbBlog) {
+      const title = locale === "ar" ? dbBlog.titleAr : dbBlog.titleEn;
+      const content = locale === "ar" ? dbBlog.contentAr : dbBlog.contentEn;
+      const tags = locale === "ar" ? dbBlog.tagsAr : dbBlog.tagsEn;
+      const tag = tags[0] || (locale === "ar" ? "عام" : "General");
+      const publishDate = dbBlog.publishedAt
+        ? new Date(dbBlog.publishedAt).toLocaleDateString(
+            locale === "ar" ? "ar-EG" : "en-US"
+          )
+        : new Date(dbBlog.createdAt).toLocaleDateString();
+
+      const coverImg = locale === "ar" ? dbBlog.coverImageUrlAr : dbBlog.coverImageUrlEn;
+
+      blogData = {
+        title,
+        tag,
+        timeToRead: `${dbBlog.readingMinutes} ${locale === "ar" ? "دقائق" : "min"}`,
+        imagePath: coverImg || dbBlog.coverImageUrlAr || dbBlog.coverImageUrlEn || "/images/blogs-preview.png",
+        publishDate,
+        content,
+      };
+    }
+  } catch (err) {
+    console.error("Error querying DB for blog page", err);
+  }
+
+  if (!blogData) {
     notFound();
   }
 
@@ -38,19 +68,19 @@ export default async function BlogPage({ params }: PageProps) {
         {/* Back Button */}
         <Link href="/blogs" className={styles.backButton}>
           <i className="bx bx-right-arrow-alt"></i>
-          <span>{locale === "ar" ? "العودة للمدونة" : "Back to Blog"}</span>
+          <span>{locale === "ar" ? "العودة للمدونة" : "Back to Blogs"}</span>
         </Link>
 
         {/* Blog Header */}
         <header className={styles.blogDetailHeader}>
-          <span className={styles.blogDetailCategory}>{blog.tag}</span>
-          <h1 className={styles.blogDetailTitle}>{blog.title}</h1>
+          <span className={styles.blogDetailCategory}>{blogData.tag}</span>
+          <h1 className={styles.blogDetailTitle}>{blogData.title}</h1>
           <div className={styles.blogDetailMeta}>
             <span>
-              <i className="bx bx-calendar"></i> {blog.publishDate}
+              <i className="bx bx-calendar"></i> {blogData.publishDate}
             </span>
             <span>
-              <i className="bx bx-time"></i> {blog.timeToRead}
+              <i className="bx bx-time"></i> {blogData.timeToRead}
             </span>
           </div>
         </header>
@@ -58,56 +88,20 @@ export default async function BlogPage({ params }: PageProps) {
         {/* Featured Image */}
         <div className={styles.blogDetailImage}>
           <Image
-            src={blog.imagePath}
-            alt={blog.title}
+            src={blogData.imagePath}
+            alt={blogData.title}
             width={1200}
             height={600}
           />
         </div>
 
         {/* Blog Content */}
-        <div
-          className={styles.blogDetailContent}
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+        <RichTextDisplay
+          markdown={blogData.content}
+          lang={locale}
+          dir={locale === 'ar' ? 'rtl' : 'ltr'}
         />
       </div>
     </article>
   );
-} // Generate static params for all blog IDs
-export async function generateStaticParams() {
-  const allBlogIds = [
-    ...BLOGS.en
-      .filter(
-        (blog): blog is Blog =>
-          !!blog &&
-          typeof blog.id === "string" &&
-          typeof blog.title === "string" &&
-          typeof blog.tag === "string" &&
-          typeof blog.timeToRead === "string" &&
-          typeof blog.imagePath === "string" &&
-          typeof blog.publishDate === "string" &&
-          typeof blog.content === "string",
-      )
-      .map((blog) => ({ blogId: blog.id })),
-    ...BLOGS.ar
-      .filter(
-        (blog): blog is Blog =>
-          !!blog &&
-          typeof blog.id === "string" &&
-          typeof blog.title === "string" &&
-          typeof blog.tag === "string" &&
-          typeof blog.timeToRead === "string" &&
-          typeof blog.imagePath === "string" &&
-          typeof blog.publishDate === "string" &&
-          typeof blog.content === "string",
-      )
-      .map((blog) => ({ blogId: blog.id })),
-  ];
-
-  // Remove duplicates and undefined
-  const uniqueIds = Array.from(new Set(allBlogIds.map((item) => item.blogId)))
-    .filter((blogId) => blogId !== undefined)
-    .map((blogId) => ({ blogId }));
-
-  return uniqueIds;
 }

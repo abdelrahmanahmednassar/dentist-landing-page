@@ -28,8 +28,22 @@
   --main-color: #be9249;
   --second-color: #8b6a38;
 
+  /* Semantic Theme Tokens for RichText Components */
+  --background: #ffffff;
+  --foreground: var(--mine-shaft);
+  --muted: #f4f5f7;
+  --muted-foreground: var(--boulder);
+  --primary: var(--main-color);
+  --primary-foreground: #ffffff;
+  --card: #ffffff;
+  --popover: #ffffff;
+  --border: var(--mercury);
+  --ring: var(--main-color);
+
   /* Font */
   --font-family: "Tajawal", sans-serif;
+  --font-inter: var(--font-family);
+  --font-tajawal: var(--font-family);
 
   /* Spacing - Exact from Figma */
   --container-width: 1236px;

@@ -11,7 +11,8 @@
     "cases": "Cases",
     "team": "Our Team",
     "blogs": "Blogs",
-    "contact": "Contact Us"
+    "contact": "Contact Us",
+    "admin": "Admin Dashboard"
   },
   "whatsappCta": "Contact Us",
   "hero": {
@@ -189,7 +190,7 @@
   "blog": {
     "title": "Blog",
     "subtitle": "Latest articles and tips about dental health and beauty",
-    "back": "Back to Blog",
+    "back": "Back to Blogs",
     "category": {
       "all": "All",
       "care": "Dental Care",

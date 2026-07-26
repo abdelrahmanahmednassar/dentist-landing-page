@@ -1,0 +1,295 @@
+/* Sharp Premium Light Mode Theme for Admin Console Layout */
+
+.adminWrapper {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f5f7;
+  color: var(--mine-shaft, #333333);
+  font-family: var(--font-family, "Tajawal", sans-serif);
+  direction: ltr;
+}
+
+/* Sidebar in Clean White Light Mode with Sharp Edges */
+.sidebar {
+  width: 280px;
+  background: #ffffff;
+  color: var(--mine-shaft, #333333);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--mercury, #e7e7e7);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 100;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease;
+  border-radius: 0 !important;
+}
+
+.brandBox {
+  padding: 1.5rem 1.5rem;
+  background: #ffffff;
+  border-bottom: 1px solid var(--mercury, #e7e7e7);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brandIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 0 !important;
+  background: rgba(190, 146, 73, 0.1);
+  color: var(--main-color, #be9249);
+  border: 1px solid rgba(190, 146, 73, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--haiti, #0e152f);
+  letter-spacing: 0.02em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.brandSubtitle {
+  font-size: 0.75rem;
+  color: var(--boulder, #777777);
+  font-weight: 500;
+  margin-top: 0.15rem;
+}
+
+/* Navigation Section */
+.navSection {
+  flex: 1;
+  padding: 1.5rem 0;
+  overflow-y: auto;
+}
+
+.navLabel {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--boulder, #777777);
+  padding: 0 1.5rem 0.6rem 1.5rem;
+  font-weight: 700;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.5rem;
+  color: var(--tundora, #444444);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 4px solid transparent;
+  border-radius: 0 !important;
+  background: transparent;
+}
+
+.navLink i,
+.navLink svg {
+  font-size: 1.25rem;
+  color: var(--boulder, #777777);
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  background: #f8f9fb;
+  color: var(--haiti, #0e152f);
+  border-left-color: rgba(190, 146, 73, 0.4);
+}
+
+.navLink:hover i,
+.navLink:hover svg {
+  color: var(--main-color, #be9249);
+}
+
+.navLink.active {
+  background: rgba(190, 146, 73, 0.08);
+  color: var(--haiti, #0e152f);
+  font-weight: 700;
+  border-left: 4px solid var(--main-color, #be9249);
+}
+
+.navLink.active i,
+.navLink.active svg {
+  color: var(--main-color, #be9249);
+}
+
+.navDivider {
+  height: 1px;
+  background: var(--mercury, #e7e7e7);
+  margin: 1.25rem 1.5rem;
+}
+
+/* Sidebar Footer matching admin.module.css */
+.sidebarFooter {
+  padding: 1.25rem 1.5rem;
+  background: #ffffff;
+  border-top: 1px solid var(--mercury, #e7e7e7);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.userDetails {
+  overflow: hidden;
+}
+
+.userName {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--shark, #212529);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userBadge {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0 !important;
+  background: rgba(190, 146, 73, 0.1);
+  color: var(--main-color, #be9249);
+  border: 1px solid rgba(190, 146, 73, 0.3);
+  margin-top: 0.35rem;
+}
+
+.logoutBtn {
+  width: 100%;
+  padding: 0.65rem 1.2rem;
+  background: #ffffff;
+  border: 1px solid var(--alto, #d6d6d6);
+  border-radius: 0 !important;
+  color: var(--tundora, #444444);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.logoutBtn:hover {
+  background: var(--haiti, #0e152f);
+  border-color: var(--haiti, #0e152f);
+  color: #ffffff;
+}
+
+/* Main Container Area */
+.mainContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: #f4f5f7;
+}
+
+/* Mobile Toggle Bar in Light Mode */
+.mobileTopBar {
+  display: none;
+  background: #ffffff;
+  padding: 1rem 1.5rem;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--mercury, #e7e7e7);
+}
+
+.mobileBrand {
+  font-weight: 700;
+  color: var(--haiti, #0e152f);
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.mobileToggleBtn {
+  background: transparent;
+  border: 1px solid var(--alto, #d6d6d6);
+  color: var(--haiti, #0e152f);
+  padding: 0.4rem 0.75rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  border-radius: 0 !important;
+}
+
+.overlay {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .mobileTopBar {
+    display: flex;
+  }
+
+  .overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(14, 21, 47, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 90;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .overlayActive {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

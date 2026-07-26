@@ -1,10 +1,12 @@
 import { MetadataRoute } from "next";
+import { db, blogs } from "@/db";
+import { eq, desc } from "drizzle-orm";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://fayed.clinic";
   const currentDate = new Date().toISOString().split("T")[0]; // Format: YYYY-MM-DD
 
-  return [
+  const staticPages: MetadataRoute.Sitemap = [
     // Home page
     {
       url: baseUrl,
@@ -74,42 +76,44 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    // Blog posts
-    {
-      url: `${baseUrl}/blogs/children-dental-care`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blogs/daily-dental-care`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blogs/dental-implants-guide`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blogs/healthy-foods-for-teeth`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blogs/laser-teeth-whitening`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blogs/veneers-vs-lumineers`,
-      lastModified: currentDate,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
   ];
+
+  // Dynamically fetch published blogs from the database
+  let blogUrls: MetadataRoute.Sitemap = [];
+  try {
+    const publishedBlogs = await db
+      .select({
+        id: blogs.id,
+        slug: blogs.slug,
+        updatedAt: blogs.updatedAt,
+        publishedAt: blogs.publishedAt,
+        createdAt: blogs.createdAt,
+      })
+      .from(blogs)
+      .where(eq(blogs.status, "published"))
+      .orderBy(desc(blogs.publishedAt));
+
+    blogUrls = publishedBlogs.map((post) => {
+      const dateVal = post.updatedAt || post.publishedAt || post.createdAt;
+      let formattedDate = currentDate;
+      try {
+        if (dateVal) {
+          formattedDate = new Date(dateVal).toISOString().split("T")[0];
+        }
+      } catch {
+        formattedDate = currentDate;
+      }
+
+      return {
+        url: `${baseUrl}/blogs/${post.slug || post.id}`,
+        lastModified: formattedDate,
+        changeFrequency: "weekly",
+        priority: 0.7,
+      };
+    });
+  } catch (error) {
+    console.error("Error generating dynamic blog sitemap:", error);
+  }
+
+  return [...staticPages, ...blogUrls];
 }

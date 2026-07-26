@@ -12,6 +12,21 @@ export default function Nav() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    fetch("/api/auth/me")
+      .then((res) => {
+        if (res.ok) {
+          setIsLoggedIn(true);
+        } else {
+          setIsLoggedIn(false);
+        }
+      })
+      .catch(() => {
+        setIsLoggedIn(false);
+      });
+  }, [pathname]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -198,6 +213,18 @@ export default function Nav() {
                 {t("nav.contact")}
               </Link>
             </li>
+            {isLoggedIn && (
+              <li>
+                <Link
+                  href="/admin"
+                  className={`${styles.navLink} ${pathname.startsWith("/admin") ? styles.active : ""}`}
+                  style={{ color: "var(--main-color)", fontWeight: "700" }}
+                  onClick={closeMobileMenu}
+                >
+                  {t("nav.admin")}
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
