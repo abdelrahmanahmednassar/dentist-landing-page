@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import styles from "@/styles/testimonials.module.css";
 import TestimonialsSlider from "@/components/TestimonialsSlider";
+import InstagramTestimonials from "@/components/InstagramTestimonials";
 
 interface Testimonial {
   text1: string;
@@ -30,6 +31,12 @@ export default async function Testimonials() {
     },
   ];
 
+  const reelUrls = [
+    "https://www.instagram.com/reel/DXYO9zXDL03/",
+    "https://www.instagram.com/reel/DWSR-OHDKwB/",
+    "https://www.instagram.com/reel/DTB0RBJlpQ0/",
+  ];
+
   return (
     <section className={styles.testimonialsSection}>
       <div className={styles.testimonialsWrapper}>
@@ -56,6 +63,13 @@ export default async function Testimonials() {
           </div>
         </div>
       </div>
+
+      {/* Sub-section: Customer Video Testimonials */}
+      <InstagramTestimonials
+        label={t("testimonials.videoLabel")}
+        title={t("testimonials.videoTitle")}
+        reelUrls={reelUrls}
+      />
     </section>
   );
 }
