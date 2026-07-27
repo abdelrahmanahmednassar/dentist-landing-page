@@ -9,7 +9,6 @@
     "about": "About Us",
     "services": "Our Services",
     "cases": "Cases",
-    "team": "Our Team",
     "blogs": "Blogs",
     "contact": "Contact Us",
     "admin": "Admin Dashboard"
@@ -197,53 +196,6 @@
       "cosmetic": "Cosmetic Dentistry",
       "implants": "Dental Implants",
       "tips": "General Tips"
-    }
-  },
-  "team": {
-    "label": "Our Team",
-    "title": "Meet Our Distinguished Team",
-    "subtitle": "A team of specialists and experts in dentistry and cosmetic dentistry, dedicated to providing the best healthcare for our patients",
-    "certificates": "Certificates and Qualifications",
-    "member1": {
-      "name": "Dr. Mohamed Fayed",
-      "position": "Clinic Founder - Dental Implants & Cosmetic Dentistry Specialist",
-      "bio": "Over 7 years of experience in dentistry and cosmetic dentistry. Specialist in dental implants and digital smile design.",
-      "cert1": "Bachelor of Dental Surgery (BDS)",
-      "cert2": "Advanced Dental Implantology Diploma",
-      "cert3": "Digital Smile Design (DSD) Certificate",
-      "cert4": "Member of American Academy of Implant Dentistry"
-    },
-    "member2": {
-      "name": "Dr. Sarah Ahmed",
-      "position": "Cosmetic Dentistry & Veneers Specialist",
-      "bio": "Specialist in cosmetic dentistry and porcelain veneers with 5 years of experience. Expert in veneers and advanced whitening techniques.",
-      "cert1": "Bachelor of Dental Surgery (BDS)",
-      "cert2": "Master's in Cosmetic Dentistry",
-      "cert3": "Advanced Hybrid Veneers Certificate",
-      "cert4": "Laser Teeth Whitening Diploma"
-    },
-    "member3": {
-      "name": "Dr. Ahmed Hassan",
-      "position": "Root Canal & Cosmetic Filling Specialist",
-      "bio": "Expert in root canal treatment and cosmetic fillings with 6 years of experience. Specialist in precise treatments using microscope.",
-      "cert1": "Bachelor of Dental Surgery (BDS)",
-      "cert2": "Advanced Endodontics Diploma",
-      "cert3": "Laser Cosmetic Filling Certificate",
-      "cert4": "Microscopic Root Canal Treatment Course"
-    },
-    "member4": {
-      "name": "Dr. Mona Ibrahim",
-      "position": "Pediatric Dentistry Specialist",
-      "bio": "Specialist in pediatric dentistry with 4 years of experience. Distinguished by her gentle approach to children and anxiety relief.",
-      "cert1": "Bachelor of Dental Surgery (BDS)",
-      "cert2": "Master's in Pediatric Dentistry",
-      "cert3": "Child Psychology Diploma",
-      "cert4": "Dental Caries Prevention Certificate"
-    },
-    "cta": {
-      "title": "Book Your Appointment with Our Distinguished Team",
-      "text": "Our team is ready to provide the best dental care for you. Book your free consultation now!",
-      "button": "Book Your Appointment Now"
     }
   },
   "servicePages": {

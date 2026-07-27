@@ -188,15 +188,6 @@ export default function Nav() {
             </li>
             <li>
               <Link
-                href="/team"
-                className={`${styles.navLink} ${isActiveLink("/team") ? styles.active : ""}`}
-                onClick={closeMobileMenu}
-              >
-                {t("nav.team")}
-              </Link>
-            </li>
-            <li>
-              <Link
                 href="/blogs"
                 className={`${styles.navLink} ${isBlogsActive ? styles.active : ""}`}
                 onClick={closeMobileMenu}

@@ -38,7 +38,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/services", frequency: "weekly", priority: 0.9 },
     { path: "/cases", frequency: "weekly", priority: 0.8 },
     { path: "/blogs", frequency: "weekly", priority: 0.8 },
-    { path: "/team", frequency: "monthly", priority: 0.7 },
     { path: "/contact-us", frequency: "monthly", priority: 0.7 },
     { path: "/services/teeth-implants", frequency: "monthly", priority: 0.8 },
     { path: "/services/teeth-beautification", frequency: "monthly", priority: 0.8 },
