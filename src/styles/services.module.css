@@ -1,7 +1,7 @@
 /* Services Section */
 .servicesSection {
   position: relative;
-  padding: 80px 0;
+  padding: 80px 0 160px;
   background: url("/images/clinic-interior.jpg") center/cover no-repeat;
   background-attachment: fixed;
 }
@@ -283,7 +283,7 @@ a.appointmentBtn {
 @media (max-width: 768px) {
   /* Services Section */
   .servicesSection {
-    padding: 40px 0;
+    padding: 40px 0 120px;
   }
 
   .servicesContainer {

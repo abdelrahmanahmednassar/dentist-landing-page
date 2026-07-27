@@ -5,6 +5,7 @@ import CasesFull from "@/components/CasesFull";
 import AboutClinic from "@/components/AboutClinic";
 import Testimonials from "@/components/Testimonials";
 import Services from "@/components/Services";
+import FeaturedBlogs from "@/components/FeaturedBlogs";
 import { generatePageMetadata } from "@/utils/seo";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fayed.clinic";
@@ -119,6 +120,7 @@ export default async function Home({
       <AboutClinic />
       <Testimonials />
       <Services />
+      <FeaturedBlogs />
     </>
   );
 }

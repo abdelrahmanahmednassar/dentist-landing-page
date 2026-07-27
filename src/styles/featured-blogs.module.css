@@ -1,0 +1,231 @@
+/* Featured Blogs Section */
+.featuredBlogsSection {
+  position: relative;
+  background: #f9f9f9;
+  padding: 40px 0 100px;
+  z-index: 2;
+}
+
+/* Top angled polygon shape to transition from the Services section */
+.topDivider {
+  position: absolute;
+  top: -79px;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.dividerSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.featuredBlogsContainer {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 30px;
+  z-index: 2;
+}
+
+/* Section Header */
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.label {
+  display: block;
+  color: var(--tussock, #be9249);
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.title {
+  color: var(--haiti, #0e152f);
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.25;
+  margin: 0 0 16px 0;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+}
+
+.subtitle {
+  color: var(--boulder, #777777);
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* Cards Grid */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .cardsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Card Link wrapper */
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+/* Article Card */
+.card {
+  background: var(--white, #ffffff);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+}
+
+/* Image Wrapper */
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  background-color: var(--mercury, #e7e7e7);
+  flex-shrink: 0;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover .cardImage {
+  transform: scale(1.08);
+}
+
+/* Date */
+.cardDate {
+  display: block;
+  font-family: var(--font-family);
+  font-size: 13px;
+  color: #999999;
+  margin-bottom: 14px;
+  text-align: end;
+  font-weight: 500;
+}
+
+/* Title */
+.cardTitle {
+  font-family: var(--font-family);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--haiti, #0e152f);
+  margin: 0 0 14px 0;
+  line-height: 1.4;
+  text-align: start;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 56px;
+  transition: color 0.3s ease;
+}
+
+.card:hover .cardTitle {
+  color: var(--tussock, #be9249);
+}
+
+/* Excerpt */
+.cardExcerpt {
+  font-family: var(--font-family);
+  font-size: 14.5px;
+  color: var(--boulder, #777777);
+  line-height: 1.8;
+  margin: 0 0 24px 0;
+  text-align: start;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+/* Read More */
+.readMore {
+  display: block;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--tussock, #be9249);
+  text-align: end;
+  letter-spacing: 0.5px;
+  margin-top: auto;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.card:hover .readMore {
+  color: #a67a3a;
+}
+
+[dir="ltr"] .card:hover .readMore {
+  transform: translateX(4px);
+}
+
+[dir="rtl"] .card:hover .readMore {
+  transform: translateX(-4px);
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--boulder, #777777);
+  font-size: 16px;
+  font-family: var(--font-family);
+  border: 2px dashed var(--mercury, #e7e7e7);
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto;
+}
