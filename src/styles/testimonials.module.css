@@ -236,6 +236,9 @@
     background 0.3s,
     transform 0.3s;
 }
+[dir="rtl"] .sliderArrow {
+  rotate: 180deg;
+}
 
 .sliderArrow:hover {
   background: #a67a3a;
