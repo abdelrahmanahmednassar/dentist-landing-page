@@ -14,8 +14,8 @@ export async function POST(request: Request) {
     }
 
     const user = await verifySessionToken(token);
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    if (!user || user.role !== 'admin') {
+      return NextResponse.json({ error: 'Unauthorized: Admin privileges required' }, { status: 401 });
     }
 
     // Sanitize credentials by removing any accidental whitespace, newlines, or wrapping quotes

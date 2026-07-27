@@ -1,77 +1,58 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import styles from "@/styles/cases-page.module.css";
 
-interface CaseItem {
+interface CaseRecord {
   id: string;
   category: string;
-  image: string;
-  altText: string;
+  titleAr: string | null;
+  titleEn: string | null;
+  imageUrl: string;
+  createdAt: string;
 }
 
 export default function CasesCatalog() {
   const t = useTranslations("casesPage");
   const locale = useLocale();
   const isArabic = locale === "ar";
-  const [activeCategory, setActiveCategory] = useState<string>("cosmetic");
+  const [activeCategory, setActiveCategory] = useState<string>("implants");
+  const [cases, setCases] = useState<CaseRecord[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [selectedCase, setSelectedCase] = useState<CaseRecord | null>(null);
 
   const categories = useMemo(
     () => [
-      { id: "cosmetic", label: t("categories.cosmetic") },
       { id: "implants", label: t("categories.implants") },
+      { id: "cosmetic", label: t("categories.cosmetic") },
       { id: "orthodontics", label: t("categories.orthodontics") },
-      { id: "experiences", label: t("categories.experiences") },
-      { id: "celebrities", label: t("categories.celebrities") },
     ],
     [t]
   );
 
-  // Generate rich mock data using placehold.co images for each category
-  const allCases: CaseItem[] = useMemo(() => {
-    const data: CaseItem[] = [];
-    const colorPalettes = [
-      { bg: "1a1e29", fg: "c49747" },
-      { bg: "11131a", fg: "ffffff" },
-      { bg: "202534", fg: "e0a94b" },
-      { bg: "141821", fg: "dddddd" },
-    ];
-
-    const categoryPrefixes: Record<string, { ar: string; en: string }> = {
-      cosmetic: { ar: "تجميل الأسنان", en: "Cosmetic Case" },
-      implants: { ar: "زراعة الأسنان", en: "Dental Implant" },
-      orthodontics: { ar: "تقويم الأسنان", en: "Orthodontics" },
-      experiences: { ar: "تجارب المرضى", en: "Patient Experience" },
-      celebrities: { ar: "ابتسامة المشاهير", en: "Celebrity Smile" },
-    };
-
-    const categoriesList = ["cosmetic", "implants", "orthodontics", "experiences", "celebrities"];
-
-    categoriesList.forEach((cat) => {
-      // 12 images per category to form a clean 4x3 grid on desktop
-      for (let i = 1; i <= 12; i++) {
-        const palette = colorPalettes[(i - 1) % colorPalettes.length];
-        const titleText = isArabic ? `${categoryPrefixes[cat].ar} - ${i}` : `${categoryPrefixes[cat].en} #${i}`;
-        // URL-encode text for placehold.co
-        const encodedText = encodeURIComponent( `${categoryPrefixes[cat].en} ${i}`);
-
-        data.push({
-          id: `${cat}-${i}`,
-          category: cat,
-          image: `https://placehold.co/600x800/${palette.bg}/${palette.fg}/png?text=${encodedText}`,
-          altText: titleText,
-        });
+  useEffect(() => {
+    async function fetchCases() {
+      try {
+        const res = await fetch("/api/cases?limit=200");
+        if (res.ok) {
+          const data = await res.json();
+          setCases(data.cases || []);
+        }
+      } catch (err) {
+        console.error("Failed to fetch clinical cases:", err);
+      } finally {
+        setLoading(false);
       }
-    });
+    }
 
-    return data;
-  }, [isArabic]);
+    fetchCases();
+  }, []);
 
   const displayedCases = useMemo(
-    () => allCases.filter((item) => item.category === activeCategory),
-    [allCases, activeCategory]
+    () => cases.filter((item) => item.category === activeCategory),
+    [cases, activeCategory]
   );
 
   return (
@@ -103,19 +84,146 @@ export default function CasesCatalog() {
 
       {/* Responsive Case Grid */}
       <div id="case-grid" role="tabpanel" className={styles.gridContainer}>
-        {displayedCases.map((caseItem) => (
-          <div key={caseItem.id} className={styles.caseCard}>
+        {loading ? (
+          <div className={styles.emptyState}>
+            <div className={styles.loadingSpinner}></div>
+            <p style={{ margin: 0 }}>
+              {isArabic ? "جاري تحميل الحالات الطبية..." : "Loading clinical cases..."}
+            </p>
+          </div>
+        ) : displayedCases.length === 0 ? (
+          <div className={styles.emptyState}>
+            <i className="bx bx-images" style={{ fontSize: "2.5rem", color: "#a0a8be", display: "block", marginBottom: "12px" }}></i>
+            <p style={{ margin: 0 }}>
+              {isArabic
+                ? "لا توجد حالات متاحة في هذا القسم حالياً. يرجى التفتيش قريباً أو تصفح الأقسام الأخرى."
+                : "No clinical cases available in this category yet. Please check back soon or explore other specialties."}
+            </p>
+          </div>
+        ) : (
+          displayedCases.map((caseItem) => {
+            const title = isArabic
+              ? caseItem.titleAr || caseItem.titleEn
+              : caseItem.titleEn || caseItem.titleAr;
+
+            return (
+              <div
+                key={caseItem.id}
+                className={styles.caseCard}
+                onClick={() => setSelectedCase(caseItem)}
+              >
+                <Image
+                  src={caseItem.imageUrl}
+                  alt={title || "Clinical Case Photograph"}
+                  fill
+                  unoptimized
+                  sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, (max-width: 1080px) 33vw, 25vw"
+                  className={styles.caseImage}
+                />
+                {title && (
+                  <div className={styles.caseOverlay}>
+                    <span>{title}</span>
+                  </div>
+                )}
+              </div>
+            );
+          })
+        )}
+      </div>
+
+      {/* Interactive Lightbox Preview Modal */}
+      {selectedCase && (
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.9)",
+            zIndex: 9999,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "24px",
+            backdropFilter: "blur(8px)",
+          }}
+          onClick={() => setSelectedCase(null)}
+        >
+          <button
+            onClick={() => setSelectedCase(null)}
+            style={{
+              position: "absolute",
+              top: "25px",
+              right: "30px",
+              background: "rgba(255, 255, 255, 0.15)",
+              border: "none",
+              color: "#ffffff",
+              width: "44px",
+              height: "44px",
+              borderRadius: "50%",
+              fontSize: "22px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition: "background 0.2s ease",
+            }}
+            aria-label="Close Preview"
+          >
+            ✕
+          </button>
+
+          <div
+            style={{
+              position: "relative",
+              maxWidth: "900px",
+              maxHeight: "80vh",
+              width: "100%",
+              height: "80vh",
+              borderRadius: "8px",
+              overflow: "hidden",
+              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.6)",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
             <Image
-              src={caseItem.image}
-              alt={caseItem.altText}
+              src={selectedCase.imageUrl}
+              alt={
+                (isArabic
+                  ? selectedCase.titleAr || selectedCase.titleEn
+                  : selectedCase.titleEn || selectedCase.titleAr) || "Clinical Case Preview"
+              }
               fill
               unoptimized
-              sizes="(max-width: 520px) 100vw, (max-width: 860px) 50vw, (max-width: 1080px) 33vw, 25vw"
-              className={styles.caseImage}
+              style={{ objectFit: "contain" }}
             />
           </div>
-        ))}
-      </div>
+
+          {(selectedCase.titleAr || selectedCase.titleEn) && (
+            <div
+              style={{
+                marginTop: "16px",
+                color: "#ffffff",
+                fontFamily: 'var(--font-family, "Tajawal", sans-serif)',
+                fontSize: "19px",
+                fontWeight: 700,
+                textAlign: "center",
+                maxWidth: "800px",
+                padding: "10px 24px",
+                backgroundColor: "rgba(20, 24, 33, 0.85)",
+                borderRadius: "30px",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
+                boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)",
+              }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {isArabic ? selectedCase.titleAr || selectedCase.titleEn : selectedCase.titleEn || selectedCase.titleAr}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

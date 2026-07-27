@@ -49,6 +49,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const isExactAdmin = pathname === "/admin";
   const isBlogs = pathname.startsWith("/admin/blogs");
+  const isCases = pathname.startsWith("/admin/cases");
 
   return (
     <div className={styles.adminWrapper}>
@@ -93,6 +94,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               >
                 <i className="bx bx-news"></i>
                 <span>Blog Management</span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/admin/cases"
+                onClick={() => setSidebarOpen(false)}
+                className={`${styles.navLink} ${isCases ? styles.active : ""}`}
+              >
+                <i className="bx bx-images"></i>
+                <span>Cases Management</span>
               </Link>
             </li>
           </ul>

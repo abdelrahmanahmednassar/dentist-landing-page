@@ -67,11 +67,9 @@
     "heading": "Patient Cases & Transformations",
     "subheading": "Explore real clinical results and successful smile transformations at our clinic",
     "categories": {
-      "cosmetic": "Cosmetic Dentistry",
       "implants": "Dental Implants",
-      "orthodontics": "Orthodontics",
-      "experiences": "Patient Stories",
-      "celebrities": "Celebrities"
+      "cosmetic": "Cosmetic Dentistry",
+      "orthodontics": "Orthodontics"
     }
   },
   "about": {

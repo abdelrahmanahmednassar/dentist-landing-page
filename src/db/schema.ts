@@ -85,3 +85,35 @@ export const blogs = pgTable(
 
 export type Blog = typeof blogs.$inferSelect;
 export type NewBlog = typeof blogs.$inferInsert;
+
+export const caseCategoryEnum = pgEnum('case_category', [
+  'cosmetic',
+  'implants',
+  'orthodontics',
+]);
+
+export const cases = pgTable(
+  'cases',
+  {
+    id: text('id')
+      .primaryKey()
+      .$defaultFn(() => createId()),
+    category: caseCategoryEnum('category').notNull(),
+    titleAr: text('title_ar'),
+    titleEn: text('title_en'),
+    imageUrl: text('image_url').notNull(),
+    createdAt: timestamp('created_at')
+      .$defaultFn(() => new Date())
+      .notNull(),
+    updatedAt: timestamp('updated_at')
+      .$defaultFn(() => new Date())
+      .notNull(),
+  },
+  (table) => [
+    index('cases_category_idx').on(table.category),
+    index('cases_created_at_idx').on(table.createdAt),
+  ]
+);
+
+export type Case = typeof cases.$inferSelect;
+export type NewCase = typeof cases.$inferInsert;

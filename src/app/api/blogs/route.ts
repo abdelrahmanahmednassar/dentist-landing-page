@@ -8,6 +8,40 @@ import { verifySessionToken, COOKIE_NAME } from '@/lib/auth';
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
+    const all = searchParams.get('all') === 'true';
+
+    if (all) {
+      const cookieStore = await cookies();
+      const token = cookieStore.get(COOKIE_NAME)?.value;
+      if (!token) return NextResponse.json({ error: 'Unauthenticated' }, { status: 401 });
+      const user = await verifySessionToken(token);
+      if (!user || user.role !== 'admin') return NextResponse.json({ error: 'Unauthorized: Admin privileges required' }, { status: 401 });
+
+      const allBlogs = await db
+        .select({
+          id: blogs.id,
+          slug: blogs.slug,
+          titleAr: blogs.titleAr,
+          titleEn: blogs.titleEn,
+          excerptAr: blogs.excerptAr,
+          excerptEn: blogs.excerptEn,
+          coverImageUrlAr: blogs.coverImageUrlAr,
+          coverImageUrlEn: blogs.coverImageUrlEn,
+          tagsAr: blogs.tagsAr,
+          tagsEn: blogs.tagsEn,
+          status: blogs.status,
+          isFeatured: blogs.isFeatured,
+          readingMinutes: blogs.readingMinutes,
+          createdAt: blogs.createdAt,
+          updatedAt: blogs.updatedAt,
+          publishedAt: blogs.publishedAt,
+        })
+        .from(blogs)
+        .orderBy(desc(blogs.createdAt));
+
+      return NextResponse.json({ success: true, blogs: allBlogs });
+    }
+
     const tag = searchParams.get('tag');
     const isFeatured = searchParams.get('isFeatured');
     const search = searchParams.get('search');
@@ -93,8 +127,8 @@ export async function POST(request: Request) {
     }
 
     const user = await verifySessionToken(token);
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    if (!user || user.role !== 'admin') {
+      return NextResponse.json({ error: 'Unauthorized: Admin privileges required' }, { status: 401 });
     }
 
     const body = await request.json();

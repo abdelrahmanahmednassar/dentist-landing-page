@@ -42,8 +42,8 @@ export async function PUT(request: Request, { params }: RouteParams) {
     }
 
     const user = await verifySessionToken(token);
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    if (!user || user.role !== 'admin') {
+      return NextResponse.json({ error: 'Unauthorized: Admin privileges required' }, { status: 401 });
     }
 
     const { id } = await params;
@@ -129,8 +129,8 @@ export async function DELETE(request: Request, { params }: RouteParams) {
     }
 
     const user = await verifySessionToken(token);
-    if (!user) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    if (!user || user.role !== 'admin') {
+      return NextResponse.json({ error: 'Unauthorized: Admin privileges required' }, { status: 401 });
     }
 
     const { id } = await params;

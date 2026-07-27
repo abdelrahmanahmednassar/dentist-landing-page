@@ -14,8 +14,8 @@ export async function POST(request: Request) {
     }
 
     const sessionUser = await verifySessionToken(token);
-    if (!sessionUser) {
-      return NextResponse.json({ error: 'Invalid or expired session' }, { status: 401 });
+    if (!sessionUser || sessionUser.role !== 'admin') {
+      return NextResponse.json({ error: 'Invalid session or insufficient privileges' }, { status: 401 });
     }
 
     const body = await request.json();

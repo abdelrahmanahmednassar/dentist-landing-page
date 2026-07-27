@@ -27,7 +27,7 @@ export default function AdminBlogsListPage() {
 
   const fetchAdminBlogs = async () => {
     try {
-      const res = await fetch('/api/admin/blogs');
+      const res = await fetch('/api/blogs?all=true');
       if (res.ok) {
         const data = await res.json();
         setBlogs(data.blogs || []);

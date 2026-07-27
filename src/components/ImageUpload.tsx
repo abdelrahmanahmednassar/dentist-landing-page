@@ -40,7 +40,7 @@ export function ImageUpload({
         formData.append('oldUrl', value);
       }
 
-      const res = await fetch('/api/admin/upload', {
+      const res = await fetch('/api/upload', {
         method: 'POST',
         body: formData,
       });

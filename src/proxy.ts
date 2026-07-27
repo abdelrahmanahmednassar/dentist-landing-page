@@ -28,12 +28,12 @@ export default async function proxy(request: NextRequest) {
     }
 
     if (isLoginPage) {
-      if (user) {
+      if (user && user.role === 'admin') {
         const dashboardUrl = new URL(pathname.replace("/login", ""), request.url);
         return NextResponse.redirect(dashboardUrl);
       }
     } else {
-      if (!user) {
+      if (!user || user.role !== 'admin') {
         const localePrefix = pathname.startsWith("/en") ? "/en" : "/ar";
         const loginUrl = new URL(`${localePrefix}/admin/login`, request.url);
         loginUrl.searchParams.set("from", pathname);
