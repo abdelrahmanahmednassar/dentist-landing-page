@@ -14,7 +14,6 @@ interface DbBlog {
   slug: string;
   coverImageUrlAr: string;
   coverImageUrlEn: string;
-  ogImageUrl: string;
   excerptAr: string;
   excerptEn: string;
   readingMinutes: number;

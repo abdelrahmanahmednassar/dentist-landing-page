@@ -68,7 +68,6 @@ export async function PUT(request: Request, { params }: RouteParams) {
       contentEn,
       coverImageUrlAr,
       coverImageUrlEn,
-      ogImageUrl,
       excerptAr,
       excerptEn,
       readingMinutes,
@@ -96,7 +95,6 @@ export async function PUT(request: Request, { params }: RouteParams) {
         contentEn: contentEn !== undefined ? contentEn : existingBlog.contentEn,
         coverImageUrlAr: coverImageUrlAr !== undefined ? coverImageUrlAr : existingBlog.coverImageUrlAr,
         coverImageUrlEn: coverImageUrlEn !== undefined ? coverImageUrlEn : existingBlog.coverImageUrlEn,
-        ogImageUrl: ogImageUrl !== undefined ? ogImageUrl : existingBlog.ogImageUrl,
         excerptAr: excerptAr !== undefined ? excerptAr : existingBlog.excerptAr,
         excerptEn: excerptEn !== undefined ? excerptEn : existingBlog.excerptEn,
         readingMinutes: readingMinutes !== undefined ? readingMinutes : existingBlog.readingMinutes,
@@ -151,7 +149,6 @@ export async function DELETE(request: Request, { params }: RouteParams) {
       await Promise.all([
         deleteCloudinaryImageByUrl(deleted.coverImageUrlAr),
         deleteCloudinaryImageByUrl(deleted.coverImageUrlEn),
-        deleteCloudinaryImageByUrl(deleted.ogImageUrl),
       ]);
     } catch (cleanErr) {
       console.warn('Non-fatal warning cleaning up Cloudinary media after blog deletion:', cleanErr);

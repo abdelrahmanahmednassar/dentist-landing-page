@@ -46,7 +46,6 @@ export const blogs = pgTable(
     contentEn: text('content_en').notNull(),
     coverImageUrlAr: text('cover_image_url_ar').notNull(),
     coverImageUrlEn: text('cover_image_url_en').notNull(),
-    ogImageUrl: text('og_image_url').notNull(),
     excerptAr: text('excerpt_ar').notNull(),
     excerptEn: text('excerpt_en').notNull(),
     readingMinutes: integer('reading_minutes').default(1).notNull(),

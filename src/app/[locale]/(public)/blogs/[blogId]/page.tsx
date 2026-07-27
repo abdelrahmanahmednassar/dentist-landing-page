@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocale } from "next-intl/server";
 import { db, blogs } from "@/db";
@@ -12,6 +13,45 @@ interface PageProps {
   params: Promise<{
     blogId: string;
   }>;
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { blogId } = await params;
+  const locale = await getLocale();
+
+  try {
+    const [dbBlog] = await db
+      .select()
+      .from(blogs)
+      .where(or(eq(blogs.id, blogId), eq(blogs.slug, blogId)));
+
+    if (dbBlog) {
+      const title = locale === "ar" ? dbBlog.titleAr : dbBlog.titleEn;
+      const description = locale === "ar" ? (dbBlog.descriptionAr || dbBlog.excerptAr) : (dbBlog.descriptionEn || dbBlog.excerptEn);
+      const ogImage = locale === "ar" ? dbBlog.coverImageUrlAr : dbBlog.coverImageUrlEn;
+
+      return {
+        title,
+        description,
+        openGraph: {
+          title,
+          description,
+          type: "article",
+          images: ogImage ? [{ url: ogImage, alt: title }] : [],
+        },
+        twitter: {
+          card: "summary_large_image",
+          title,
+          description,
+          images: ogImage ? [ogImage] : [],
+        },
+      };
+    }
+  } catch (err) {
+    console.error("Error fetching blog metadata:", err);
+  }
+
+  return {};
 }
 
 export default async function BlogPage({ params }: PageProps) {

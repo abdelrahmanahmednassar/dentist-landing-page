@@ -16,7 +16,6 @@ export interface BlogFormData {
   slug: string;
   coverImageUrlAr: string;
   coverImageUrlEn: string;
-  ogImageUrl: string;
   excerptAr: string;
   excerptEn: string;
   contentAr: string;
@@ -50,7 +49,6 @@ export function BlogForm({
   const [slug, setSlug] = useState(initialData?.slug ?? '');
   const [coverImageUrlAr, setCoverImageUrlAr] = useState(initialData?.coverImageUrlAr ?? '/images/blogs-preview.png');
   const [coverImageUrlEn, setCoverImageUrlEn] = useState(initialData?.coverImageUrlEn ?? '/images/blogs-preview.png');
-  const [ogImageUrl, setOgImageUrl] = useState(initialData?.ogImageUrl ?? '/images/blogs-preview.png');
   const [contentAr, setContentAr] = useState(initialData?.contentAr ?? '');
   const [contentEn, setContentEn] = useState(initialData?.contentEn ?? '');
   const [readingMinutes, setReadingMinutes] = useState(initialData?.readingMinutes ?? 3);
@@ -110,7 +108,6 @@ export function BlogForm({
       slug,
       coverImageUrlAr,
       coverImageUrlEn,
-      ogImageUrl,
       excerptAr: generateExcerpt(contentAr, titleAr),
       excerptEn: generateExcerpt(contentEn, titleEn),
       contentAr,
@@ -201,17 +198,6 @@ export function BlogForm({
             onChange={setCoverImageUrlEn}
             required
             helperText="Header banner displayed on English article page"
-          />
-        </div>
-
-        {/* Social Sharing OG Image */}
-        <div className={styles.formGroup}>
-          <ImageUpload
-            label="Open Graph (OG) Social Media Image"
-            value={ogImageUrl}
-            onChange={setOgImageUrl}
-            required
-            helperText="Preview image shown when sharing the article link on WhatsApp, Facebook, or LinkedIn"
           />
         </div>
 

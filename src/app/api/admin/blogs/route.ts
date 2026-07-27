@@ -29,7 +29,6 @@ export async function GET() {
         excerptEn: blogs.excerptEn,
         coverImageUrlAr: blogs.coverImageUrlAr,
         coverImageUrlEn: blogs.coverImageUrlEn,
-        ogImageUrl: blogs.ogImageUrl,
         tagsAr: blogs.tagsAr,
         tagsEn: blogs.tagsEn,
         status: blogs.status,

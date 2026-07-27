@@ -45,7 +45,6 @@ export async function GET(request: Request) {
         excerptEn: blogs.excerptEn,
         coverImageUrlAr: blogs.coverImageUrlAr,
         coverImageUrlEn: blogs.coverImageUrlEn,
-        ogImageUrl: blogs.ogImageUrl,
         tagsAr: blogs.tagsAr,
         tagsEn: blogs.tagsEn,
         status: blogs.status,
@@ -109,7 +108,6 @@ export async function POST(request: Request) {
       contentEn,
       coverImageUrlAr,
       coverImageUrlEn,
-      ogImageUrl,
       excerptAr,
       excerptEn,
       readingMinutes,
@@ -126,11 +124,10 @@ export async function POST(request: Request) {
       !contentAr ||
       !contentEn ||
       !coverImageUrlAr ||
-      !coverImageUrlEn ||
-      !ogImageUrl
+      !coverImageUrlEn
     ) {
       return NextResponse.json(
-        { error: 'Missing required blog fields (titles, slug, contents, coverImageUrlAr, coverImageUrlEn, ogImageUrl)' },
+        { error: 'Missing required blog fields (titles, slug, contents, coverImageUrlAr, coverImageUrlEn)' },
         { status: 400 }
       );
     }
@@ -162,7 +159,6 @@ export async function POST(request: Request) {
         contentEn,
         coverImageUrlAr: coverImageUrlAr.trim(),
         coverImageUrlEn: coverImageUrlEn.trim(),
-        ogImageUrl: ogImageUrl.trim(),
         excerptAr: excerptAr || titleAr,
         excerptEn: excerptEn || titleEn,
         readingMinutes: readingMinutes || 1,
