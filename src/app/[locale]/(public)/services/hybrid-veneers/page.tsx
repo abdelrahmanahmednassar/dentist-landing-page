@@ -1,59 +1,62 @@
 import { Metadata } from "next";
 import { getMessages } from "next-intl/server";
 import ServiceDetail from "@/components/ServiceDetail";
+import { generatePageMetadata } from "@/utils/seo";
+import { JsonLdBreadcrumb, JsonLdMedicalProcedure } from "@/components/JsonLd";
 
-export async function generateMetadata(): Promise<Metadata> {
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fayed.clinic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isArabic = locale === "ar";
   const t = (await getMessages()) as any;
   const service = t.servicePages.hybridVeneers;
-  const pageUrl = "https://fayed.clinic/services/hybrid-veneers";
 
-  return {
-    title: `${service.title} | فايد دينتال كلينك - Dr. Fayed Dental Clinic`,
+  return generatePageMetadata({
+    locale,
+    path: "/services/hybrid-veneers",
+    title: `${service.title} | ${isArabic ? "فايد دينتال كلينك - دكتور محمد فايد" : "Fayed Dental Clinic - Dr. Mohamed Fayed"}`,
     description: service.lead,
-    keywords: [
-      "Hybrid Veneers",
-      "هايبرد فينير",
-      "تجميل الأسنان",
-      "فينير متحرك",
-      "عدسات الأسنان اللاصقة",
-      "ابتسامة هوليود",
-      "تجميل الأسنان القاهرة",
-      "dental veneers",
-      "cosmetic dentistry Cairo",
-      "smile makeover",
-    ],
-    alternates: {
-      canonical: pageUrl,
-    },
-    openGraph: {
-      title: `${service.title} | فايد دينتال كلينك`,
-      description: service.lead,
-      url: pageUrl,
-      type: "website",
-      locale: "ar_EG",
-      siteName: "فايد دينتال كلينك",
-      images: [
-        {
-          url: "/images/services/hybrid-veneers.jpg",
-          width: 1200,
-          height: 630,
-          alt: service.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${service.title} | فايد دينتال كلينك`,
-      description: service.lead,
-      images: ["/images/services/hybrid-veneers.jpg"],
-    },
-    robots: {
-      index: true,
-      follow: true,
-    },
-  };
+    image: "/images/preview-image.png",
+    keywords: isArabic
+      ? ["Hybrid Veneers", "هايبرد فينير", "تجميل الأسنان", "فينير متحرك", "عدسات الأسنان اللاصقة", "ابتسامة هوليود"]
+      : ["hybrid veneers Cairo", "dental veneers Egypt", "cosmetic dentistry Cairo", "smile makeover Egypt", "custom veneers Cairo"],
+  });
 }
 
-export default function HybridVeneersPage() {
-  return <ServiceDetail serviceKey="hybridVeneers" />;
+export default async function HybridVeneersPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const isArabic = locale === "ar";
+  const t = (await getMessages()) as any;
+  const service = t.servicePages.hybridVeneers;
+  const procedureUrl = `${SITE_URL}/${locale}/services/hybrid-veneers`;
+
+  return (
+    <>
+      <JsonLdBreadcrumb
+        locale={locale}
+        items={[
+          { name: isArabic ? "خدماتنا" : "Our Services", path: "/services" },
+          { name: service.title, path: "/services/hybrid-veneers" },
+        ]}
+      />
+      <JsonLdMedicalProcedure
+        locale={locale}
+        name={service.title}
+        description={service.lead}
+        url={procedureUrl}
+        image="/images/services/hybrid-veneers.jpg"
+        procedureType="Cosmetic Dentistry & Hybrid Veneers"
+      />
+      <ServiceDetail serviceKey="hybridVeneers" />
+    </>
+  );
 }

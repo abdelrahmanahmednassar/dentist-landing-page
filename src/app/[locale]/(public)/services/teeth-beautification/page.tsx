@@ -1,59 +1,62 @@
 import { Metadata } from "next";
 import { getMessages } from "next-intl/server";
 import ServiceDetail from "@/components/ServiceDetail";
+import { generatePageMetadata } from "@/utils/seo";
+import { JsonLdBreadcrumb, JsonLdMedicalProcedure } from "@/components/JsonLd";
 
-export async function generateMetadata(): Promise<Metadata> {
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fayed.clinic";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isArabic = locale === "ar";
   const t = (await getMessages()) as any;
   const service = t.servicePages.teethBeautification;
-  const pageUrl = "https://fayed.clinic/services/teeth-beautification";
 
-  return {
-    title: `${service.title} | فايد دينتال كلينك - Dr. Fayed Dental Clinic`,
+  return generatePageMetadata({
+    locale,
+    path: "/services/teeth-beautification",
+    title: `${service.title} | ${isArabic ? "فايد دينتال كلينك - دكتور محمد فايد" : "Fayed Dental Clinic - Dr. Mohamed Fayed"}`,
     description: service.lead,
-    keywords: [
-      "تجميل الأسنان",
-      "ابتسامة هوليود",
-      "تصميم الابتسامة",
-      "فينير الأسنان",
-      "تبييض الأسنان",
-      "cosmetic dentistry",
-      "teeth beautification Cairo",
-      "Hollywood smile",
-      "smile design",
-      "dental aesthetics",
-    ],
-    alternates: {
-      canonical: pageUrl,
-    },
-    openGraph: {
-      title: `${service.title} | فايد دينتال كلينك`,
-      description: service.lead,
-      url: pageUrl,
-      type: "website",
-      locale: "ar_EG",
-      siteName: "فايد دينتال كلينك",
-      images: [
-        {
-          url: "/images/services/teeth-beautification.jpg",
-          width: 1200,
-          height: 630,
-          alt: service.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: `${service.title} | فايد دينتال كلينك`,
-      description: service.lead,
-      images: ["/images/services/teeth-beautification.jpg"],
-    },
-    robots: {
-      index: true,
-      follow: true,
-    },
-  };
+    image: "/images/preview-image.png",
+    keywords: isArabic
+      ? ["تجميل الأسنان", "ابتسامة هوليود", "تصميم الابتسامة", "فينير الأسنان", "تبييض الأسنان", "تجميل الأسنان القاهرة"]
+      : ["cosmetic dentistry Cairo", "Hollywood smile Egypt", "smile design Cairo", "dental aesthetics Egypt", "teeth whitening Cairo"],
+  });
 }
 
-export default function TeethBeautificationPage() {
-  return <ServiceDetail serviceKey="teethBeautification" />;
+export default async function TeethBeautificationPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const isArabic = locale === "ar";
+  const t = (await getMessages()) as any;
+  const service = t.servicePages.teethBeautification;
+  const procedureUrl = `${SITE_URL}/${locale}/services/teeth-beautification`;
+
+  return (
+    <>
+      <JsonLdBreadcrumb
+        locale={locale}
+        items={[
+          { name: isArabic ? "خدماتنا" : "Our Services", path: "/services" },
+          { name: service.title, path: "/services/teeth-beautification" },
+        ]}
+      />
+      <JsonLdMedicalProcedure
+        locale={locale}
+        name={service.title}
+        description={service.lead}
+        url={procedureUrl}
+        image="/images/services/teeth-beautification.jpg"
+        procedureType="Cosmetic Dentistry & Smile Design"
+      />
+      <ServiceDetail serviceKey="teethBeautification" />
+    </>
+  );
 }

@@ -1,52 +1,47 @@
 import { Metadata } from "next";
 import CasesFull from "@/components/CasesFull";
+import { generatePageMetadata } from "@/utils/seo";
+import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "حالاتنا - فايد دينتال كلينك | نتائج زراعة وتجميل الأسنان",
-  description:
-    "شاهد نتائج حالات زراعة وتجميل الأسنان في فايد دينتال كلينك. قبل وبعد: زراعة الأسنان، الفينير، تركيبات الزيركون، التبييض بالليزر، وحشو العصب.",
-  keywords: [
-    "حالات أسنان",
-    "قبل وبعد",
-    "نتائج زراعة أسنان",
-    "نتائج تجميل أسنان",
-    "فينير قبل وبعد",
-    "before and after dental cases",
-    "dental transformation",
-    "smile makeover results",
-  ],
-  alternates: {
-    canonical: "https://fayed.clinic/cases",
-  },
-  openGraph: {
-    title: "حالاتنا - فايد دينتال كلينك",
-    description:
-      "شاهد نتائج حالات زراعة وتجميل الأسنان في فايد دينتال كلينك. قبل وبعد العلاج.",
-    url: "https://fayed.clinic/cases",
-    type: "website",
-    locale: "ar_EG",
-    siteName: "فايد دينتال كلينك",
-    images: [
-      {
-        url: "/images/cases-preview.jpg",
-        width: 1200,
-        height: 630,
-        alt: "حالات زراعة وتجميل الأسنان",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "حالاتنا - فايد دينتال كلينك",
-    description: "شاهد نتائج حالات زراعة وتجميل الأسنان. قبل وبعد العلاج.",
-    images: ["/images/cases-preview.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isArabic = locale === "ar";
 
-export default function CasesPage() {
-  return <CasesFull />;
+  return generatePageMetadata({
+    locale,
+    path: "/cases",
+    title: isArabic
+      ? "حالاتنا - فايد دينتال كلينك | نتائج زراعة وتجميل الأسنان"
+      : "Our Cases & Results - Fayed Dental Clinic | Implants & Veneers Transformation",
+    description: isArabic
+      ? "شاهد نتائج حالات زراعة وتجميل الأسنان في فايد دينتال كلينك. قبل وبعد: زراعة الأسنان، الفينير، تركيبات الزيركون، التبييض بالليزر، وحشو العصب."
+      : "View before-and-after smile transformations at Fayed Dental Clinic in Cairo. Real clinical cases of dental implants, Hollywood smiles, hybrid veneers, and full mouth rehabilitation.",
+    image: "/images/preview-image.png",
+    keywords: isArabic
+      ? ["حالات أسنان", "قبل وبعد", "نتائج زراعة أسنان", "نتائج تجميل أسنان", "فينير قبل وبعد"]
+      : ["before and after dental cases", "dental transformation Cairo", "smile makeover results Egypt", "dental veneers before after Cairo"],
+  });
+}
+
+export default async function CasesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const isArabic = locale === "ar";
+
+  return (
+    <>
+      <JsonLdBreadcrumb
+        locale={locale}
+        items={[{ name: isArabic ? "حالاتنا" : "Our Cases", path: "/cases" }]}
+      />
+      <CasesFull />
+    </>
+  );
 }

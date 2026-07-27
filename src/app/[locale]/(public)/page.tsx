@@ -5,45 +5,39 @@ import CasesFull from "@/components/CasesFull";
 import AboutClinic from "@/components/AboutClinic";
 import Testimonials from "@/components/Testimonials";
 import Services from "@/components/Services";
+import { generatePageMetadata } from "@/utils/seo";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fayed.clinic";
 
-export const metadata: Metadata = {
-  title: "افضل عيادة اسنان في مصر | فايد دينتال كلينك",
-  description:
-    "إذا كنت تبحث عن افضل عيادة اسنان أو افضل عيادة اسنان في مصر، فايد دينتال كلينك يقدم خدمات زراعة وتجميل الأسنان وعلاج الجذور بأحدث التقنيات في القاهرة.",
-  keywords: [
-    "افضل عيادة اسنان",
-    "افضل عيادة اسنان في مصر",
-    "أفضل عيادة اسنان في مصر",
-    "عيادة اسنان في مصر",
-    "عيادة أسنان القاهرة",
-    "دكتور أسنان في القاهرة",
-    "زراعة الأسنان في مصر",
-    "تجميل الأسنان في مصر",
-  ],
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    title: "افضل عيادة اسنان في مصر | فايد دينتال كلينك",
-    description:
-      "فايد دينتال كلينك من أفضل عيادات الأسنان في مصر بخبرة متقدمة في زراعة الأسنان وتجميل الأسنان.",
-    url: "/",
-    type: "website",
-    locale: "ar_EG",
-    images: [
-      {
-        url: "/images/preview-image.png",
-        width: 1200,
-        height: 630,
-        alt: "فايد دينتال كلينك - افضل عيادة اسنان في مصر",
-      },
-    ],
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isArabic = locale === "ar";
 
-export default function Home() {
+  return generatePageMetadata({
+    locale,
+    path: "/",
+    title: isArabic
+      ? "افضل عيادة اسنان في مصر | فايد دينتال كلينك - د. محمد فايد"
+      : "Best Dental Clinic in Egypt | Fayed Dental Clinic - Dr. Mohamed Fayed",
+    description: isArabic
+      ? "إذا كنت تبحث عن افضل عيادة اسنان أو افضل عيادة اسنان في مصر، فايد دينتال كلينك يقدم خدمات زراعة وتجميل الأسنان وعلاج الجذور بأحدث التقنيات في القاهرة."
+      : "Looking for the best dental clinic in Egypt? Fayed Dental Clinic provides advanced dental implants, veneers, cosmetic dentistry, and root canal treatments in Cairo.",
+    image: "/images/preview-image.png",
+  });
+}
+
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const isArabic = locale === "ar";
+
   return (
     <>
       <Script
@@ -53,24 +47,21 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "افضل عيادة اسنان في مصر | فايد دينتال كلينك",
-            url: SITE_URL,
-            inLanguage: "ar-EG",
+            name: isArabic
+              ? "افضل عيادة اسنان في مصر | فايد دينتال كلينك"
+              : "Best Dental Clinic in Egypt | Fayed Dental Clinic",
+            url: `${SITE_URL}/${locale}`,
+            inLanguage: isArabic ? "ar-EG" : "en-US",
             isPartOf: {
               "@type": "WebSite",
-              name: "فايد دينتال كلينك",
-              url: SITE_URL,
+              name: isArabic ? "فايد دينتال كلينك" : "Fayed Dental Clinic",
+              url: `${SITE_URL}/${locale}`,
             },
             about: {
               "@type": "Dentist",
-              name: "فايد دينتال كلينك",
+              name: isArabic ? "فايد دينتال كلينك" : "Fayed Dental Clinic",
               areaServed: "Egypt",
             },
-            keywords: [
-              "افضل عيادة اسنان",
-              "افضل عيادة اسنان في مصر",
-              "عيادة أسنان في مصر",
-            ],
           }),
         }}
       />
@@ -82,24 +73,43 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "ما هي افضل عيادة اسنان في مصر؟",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "فايد دينتال كلينك من أفضل عيادات الأسنان في مصر، ويقدم خدمات زراعة الأسنان وتجميل الأسنان وعلاج الجذور بأحدث التقنيات الطبية.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "كيف أختار افضل عيادة اسنان؟",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "عند اختيار عيادة الأسنان، راجع خبرة الأطباء، نتائج الحالات السابقة، مستوى التعقيم، التقنيات الحديثة، وآراء المرضى. فايد دينتال كلينك يوفر هذه المعايير مع متابعة علاجية مستمرة.",
-                },
-              },
-            ],
+            mainEntity: isArabic
+              ? [
+                  {
+                    "@type": "Question",
+                    name: "ما هي افضل عيادة اسنان في مصر؟",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "فايد دينتال كلينك من أفضل عيادات الأسنان في مصر، ويقدم خدمات زراعة الأسنان وتجميل الأسنان وعلاج الجذور بأحدث التقنيات الطبية.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "كيف أختار افضل عيادة اسنان؟",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "عند اختيار عيادة الأسنان، راجع خبرة الأطباء، نتائج الحالات السابقة، مستوى التعقيم، التقنيات الحديثة، وآراء المرضى. فايد دينتال كلينك يوفر هذه المعايير مع متابعة علاجية مستمرة.",
+                    },
+                  },
+                ]
+              : [
+                  {
+                    "@type": "Question",
+                    name: "What is the best dental clinic in Egypt?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "Fayed Dental Clinic led by Dr. Mohamed Fayed is one of the premier dental clinics in Egypt, offering advanced dental implants, smile designs, veneers, and pain-free treatments.",
+                    },
+                  },
+                  {
+                    "@type": "Question",
+                    name: "How do I choose the right dental clinic in Cairo?",
+                    acceptedAnswer: {
+                      "@type": "Answer",
+                      text: "When selecting a dental clinic, consider the specialists' experience, before-and-after clinical results, sterilization standards, advanced technology, and patient reviews. Fayed Dental Clinic excels in all these criteria.",
+                    },
+                  },
+                ],
           }),
         }}
       />

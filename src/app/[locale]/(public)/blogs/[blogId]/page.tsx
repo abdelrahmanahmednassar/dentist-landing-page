@@ -8,16 +8,21 @@ import { Link } from "@/i18n/navigation";
 
 import { RichTextDisplay } from "@/components/RichTextDisplay";
 import styles from "@/styles/blog-detail.module.css";
+import { generatePageMetadata } from "@/utils/seo";
+import { JsonLdBreadcrumb, JsonLdBlogPost } from "@/components/JsonLd";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://fayed.clinic";
 
 interface PageProps {
   params: Promise<{
     blogId: string;
+    locale: string;
   }>;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { blogId } = await params;
-  const locale = await getLocale();
+  const { blogId, locale } = await params;
+  const currentLocale = locale || await getLocale();
 
   try {
     const [dbBlog] = await db
@@ -26,26 +31,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       .where(or(eq(blogs.id, blogId), eq(blogs.slug, blogId)));
 
     if (dbBlog) {
-      const title = locale === "ar" ? dbBlog.titleAr : dbBlog.titleEn;
-      const description = locale === "ar" ? (dbBlog.descriptionAr || dbBlog.excerptAr) : (dbBlog.descriptionEn || dbBlog.excerptEn);
-      const ogImage = locale === "ar" ? dbBlog.coverImageUrlAr : dbBlog.coverImageUrlEn;
+      const title = currentLocale === "ar" ? dbBlog.titleAr : dbBlog.titleEn;
+      const description = currentLocale === "ar" ? (dbBlog.descriptionAr || dbBlog.excerptAr) : (dbBlog.descriptionEn || dbBlog.excerptEn);
+      const ogImage = (currentLocale === "ar" ? dbBlog.coverImageUrlAr : dbBlog.coverImageUrlEn) || "/images/blogs-preview.png";
+      const tags = (currentLocale === "ar" ? dbBlog.tagsAr : dbBlog.tagsEn) || [];
+      const slugOrId = dbBlog.slug || dbBlog.id;
 
-      return {
-        title,
-        description,
-        openGraph: {
-          title,
-          description,
-          type: "article",
-          images: ogImage ? [{ url: ogImage, alt: title }] : [],
-        },
-        twitter: {
-          card: "summary_large_image",
-          title,
-          description,
-          images: ogImage ? [ogImage] : [],
-        },
-      };
+      return generatePageMetadata({
+        locale: currentLocale,
+        path: `/blogs/${slugOrId}`,
+        title: `${title} | ${currentLocale === "ar" ? "فايد دينتال كلينك" : "Fayed Dental Clinic"}`,
+        description: description || title,
+        image: ogImage,
+        keywords: tags.filter((k): k is string => typeof k === "string" && k.trim().length > 0),
+        type: "article",
+        publishedTime: dbBlog.publishedAt?.toISOString() || dbBlog.createdAt?.toISOString(),
+        modifiedTime: dbBlog.updatedAt?.toISOString() || dbBlog.createdAt?.toISOString(),
+        authors: ["Dr. Mohamed Fayed - Fayed Dental Clinic"],
+      });
     }
   } catch (err) {
     console.error("Error fetching blog metadata:", err);
@@ -55,8 +58,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 export default async function BlogPage({ params }: PageProps) {
-  const { blogId } = await params;
-  const locale = await getLocale();
+  const { blogId, locale } = await params;
+  const currentLocale = locale || await getLocale();
 
   let blogData: {
     title: string;
@@ -65,6 +68,10 @@ export default async function BlogPage({ params }: PageProps) {
     imagePath: string;
     publishDate: string;
     content: string;
+    slugOrId: string;
+    datePublishedIso?: string;
+    dateModifiedIso?: string;
+    description: string;
   } | null = null;
 
   try {
@@ -74,25 +81,33 @@ export default async function BlogPage({ params }: PageProps) {
       .where(or(eq(blogs.id, blogId), eq(blogs.slug, blogId)));
 
     if (dbBlog) {
-      const title = locale === "ar" ? dbBlog.titleAr : dbBlog.titleEn;
-      const content = locale === "ar" ? dbBlog.contentAr : dbBlog.contentEn;
-      const tags = locale === "ar" ? dbBlog.tagsAr : dbBlog.tagsEn;
-      const tag = tags[0] || (locale === "ar" ? "عام" : "General");
+      const title = currentLocale === "ar" ? dbBlog.titleAr : dbBlog.titleEn;
+      const content = currentLocale === "ar" ? dbBlog.contentAr : dbBlog.contentEn;
+      const description = currentLocale === "ar"
+        ? (dbBlog.descriptionAr || dbBlog.excerptAr || title)
+        : (dbBlog.descriptionEn || dbBlog.excerptEn || title);
+      const tags = currentLocale === "ar" ? dbBlog.tagsAr : dbBlog.tagsEn;
+      const tag = tags[0] || (currentLocale === "ar" ? "عام" : "General");
       const publishDate = dbBlog.publishedAt
         ? new Date(dbBlog.publishedAt).toLocaleDateString(
-            locale === "ar" ? "ar-EG" : "en-US"
+            currentLocale === "ar" ? "ar-EG" : "en-US"
           )
         : new Date(dbBlog.createdAt).toLocaleDateString();
 
-      const coverImg = locale === "ar" ? dbBlog.coverImageUrlAr : dbBlog.coverImageUrlEn;
+      const coverImg = currentLocale === "ar" ? dbBlog.coverImageUrlAr : dbBlog.coverImageUrlEn;
+      const slugOrId = dbBlog.slug || dbBlog.id;
 
       blogData = {
         title,
         tag,
-        timeToRead: `${dbBlog.readingMinutes} ${locale === "ar" ? "دقائق" : "min"}`,
+        timeToRead: `${dbBlog.readingMinutes} ${currentLocale === "ar" ? "دقائق" : "min"}`,
         imagePath: coverImg || dbBlog.coverImageUrlAr || dbBlog.coverImageUrlEn || "/images/blogs-preview.png",
         publishDate,
         content,
+        slugOrId,
+        datePublishedIso: dbBlog.publishedAt?.toISOString() || dbBlog.createdAt?.toISOString(),
+        dateModifiedIso: dbBlog.updatedAt?.toISOString() || dbBlog.createdAt?.toISOString(),
+        description,
       };
     }
   } catch (err) {
@@ -103,46 +118,66 @@ export default async function BlogPage({ params }: PageProps) {
     notFound();
   }
 
+  const articleUrl = `${SITE_URL}/${currentLocale}/blogs/${blogData.slugOrId}`;
+
   return (
-    <article className={styles.blogDetailPage}>
-      <div className={styles.blogDetailContainer}>
-        {/* Back Button */}
-        <Link href="/blogs" className={styles.backButton}>
-          <i className="bx bx-right-arrow-alt"></i>
-          <span>{locale === "ar" ? "العودة للمدونة" : "Back to Blogs"}</span>
-        </Link>
+    <>
+      <JsonLdBreadcrumb
+        locale={currentLocale}
+        items={[
+          { name: currentLocale === "ar" ? "المدونة" : "Blog", path: "/blogs" },
+          { name: blogData.title, path: `/blogs/${blogData.slugOrId}` },
+        ]}
+      />
+      <JsonLdBlogPost
+        title={blogData.title}
+        description={blogData.description}
+        url={articleUrl}
+        image={blogData.imagePath}
+        datePublished={blogData.datePublishedIso}
+        dateModified={blogData.dateModifiedIso}
+        locale={currentLocale}
+      />
+      <article className={styles.blogDetailPage}>
+        <div className={styles.blogDetailContainer}>
+          {/* Back Button */}
+          <Link href="/blogs" className={styles.backButton}>
+            <i className="bx bx-right-arrow-alt"></i>
+            <span>{currentLocale === "ar" ? "العودة للمدونة" : "Back to Blogs"}</span>
+          </Link>
 
-        {/* Blog Header */}
-        <header className={styles.blogDetailHeader}>
-          <span className={styles.blogDetailCategory}>{blogData.tag}</span>
-          <h1 className={styles.blogDetailTitle}>{blogData.title}</h1>
-          <div className={styles.blogDetailMeta}>
-            <span>
-              <i className="bx bx-calendar"></i> {blogData.publishDate}
-            </span>
-            <span>
-              <i className="bx bx-time"></i> {blogData.timeToRead}
-            </span>
+          {/* Blog Header */}
+          <header className={styles.blogDetailHeader}>
+            <span className={styles.blogDetailCategory}>{blogData.tag}</span>
+            <h1 className={styles.blogDetailTitle}>{blogData.title}</h1>
+            <div className={styles.blogDetailMeta}>
+              <span>
+                <i className="bx bx-calendar"></i> {blogData.publishDate}
+              </span>
+              <span>
+                <i className="bx bx-time"></i> {blogData.timeToRead}
+              </span>
+            </div>
+          </header>
+
+          {/* Featured Image */}
+          <div className={styles.blogDetailImage}>
+            <Image
+              src={blogData.imagePath}
+              alt={blogData.title}
+              width={1200}
+              height={600}
+            />
           </div>
-        </header>
 
-        {/* Featured Image */}
-        <div className={styles.blogDetailImage}>
-          <Image
-            src={blogData.imagePath}
-            alt={blogData.title}
-            width={1200}
-            height={600}
+          {/* Blog Content */}
+          <RichTextDisplay
+            markdown={blogData.content}
+            lang={currentLocale}
+            dir={currentLocale === 'ar' ? 'rtl' : 'ltr'}
           />
         </div>
-
-        {/* Blog Content */}
-        <RichTextDisplay
-          markdown={blogData.content}
-          lang={locale}
-          dir={locale === 'ar' ? 'rtl' : 'ltr'}
-        />
-      </div>
-    </article>
+      </article>
+    </>
   );
 }
