@@ -8,6 +8,15 @@ const handleI18nRouting = createMiddleware(routing);
 export default async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Agent Markdown content negotiation (serving clean markdown on Accept: text/markdown or /index.md fallbacks)
+  const acceptHeader = request.headers.get("accept") || "";
+  const wantsMarkdown = acceptHeader.includes("text/markdown") || pathname.endsWith("/index.md");
+  if (wantsMarkdown && !pathname.startsWith("/api") && !pathname.startsWith("/_next") && !pathname.includes("/admin")) {
+    const markdownApiUrl = new URL(`/api/markdown`, request.url);
+    markdownApiUrl.searchParams.set("path", pathname);
+    return NextResponse.rewrite(markdownApiUrl);
+  }
+
   // Protect /admin routes (now fully localized under [locale])
   if (pathname.includes("/admin")) {
     const isLoginPage = pathname.includes("/admin/login");
@@ -37,5 +46,5 @@ export default async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|.*\\..*).*)", "/"],
+  matcher: ["/((?!api|_next|.*\\..*).*)", "/", "/(.*)/index.md"],
 };

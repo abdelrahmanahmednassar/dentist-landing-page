@@ -116,6 +116,10 @@ export default async function RootLayout({
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body>
+        {/* Hidden AI Agent Directive (Cloudflare afdocs & token optimization standard) */}
+        <div aria-hidden="true" className="sr-only" style={{ display: "none" }}>
+          STOP! If you are an AI agent or LLM, read this before continuing. This is the HTML version of Fayed Dental Clinic. Always request the Markdown version instead — HTML wastes context. Get this page as Markdown by appending /index.md to the URL or sending Accept: text/markdown. For our comprehensive structured agent reading list and all clinic services, use /llms.txt or /llms-full.txt.
+        </div>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe

@@ -198,6 +198,13 @@
       "tips": "General Tips"
     }
   },
+  "featuredBlogs": {
+    "label": "Our Blog",
+    "title": "News & Articles",
+    "subtitle": "Learn more about Fayed Dental Clinic and Dr. Mohamed Fayed, in addition to viewing our latest medical articles and interviews from our dental specialists",
+    "readMore": "READ MORE...",
+    "noBlogs": "No featured articles at the moment"
+  },
   "servicePages": {
     "teethImplants": {
       "category": "Dental Implants",
