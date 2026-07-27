@@ -85,6 +85,15 @@ export async function PUT(request: Request, { params }: RouteParams) {
       .where(eq(cases.id, id))
       .returning();
 
+    // Automatically clean up replaced old image asset from Cloudinary
+    if (imageUrl !== undefined && imageUrl.trim() !== existingCase.imageUrl && existingCase.imageUrl) {
+      try {
+        await deleteCloudinaryImageByUrl(existingCase.imageUrl);
+      } catch (cleanErr) {
+        console.warn('Non-fatal warning cleaning up replaced Cloudinary image:', cleanErr);
+      }
+    }
+
     return NextResponse.json({ success: true, case: updatedCase });
   } catch (error) {
     console.error('Error updating case:', error);

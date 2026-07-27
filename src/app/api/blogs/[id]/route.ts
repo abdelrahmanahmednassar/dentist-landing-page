@@ -5,6 +5,24 @@ import { eq, or } from 'drizzle-orm';
 import { verifySessionToken, COOKIE_NAME } from '@/lib/auth';
 import { deleteCloudinaryImageByUrl } from '@/lib/cloudinary';
 
+function extractCloudinaryUrls(...texts: (string | null | undefined)[]): string[] {
+  const urls = new Set<string>();
+  const regex = /https?:\/\/res\.cloudinary\.com\/[^\s)"'<>]+/g;
+  for (const text of texts) {
+    if (!text) continue;
+    if (text.startsWith('http://res.cloudinary.com/') || text.startsWith('https://res.cloudinary.com/')) {
+      urls.add(text.trim());
+    }
+    const matches = text.match(regex);
+    if (matches) {
+      for (const m of matches) {
+        urls.add(m.trim());
+      }
+    }
+  }
+  return Array.from(urls);
+}
+
 interface RouteParams {
   params: Promise<{
     id: string;
@@ -108,6 +126,30 @@ export async function PUT(request: Request, { params }: RouteParams) {
       .where(eq(blogs.id, id))
       .returning();
 
+    // Clean up any Cloudinary images (cover images or embedded editor images) removed during update
+    try {
+      const oldUrls = extractCloudinaryUrls(
+        existingBlog.coverImageUrlAr,
+        existingBlog.coverImageUrlEn,
+        existingBlog.contentAr,
+        existingBlog.contentEn
+      );
+      const newUrls = new Set(
+        extractCloudinaryUrls(
+          updatedBlog.coverImageUrlAr,
+          updatedBlog.coverImageUrlEn,
+          updatedBlog.contentAr,
+          updatedBlog.contentEn
+        )
+      );
+      const removedUrls = oldUrls.filter((url) => !newUrls.has(url));
+      if (removedUrls.length > 0) {
+        await Promise.all(removedUrls.map((url) => deleteCloudinaryImageByUrl(url)));
+      }
+    } catch (cleanErr) {
+      console.warn('Non-fatal warning cleaning up old Cloudinary images after blog update:', cleanErr);
+    }
+
     return NextResponse.json({ success: true, blog: updatedBlog });
   } catch (error) {
     console.error('Error updating blog:', error);
@@ -144,12 +186,17 @@ export async function DELETE(request: Request, { params }: RouteParams) {
       return NextResponse.json({ error: 'Blog post not found' }, { status: 404 });
     }
 
-    // Automatically delete associated Cloudinary media assets in parallel
+    // Automatically delete associated Cloudinary media assets (cover banners & content images) in parallel
     try {
-      await Promise.all([
-        deleteCloudinaryImageByUrl(deleted.coverImageUrlAr),
-        deleteCloudinaryImageByUrl(deleted.coverImageUrlEn),
-      ]);
+      const allMediaUrls = extractCloudinaryUrls(
+        deleted.coverImageUrlAr,
+        deleted.coverImageUrlEn,
+        deleted.contentAr,
+        deleted.contentEn
+      );
+      if (allMediaUrls.length > 0) {
+        await Promise.all(allMediaUrls.map((url) => deleteCloudinaryImageByUrl(url)));
+      }
     } catch (cleanErr) {
       console.warn('Non-fatal warning cleaning up Cloudinary media after blog deletion:', cleanErr);
     }
