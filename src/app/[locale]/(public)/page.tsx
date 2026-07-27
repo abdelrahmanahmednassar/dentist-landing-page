@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import Hero from "@/components/Hero";
-import CasesFull from "@/components/CasesFull";
+import CasesSection from "@/components/CasesSection";
 import AboutClinic from "@/components/AboutClinic";
 import Testimonials from "@/components/Testimonials";
 import Services from "@/components/Services";
@@ -116,7 +116,7 @@ export default async function Home({
       />
 
       <Hero />
-      <CasesFull />
+      <CasesSection />
       <AboutClinic />
       <Testimonials />
       <Services />

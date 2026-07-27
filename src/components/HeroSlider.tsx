@@ -94,9 +94,11 @@ export default function HeroSlider({ slides }: HeroSliderProps) {
                   {slide.cta}
                 </Link>
               ) : (
-                <Link href={slide.ctaLink} className={styles.heroCtaBtn}>
-                  {slide.cta}
-                </Link>
+                slide.cta ? (
+                  <Link href={slide.ctaLink} className={styles.heroCtaBtn}>
+                    {slide.cta}
+                  </Link>
+                ) : null
               )}
             </div>
           </div>

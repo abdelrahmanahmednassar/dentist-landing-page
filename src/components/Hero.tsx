@@ -10,7 +10,7 @@ export default async function Hero() {
 
   const slides = [
     {
-      image: "/images/hero-slide-1.png",
+      image: "/images/hero/1.png",
       alt: "فايد دينتال كلينك - عيادة أسنان متخصصة في القاهرة",
       title: t("hero.slide1.title"),
       subtitle: t("hero.slide1.subtitle"),
@@ -19,7 +19,7 @@ export default async function Hero() {
       className: styles.heroSlideSlide1,
     },
     {
-      image: "/images/hero-slide-2.jpg",
+      image: "/images/hero/2.jpg",
       alt: "خدمات طب الأسنان المتقدمة - فايد دينتال كلينك",
       title: t("hero.slide2.title"),
       subtitle: t("hero.slide2.subtitle"),
@@ -28,7 +28,7 @@ export default async function Hero() {
       className: styles.heroSlideSlide2,
     },
     {
-      image: "/images/hero-slide-3.jpg",
+      image: "/images/hero/3.jpg",
       alt: "رعاية صحية متميزة - خبرة سنوات في علاج وتجميل الأسنان",
       title: t("hero.slide3.title"),
       subtitle: t("hero.slide3.subtitle"),

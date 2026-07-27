@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import CasesFull from "@/components/CasesFull";
+import CasesCatalog from "@/components/CasesCatalog";
 import { generatePageMetadata } from "@/utils/seo";
 import { JsonLdBreadcrumb } from "@/components/JsonLd";
 
@@ -41,7 +41,7 @@ export default async function CasesPage({
         locale={locale}
         items={[{ name: isArabic ? "حالاتنا" : "Our Cases", path: "/cases" }]}
       />
-      <CasesFull />
+      <CasesCatalog />
     </>
   );
 }

@@ -1,0 +1,214 @@
+.pageContainer {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 50px 24px 100px;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 45px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-family: var(--font-family, "Tajawal", sans-serif);
+  font-size: 36px;
+  font-weight: 800;
+  color: #0e152f;
+  margin-bottom: 15px;
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-family: var(--font-family, "Tajawal", sans-serif);
+  font-size: 18px;
+  color: #606880;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Category Navigation Ribbon */
+.tabsBar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: transparent;
+  padding-bottom: 14px;
+  margin: 0 auto 40px;
+  position: relative;
+  z-index: 20;
+}
+
+.tabBtn {
+  flex: 1 1 0;
+  min-height: 62px;
+  padding: 16px 14px;
+  border: none;
+  background-color: #f2f2f2;
+  color: #4a5168;
+  font-family: var(--font-family, "Tajawal", sans-serif);
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, font-weight 0.15s ease;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.35;
+  white-space: nowrap;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.04);
+}
+
+.tabBtn:first-of-type {
+  border-start-start-radius: 6px;
+  border-end-start-radius: 6px;
+}
+
+.tabBtn:last-of-type {
+  border-start-end-radius: 6px;
+  border-end-end-radius: 6px;
+}
+
+.tabBtn:not(:last-of-type) {
+  border-inline-end: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.tabBtn:hover:not(.activeTab) {
+  background-color: #e6e6e6;
+  color: #0e152f;
+}
+
+.activeTab {
+  background-color: #000000 !important;
+  color: #c49747 !important;
+  font-weight: 700;
+  z-index: 5;
+  box-shadow: none !important;
+  border-radius: 6px !important;
+}
+
+/* Downward pointing triangle pointer exactly like design screenshot */
+.activeTab::after {
+  content: "";
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #000000;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Case Image Grid */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+  width: 100%;
+}
+
+.caseCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #151515;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.caseCard:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.25);
+  z-index: 5;
+}
+
+.caseImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.caseCard:hover .caseImage {
+  transform: scale(1.06);
+}
+
+/* Responsive Styles */
+@media (max-width: 1080px) {
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 860px) {
+  .pageContainer {
+    padding: 35px 20px 80px;
+  }
+
+  .tabsBar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    justify-content: flex-start;
+    margin-bottom: 35px;
+    scrollbar-width: none;
+    padding-bottom: 15px !important;
+  }
+
+  .tabsBar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tabBtn {
+    flex: 0 0 auto;
+    min-width: 155px;
+    font-size: 16px;
+    padding: 14px 18px;
+    min-height: 54px;
+  }
+
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 520px) {
+  .pageContainer {
+    padding: 30px 16px 70px;
+  }
+
+  .title {
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+  }
+
+  .gridContainer {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+}

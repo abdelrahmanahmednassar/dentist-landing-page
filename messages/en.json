@@ -48,6 +48,12 @@
   },
   "cases": {
     "title": "Results From Our Clinic",
+    "sectionTitle": "Some of our cosmetic and dental implant cases",
+    "moreCases": "More Cases",
+    "doctorText": "Founded by Dr. Mohamed Fayed, one of the leading specialists in cosmetic dentistry and dental implants in Egypt and the Arab world. He has made significant clinical contributions and actively participated in prestigious international dental conferences, pioneering advanced clinical technologies.",
+    "doctorMore": "More +",
+    "before": "Before",
+    "after": "After",
     "section1": "Dental Implants",
     "section2": "Cosmetic Dentistry with Veneers",
     "section3": "Zirconia Crowns",
@@ -56,6 +62,17 @@
     "section6": "Root Canal Treatment",
     "prev": "Previous",
     "next": "Next"
+  },
+  "casesPage": {
+    "heading": "Patient Cases & Transformations",
+    "subheading": "Explore real clinical results and successful smile transformations at our clinic",
+    "categories": {
+      "cosmetic": "Cosmetic Dentistry",
+      "implants": "Dental Implants",
+      "orthodontics": "Orthodontics",
+      "experiences": "Patient Stories",
+      "celebrities": "Celebrities"
+    }
   },
   "about": {
     "label": "About Us",
