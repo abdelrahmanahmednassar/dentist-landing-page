@@ -62,7 +62,7 @@ export default async function ContactUsPage({
                   </p>
                   <p className={styles.branchAddress}>
                     <i className="bx bx-map"></i>
-                    ٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب
+                    ٤٧ شارع جامعة الدول العربية - متفرع من شارع شهاب اعلي مطعم جاد الدور الثامن
                   </p>
                 </div>
               </div>
@@ -91,7 +91,7 @@ export default async function ContactUsPage({
                   </p>
                   <p className={styles.branchAddress}>
                     <i className="bx bx-map"></i>
-                    ١٦٥ برج عُدي ميدان الألف مسكن - شارع السويس
+                    ١٦٥ برج عُدي ميدان الألف مسكن - جسر السويس
                   </p>
                 </div>
               </div>

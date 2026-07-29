@@ -169,7 +169,7 @@
     },
     "hours": {
       "label": "Working Hours:",
-      "text": "Saturday - Thursday: 2 PM to 10 PM, Friday Closed"
+      "text": "All days of the week from 2 PM to 10 PM"
     },
     "copyright": "Fayed Dental Clinic. © 2022. All Rights Reserved"
   },
@@ -193,7 +193,7 @@
     },
     "hours": {
       "title": "Working Hours",
-      "text": "Saturday - Thursday: 2 PM to 10 PM<br>Friday: Closed"
+      "text": "All days of the week from 2 PM to 10 PM"
     },
     "whatsapp": {
       "title": "WhatsApp"
