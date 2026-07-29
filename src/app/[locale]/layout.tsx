@@ -39,8 +39,8 @@ export async function generateMetadata({
     locale,
     path: "/",
     title: isArabic
-      ? "فايد دينتال كلينك | افضل عيادة اسنان في مصر - دكتور محمد فايد"
-      : "Fayed Dental Clinic | Best Dental Clinic in Egypt - Dr. Mohamed Fayed",
+      ? "عيادة د محمد فايد | أفضل عيادة زراعة أسنان في مصر"
+      : "Dr. Mohamed Fayed Clinic | Best Dental Implants Clinic in Egypt",
     description: isArabic
       ? "فايد دينتال كلينك مع دكتور محمد فايد من أفضل عيادات الأسنان في مصر. نقدم زراعة الأسنان وتجميل الأسنان والفينير وعلاج الجذور بأحدث التقنيات في القاهرة."
       : "Fayed Dental Clinic with Dr. Mohamed Fayed is one of the best dental clinics in Egypt, offering advanced dental implants, veneers, cosmetic dentistry, and root canals in Cairo.",
