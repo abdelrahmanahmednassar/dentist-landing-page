@@ -41,7 +41,7 @@ export function generatePageMetadata({
   const imageUrl = image.startsWith("http") ? image : `${SITE_URL}${image}`;
 
   const defaultKeywords = locale === "ar" ? [
-    "افضل عيادة اسنان",
+    "افضل عيادة زراعة اسنان",
     "افضل عيادة اسنان في مصر",
     "أفضل عيادة اسنان",
     "عيادة أسنان القاهرة",
